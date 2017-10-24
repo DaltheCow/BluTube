@@ -7,8 +7,9 @@ class SessionForm extends React.Component {
     this.state = {username:'',password:''};
   }
 
-  handleSubmit() {
-
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.submitAction(this.state);
   }
 
   field(type) {
@@ -20,12 +21,18 @@ class SessionForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit.bind(this)}>
-          <input type="text" onChange={this.field("username")} value={this.state.username} />
-          <input type="password" onChange={this.field("password")} value={this.state.password} />
+          <label>Username
+            <input type="text" onChange={this.field("username")} value={this.state.username} />
+          </label>
+          <br />
+          <label>Password
+            <input type="password" onChange={this.field("password")} value={this.state.password} />
+          </label>
+          <br />
           <button>{buttonText}</button>
         </form>
       </div>
-    )
+    );
   }
 }
 
