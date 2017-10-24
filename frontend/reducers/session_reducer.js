@@ -5,6 +5,10 @@ const defaultState = {
 };
 
 const SessionReducer = (state = defaultState, action) => {
+  console.log();
+  console.log("inside session");
+  console.log(state, action)
+  console.log();
   Object.freeze(state)
   switch(action.type) {
     case RECEIVE_CURRENT_USER: {

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'sessions/delete'
 
   namespace :api, defaults: {format: :json} do
-    resource :user, only: [:create]
+    resources :users, only: [:create]
     resource :session, only: [:create, :destroy, :show]
   end
 

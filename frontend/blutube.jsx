@@ -5,7 +5,7 @@ import { signup, login, logout } from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const store = configureStore();
-  
+
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   window.signup = signup;
