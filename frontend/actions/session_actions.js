@@ -22,7 +22,10 @@ export const signup = (user) => dispatch => (
 
 export const login = (user) => dispatch => (
   ApiUtil.login(user).then(
-    user => dispatch(receiveCurrentUser(user)),
+    user => {
+      // console.log(user)
+      return dispatch(receiveCurrentUser(user))
+    },
     errors => dispatch(receiveErrors(errors.responseJSON))
   )
 );
