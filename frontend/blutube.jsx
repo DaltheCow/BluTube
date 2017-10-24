@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import { signup, login, logout } from './actions/session_actions';
+import Root from './components/root';
 
 document.addEventListener('DOMContentLoaded', () => {
   const store = configureStore();
@@ -13,5 +14,5 @@ document.addEventListener('DOMContentLoaded', () => {
   window.logout = logout;
 
   const root = document.getElementById('root');
-  ReactDOM.render(<div>Welcome to BluTube</div>, root);
+  ReactDOM.render(<Root store={ store } />, root);
 });
