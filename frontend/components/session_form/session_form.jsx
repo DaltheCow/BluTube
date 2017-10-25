@@ -8,6 +8,10 @@ class SessionForm extends React.Component {
     this.state = {username: '', password: '', verified: false };
   }
 
+  componentDidUnmount() {
+    
+  }
+
   makeHandleSubmit() {
     if (this.state.username === '') return;
     if (this.state.verified) {
@@ -33,16 +37,25 @@ class SessionForm extends React.Component {
     return (e) => this.setState({[type]: e.target.value});
   }
 
+
+
   render() {
     const labelText = this.state.verified ? 'password' : 'username';
-    const welcomeMsg = this.state.verified ? "Welcome" : (this.formType === "/login" ? "Sign In" : "Sign Up");
+    const welcomeMsg = this.state.verified ? "Welcome" : (this.props.formType === "/login" ? "Sign In" : "Sign Up");
     return (
       <div className="session">
         <form className="session-form" onSubmit={this.makeHandleSubmit()}>
           <ul className="session-errors">
             {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
           </ul>
-          { this.state.verified ? <div><h2>{welcomeMsg}</h2><div className="session-username">{capitalize(this.state.username)}</div></div> : (null)}
+          <div>
+            <h2 className="session-welcome-msg">
+              {welcomeMsg}
+            </h2>
+            {this.state.verified ? (<div className="session-username">
+              {this.state.username}
+            </div>) : (<div className="session-under-welcome">'to continue to BluTube'</div>)}
+          </div>
           <label>{capitalize(labelText)}
             <input className="session-input" type="text" onChange={this.field(labelText)} value={this.state[labelText]} />
           </label>

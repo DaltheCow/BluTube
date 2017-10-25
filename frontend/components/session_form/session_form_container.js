@@ -1,11 +1,12 @@
 import { connect } from 'react-redux';
 import SessionForm from './session_form';
-import { sendErrors, login, signup, verifyUsername } from '../../actions/session_actions';
+import { sendErrors, login, signup, verifyUsername, receiveCurrentUser } from '../../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
     formType: ownProps.match.path,
-    errors: state.errors.session
+    errors: state.errors.session,
+    currentUser: state.session.currentUser
   };
 };
 
@@ -14,7 +15,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     submitAction: (user) => dispatch(submitAction(user)),
     sendErrors: (errors) => dispatch(sendErrors(errors)),
-    verifyUsername: (username) => dispatch(verifyUsername(username))
+    verifyUsername: (username) => dispatch(verifyUsername(username)),
+    receiveCurrentUser: (currentUser) => dispatch(receiveCurrentUser(currentUser))
   };
 };
 
