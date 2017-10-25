@@ -39,7 +39,19 @@ class SessionForm extends React.Component {
     return (e) => this.setState({[type]: e.target.value});
   }
 
-
+  logo() {
+    return (
+      <div>
+        <span className="b-1">B</span>
+        <span className="b-2">l</span>
+        <span className="b-3">u</span>
+        <span className="b-4">T</span>
+        <span className="b-5">u</span>
+        <span className="b-6">b</span>
+        <span className="b-7">e</span>
+      </div>
+    );
+  }
 
   render() {
     const labelText = this.state.verified ? 'password' : 'username';
@@ -48,7 +60,7 @@ class SessionForm extends React.Component {
       <div className="session">
         <div className="session-container">
           <div>
-            <div className="session-logo">BluTube</div>
+            <div className="session-logo">{this.logo()}</div>
             <form className="session-form" onSubmit={this.makeHandleSubmit()}>
               <ul className="session-errors">
                 {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
@@ -61,8 +73,8 @@ class SessionForm extends React.Component {
                   {this.state.username}
                 </div>) : (<div className="session-under-welcome">{'to continue to BluTube'}</div>)}
               </div>
-              <label>{capitalize(labelText)}
-                <input className="session-input" type="text" onChange={this.field(labelText)} value={this.state[labelText]} />
+              <label>
+                <input placeholder="Username" className="session-input" type="text" onChange={this.field(labelText)} value={this.state[labelText]} />
               </label>
               <br />
               <div>

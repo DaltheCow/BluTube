@@ -9,17 +9,24 @@
 
 .session-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  // justify-content: center;
+  // align-items: center;
   width: 370px;
   height: 416px;
+  // box-sizing: border-box;
+  padding: 48px 40px 36px 40px;
+  box-shadow: 0 0 1em #D0D0D0, 0 0 1em #C8C8C8;
+}
+
+.session-form {
+  padding-top: 24px;
 }
 
 .session-logo {
   color: blue;
   width: 198px;
   height: 37px;
-  font-size: 18px;
+  font-size: 21px;
 }
 
 .session-errors {
@@ -36,4 +43,40 @@
   font-size: 14px;
   line-height: 1.4286;
 
+}
+
+.session-input {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding-top: 24px;
+  font-size: 14px;
+  width: 370px;
+}
+
+.b-1 {
+  color: #3377ff;
+}
+
+.b-2 {
+  color: #1a66ff;
+}
+
+.b-3 {
+  color: #0055ff;
+}
+
+.b-4 {
+  color: #004de6;
+}
+
+.b-5 {
+  color: #0044cc;
+}
+
+.b-6 {
+  color: #003cb3;
+}
+
+.b-7 {
+  color: #003399;
 }
