@@ -20,3 +20,11 @@ export const logout = () => (
     url: "/api/session"
   })
 );
+
+export const verifyUsername = (username_verification) => (
+  $.ajax({
+    method: "post",
+    url: "/api/username_sessions",
+    data: { user: username_verification }
+  })
+);

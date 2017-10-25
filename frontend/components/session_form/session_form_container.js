@@ -1,18 +1,20 @@
 import { connect } from 'react-redux';
 import SessionForm from './session_form';
-import { login, signup } from '../../actions/session_actions';
+import { sendErrors, login, signup, verifyUsername } from '../../actions/session_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  const formType = ownProps.match.path;
   return {
-    formType
+    formType: ownProps.match.path,
+    errors: state.errors.session
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   const submitAction = ownProps.match.path === '/login' ? login : signup;
   return {
-    submitAction: (user) => dispatch(submitAction(user))
+    submitAction: (user) => dispatch(submitAction(user)),
+    sendErrors: (errors) => dispatch(sendErrors(errors)),
+    verifyUsername: (username) => dispatch(verifyUsername(username))
   };
 };
 

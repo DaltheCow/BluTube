@@ -4,11 +4,25 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {username:'',password:''};
+    this.state = {username: '', password: '', verified: false };
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
+  makeHandleSubmit() {
+    if (this.state.verified) {
+      return (e) => {
+        e.preventDefault();
+        this.props.submitAction(this.state);
+      };
+    } else {
+      return (e) => {
+        e.preventDefault();
+        this.props.verifyUsername({ username: this.state.username, path: this.props.formType }).then(
+          username => this.setState({verified: true}),
+          errors => this.props.sendErrors(errors.responseJSON)
+        );
+      };
+    }
+
     this.props.submitAction(this.state);
   }
 
@@ -17,23 +31,24 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    const buttonText = this.props.formType === '/login' ? "Login" : "Sign Up";
+    const labelText = this.state.verified ? 'password' : 'username';
     return (
       <div>
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <label>Username
-            <input type="text" onChange={this.field("username")} value={this.state.username} />
+        <form onSubmit={this.makeHandleSubmit()}>
+          <ul className="session-errors">
+            {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
+          </ul>
+          <label>{capitalize(labelText)}
+            <input type="text" onChange={this.field(labelText)} value={this.state[labelText]} />
           </label>
           <br />
-          <label>Password
-            <input type="password" onChange={this.field("password")} value={this.state.password} />
-          </label>
-          <br />
-          <button>{buttonText}</button>
+          <button className="session-next">NEXT</button>
         </form>
       </div>
     );
   }
 }
+
+const capitalize = (word) => word[0].toUpperCase() + word.slice(1);
 
 export default SessionForm;
