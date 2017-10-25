@@ -62,9 +62,6 @@ class SessionForm extends React.Component {
           <div>
             <div className="session-logo">{this.logo()}</div>
             <form className="session-form" onSubmit={this.makeHandleSubmit()}>
-              <ul className="session-errors">
-                {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
-              </ul>
               <div className="session-welcome">
                 <h2 className="session-welcome-msg">
                   {welcomeMsg}
@@ -76,9 +73,12 @@ class SessionForm extends React.Component {
               <label>
                 <input placeholder="Username" className="session-input" type="text" onChange={this.field(labelText)} value={this.state[labelText]} />
               </label>
+              <ul className="session-errors">
+                {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
+              </ul>
               <br />
               <div className="session-buttons">
-                { this.props.formType === '/login' ? (<Link className="navbar-signup" to='/signup'>SIGN UP</Link>) : (null)}
+                { this.props.formType === '/login' ? (<Link className="navbar-signup" to='/signup'>SIGN UP</Link>) : (<div></div>)}
                 <button className="session-next">NEXT</button>
               </div>
             </form>
