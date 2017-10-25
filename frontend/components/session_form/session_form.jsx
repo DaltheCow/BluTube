@@ -65,7 +65,7 @@ class SessionForm extends React.Component {
               <ul className="session-errors">
                 {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
               </ul>
-              <div>
+              <div className="session-welcome">
                 <h2 className="session-welcome-msg">
                   {welcomeMsg}
                 </h2>
@@ -77,7 +77,7 @@ class SessionForm extends React.Component {
                 <input placeholder="Username" className="session-input" type="text" onChange={this.field(labelText)} value={this.state[labelText]} />
               </label>
               <br />
-              <div>
+              <div className="session-buttons">
                 { this.props.formType === '/login' ? (<Link className="navbar-signup" to='/signup'>SIGN UP</Link>) : (null)}
                 <button className="session-next">NEXT</button>
               </div>

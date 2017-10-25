@@ -15,7 +15,7 @@
   height: 416px;
   // box-sizing: border-box;
   padding: 48px 40px 36px 40px;
-  box-shadow: 0 0 1em #D0D0D0, 0 0 1em #C8C8C8;
+  box-shadow: .02em 0.1em 0.3em 0.015em #999999;
 }
 
 .session-form {
@@ -31,6 +31,11 @@
 
 .session-errors {
   color: red;
+}
+
+.session-welcome {
+  padding-bottom: 24px;
+  height: 71px;
 }
 
 .session-welcome-msg {
@@ -51,6 +56,25 @@
   padding-top: 24px;
   font-size: 14px;
   width: 370px;
+}
+
+.session-buttons {
+  margin-top: 70px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.session-buttons button {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background: #4285f4;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  color: white;
 }
 
 .b-1 {
