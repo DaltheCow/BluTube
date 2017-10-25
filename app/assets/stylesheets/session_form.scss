@@ -30,7 +30,9 @@
 }
 
 .session-errors {
-  color: red;
+  color: #d50000;
+  padding-top: 8px;
+  font-size: 12px;
 }
 
 .session-welcome {
@@ -67,15 +69,22 @@
 .session-buttons button {
   padding-top: 10px;
   padding-bottom: 10px;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 23px;
+  padding-right: 23px;
   background: #4285f4;
   border: none;
   border-radius: 4px;
   font-weight: 500;
   font-size: 14px;
   color: white;
+  box-shadow: 0 1.5px 1px .5px #BBBBBB;
 }
+
+.session-buttons button:hover {
+  cursor: pointer;
+}
+
+
 
 .b-1 {
   color: #3377ff;
