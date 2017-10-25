@@ -47,27 +47,30 @@ class SessionForm extends React.Component {
     return (
       <div className="session">
         <div className="session-container">
-          <form className="session-form" onSubmit={this.makeHandleSubmit()}>
-            <ul className="session-errors">
-              {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
-            </ul>
-            <div>
-              <h2 className="session-welcome-msg">
-                {welcomeMsg}
-              </h2>
-              {this.state.verified ? (<div className="session-username">
-                {this.state.username}
-              </div>) : (<div className="session-under-welcome">{'to continue to BluTube'}</div>)}
-            </div>
-            <label>{capitalize(labelText)}
-              <input className="session-input" type="text" onChange={this.field(labelText)} value={this.state[labelText]} />
-            </label>
-            <br />
-            <div>
-              { this.props.formType === '/login' ? (<Link className="navbar-signup" to='/signup'>SIGN UP</Link>) : (null)}
-              <button className="session-next">NEXT</button>
-            </div>
-          </form>
+          <div>
+            <div className="session-logo">BluTube</div>
+            <form className="session-form" onSubmit={this.makeHandleSubmit()}>
+              <ul className="session-errors">
+                {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
+              </ul>
+              <div>
+                <h2 className="session-welcome-msg">
+                  {welcomeMsg}
+                </h2>
+                {this.state.verified ? (<div className="session-username">
+                  {this.state.username}
+                </div>) : (<div className="session-under-welcome">{'to continue to BluTube'}</div>)}
+              </div>
+              <label>{capitalize(labelText)}
+                <input className="session-input" type="text" onChange={this.field(labelText)} value={this.state[labelText]} />
+              </label>
+              <br />
+              <div>
+                { this.props.formType === '/login' ? (<Link className="navbar-signup" to='/signup'>SIGN UP</Link>) : (null)}
+                <button className="session-next">NEXT</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     );

@@ -1,21 +1,9 @@
 .session {
-  font-family: sans-serif;
-}
-
-.session-errors {
-  color: red;
-}
-
-
-.session-welcome-msg {
-  font-size: 24px;
-}
-
-.session {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100vw;
+  font-family: sans-serif;
   height: 100vh;
 }
 
@@ -25,4 +13,27 @@
   align-items: center;
   width: 370px;
   height: 416px;
+}
+
+.session-logo {
+  color: blue;
+  width: 198px;
+  height: 37px;
+  font-size: 18px;
+}
+
+.session-errors {
+  color: red;
+}
+
+.session-welcome-msg {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.333;
+}
+
+.session-under-welcome {
+  font-size: 14px;
+  line-height: 1.4286;
+
 }
