@@ -8,8 +8,10 @@ class SessionForm extends React.Component {
     this.state = {username: '', password: '', verified: false };
   }
 
-  componentDidUnmount() {
-    
+  componentWillReceiveProps(newProps) {
+    if (this.props.formType !== newProps.formType) {
+      this.props.clearErrors();
+    }
   }
 
   makeHandleSubmit() {
@@ -54,7 +56,7 @@ class SessionForm extends React.Component {
             </h2>
             {this.state.verified ? (<div className="session-username">
               {this.state.username}
-            </div>) : (<div className="session-under-welcome">'to continue to BluTube'</div>)}
+            </div>) : (<div className="session-under-welcome">{'to continue to BluTube'}</div>)}
           </div>
           <label>{capitalize(labelText)}
             <input className="session-input" type="text" onChange={this.field(labelText)} value={this.state[labelText]} />

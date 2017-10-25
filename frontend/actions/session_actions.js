@@ -38,6 +38,10 @@ export const logout = () => dispatch => (
   )
 );
 
+export const clearErrors = (currentUser) => dispatch => {
+  return dispatch(receiveCurrentUser(currentUser));
+};
+
 export const verifyUsername = (username_verification) => dispatch => (
   ApiUtil.verifyUsername(username_verification)
 );
