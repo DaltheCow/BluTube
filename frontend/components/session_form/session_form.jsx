@@ -9,7 +9,9 @@ class SessionForm extends React.Component {
   }
 
   makeHandleSubmit() {
+    if (this.state.username === '') return;
     if (this.state.verified) {
+      if (this.state.password === '') return;
       return (e) => {
         e.preventDefault();
         this.props.submitAction(this.state);
