@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -42,7 +43,10 @@ class SessionForm extends React.Component {
             <input type="text" onChange={this.field(labelText)} value={this.state[labelText]} />
           </label>
           <br />
-          <button className="session-next">NEXT</button>
+          <div>
+            { this.props.formType === '/login' ? (<Link className="navbar-signup" to='/signup'>SIGN UP</Link>) : (null)}
+            <button className="session-next">NEXT</button>
+          </div>
         </form>
       </div>
     );
