@@ -1,3 +1,28 @@
+.session {
+  font-family: sans-serif;
+}
+
 .session-errors {
   color: red;
+}
+
+
+.session-welcome-msg {
+  font-size: 24px;
+}
+
+.session {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.session-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 370px;
+  height: 416px;
 }
