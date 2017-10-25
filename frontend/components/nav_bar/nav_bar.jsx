@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 const NavBar = (props) => (
   <div className="navbar">
     <div>Sidebar Menu Click</div>
-    <div>Logo</div>
+    <Link to="/" className="header-link">
+      <h1>BluTube</h1>
+    </Link>
     <div>Search Barrrrrrrrrrrrrrrrrr</div>
     <div>Upload</div>
     <div>Settings</div>

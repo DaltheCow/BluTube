@@ -36,13 +36,14 @@ class SessionForm extends React.Component {
   render() {
     const labelText = this.state.verified ? 'password' : 'username';
     return (
-      <div>
-        <form onSubmit={this.makeHandleSubmit()}>
+      <div className="session">
+        <form className="session-form" onSubmit={this.makeHandleSubmit()}>
           <ul className="session-errors">
             {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
           </ul>
+          { this.state.verified ? <div><h2>Welcome</h2><div className="session-username">{capitalize(this.state.username)}</div></div> : (null)}
           <label>{capitalize(labelText)}
-            <input type="text" onChange={this.field(labelText)} value={this.state[labelText]} />
+            <input className="session-input" type="text" onChange={this.field(labelText)} value={this.state[labelText]} />
           </label>
           <br />
           <div>
