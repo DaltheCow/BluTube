@@ -4,7 +4,7 @@ class Video extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {videoUrl: ""};
   }
 
   componentDidMount() {
@@ -15,32 +15,19 @@ class Video extends React.Component {
     // });
   }
 
-  previewFile() {
-    const that = this;
+  previewFile(e) {
     var preview = document.querySelector('video');
-    var file    = document.querySelector('input[type=file]').files[0];
+    var file    = e.currentTarget.files[0];
     var reader  = new FileReader();
-
-    reader.onloadend = () => {
-      that.setState({ videoUrl: reader.result, imageFile: file});
-      preview.src = reader.result;
-    };
-
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-    // debugger
+    this.setState({videoUrl: window.URL.createObjectURL(file)});
   }
 
   render() {
     return (
       <div>
-        <input type="file" onChange={() => this.previewFile()} />
+        <input type="file" onChange={(e) => this.previewFile(e)} />
         <br />
-        <video src={this.state.videoUrl} height="200" width="200" alt="Image preview..." controls>
-          <source src={this.state.videoUrl} type="video/mp4" />
-          <source src={this.state.videoUrl} type="video/ogg" />
-        </video>
+        <video src={this.state.videoUrl} height="200" width="200" controls />
       </div>
     );
   }
