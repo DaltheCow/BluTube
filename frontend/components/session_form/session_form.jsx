@@ -8,10 +8,16 @@ class SessionForm extends React.Component {
     this.state = {username: '', password: '', verified: false };
   }
 
+  defaultState() {
+    this.setState({username: '', password: ''});
+  }
+
   componentWillReceiveProps(newProps) {
     if (this.props.formType !== newProps.formType) {
       this.props.clearErrors();
+      this.defaultState();
     }
+    this.setInputBorder(false);
   }
 
   makeHandleSubmit() {
@@ -21,18 +27,32 @@ class SessionForm extends React.Component {
       return (e) => {
         e.preventDefault();
         this.props.submitAction(this.state);
+        const input = this.setInputBorder(false);
       };
     } else {
       return (e) => {
         e.preventDefault();
         this.props.verifyUsername({ username: this.state.username, path: this.props.formType }).then(
-          username => this.setState({verified: true}),
-          errors => this.props.sendErrors(errors.responseJSON)
+          username => {
+            this.setState({verified: true});
+            this.props.clearErrors();
+            const input = this.setInputBorder(false);
+          },
+          errors => {
+            const input = this.setInputBorder(true);
+            this.props.sendErrors(errors.responseJSON);
+          }
         );
       };
     }
 
     this.props.submitAction(this.state);
+  }
+
+  setInputBorder(inErrors) {
+    const border = inErrors ? "2px solid #d50000" : "1px solid #ccc";
+    const input = document.getElementsByClassName("session-input")[0];
+    input.setAttribute('style', 'border-bottom: ' + border + ';');
   }
 
   field(type) {
@@ -71,14 +91,26 @@ class SessionForm extends React.Component {
                 </div>) : (<div className="session-under-welcome">{'to continue to BluTube'}</div>)}
               </div>
               <label>
-                <input placeholder="Username" className="session-input" type="text" onChange={this.field(labelText)} value={this.state[labelText]} />
+                <input placeholder={labelText} className="session-input" type="text" onChange={this.field(labelText)} value={this.state[labelText]} />
               </label>
               <ul className="session-errors">
+<<<<<<< HEAD
                 {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
               </ul>
               <br />
               <div className="session-buttons">
                 { this.props.formType === '/login' ? (<Link className="navbar-signup" to='/signup'>SIGN UP</Link>) : (<div></div>)}
+=======
+                {this.props.errors.map((error, i) => {
+                  const input = this.setInputBorder(true);
+                  return <li key={i}>{error}</li>;
+                  })
+                }
+              </ul>
+              <br />
+              <div className="session-buttons">
+                { this.props.formType === '/login' ? (<Link className="session-signup" to='/signup'>SIGN UP</Link>) : (<div></div>)}
+>>>>>>> userauth
                 <button className="session-next">NEXT</button>
               </div>
             </form>
