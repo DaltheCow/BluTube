@@ -12,6 +12,7 @@ const App = (props) => (
         <Route path="/" component={NavBarContainer} />
       </header>
     ) : (null)}
+    <Video />
     <Switch>
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
