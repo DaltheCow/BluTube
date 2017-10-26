@@ -30,11 +30,8 @@
 }
 
 .session-errors {
-<<<<<<< HEAD
   color: red;
-=======
   color: #d50000;
->>>>>>> userauth
   padding-top: 8px;
   font-size: 12px;
 }
@@ -64,6 +61,10 @@
   width: 370px;
 }
 
+.session-input:focus {
+  border-bottom: 2px solid #4285f4;
+}
+
 .session-signup {
   color: #4285f4;
 }
@@ -86,13 +87,10 @@
   font-size: 14px;
   color: white;
   box-shadow: 0 1.5px 1px .5px #BBBBBB;
-<<<<<<< HEAD
-=======
 }
 
 .session-buttons button:hover {
   cursor: pointer;
->>>>>>> userauth
 }
 
 

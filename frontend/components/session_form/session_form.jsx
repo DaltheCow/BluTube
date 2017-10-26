@@ -5,11 +5,17 @@ class SessionForm extends React.Component {
   constructor(props) {
     super(props);
 
+
     this.state = {username: '', password: '', verified: false };
   }
 
   defaultState() {
-    this.setState({username: '', password: ''});
+    this.setState({username: '', password: '', verified: false});
+  }
+
+  componentDidMount() {
+    const input = $('.session-input');
+    input.focus();
   }
 
   componentWillReceiveProps(newProps) {
@@ -27,9 +33,9 @@ class SessionForm extends React.Component {
       return (e) => {
         e.preventDefault();
         this.props.submitAction(this.state);
-        const input = this.setInputBorder(false);
       };
     } else {
+      //if username is not yet verified then use submit to verify it, wipe error if needed
       return (e) => {
         e.preventDefault();
         this.props.verifyUsername({ username: this.state.username, path: this.props.formType }).then(
@@ -39,7 +45,6 @@ class SessionForm extends React.Component {
             const input = this.setInputBorder(false);
           },
           errors => {
-            const input = this.setInputBorder(true);
             this.props.sendErrors(errors.responseJSON);
           }
         );
@@ -93,24 +98,16 @@ class SessionForm extends React.Component {
               <label>
                 <input placeholder={labelText} className="session-input" type="text" onChange={this.field(labelText)} value={this.state[labelText]} />
               </label>
-              <ul className="session-errors">
-<<<<<<< HEAD
-                {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
-              </ul>
-              <br />
-              <div className="session-buttons">
-                { this.props.formType === '/login' ? (<Link className="navbar-signup" to='/signup'>SIGN UP</Link>) : (<div></div>)}
-=======
-                {this.props.errors.map((error, i) => {
-                  const input = this.setInputBorder(true);
-                  return <li key={i}>{error}</li>;
-                  })
-                }
-              </ul>
+                <ul className="session-errors">
+                  {this.props.errors.map((error, i) => {
+                    const input = this.setInputBorder(true);
+                    return <li key={i}>{error}</li>;
+                    })
+                  }
+                </ul>
               <br />
               <div className="session-buttons">
                 { this.props.formType === '/login' ? (<Link className="session-signup" to='/signup'>SIGN UP</Link>) : (<div></div>)}
->>>>>>> userauth
                 <button className="session-next">NEXT</button>
               </div>
             </form>
