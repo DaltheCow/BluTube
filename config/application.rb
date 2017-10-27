@@ -12,6 +12,7 @@ module BluTube
     config.load_defaults 5.1
     config.paperclip_defaults = {
       :storage => :s3,
+      :s3_protocol => :http,
       :s3_credentials => {
         :bucket => ENV["s3_bucket"],
         :access_key_id => ENV["s3_access_key_id"],

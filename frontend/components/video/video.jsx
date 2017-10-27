@@ -15,6 +15,7 @@ class Video extends React.Component {
     // $.ajax("/api/videos/1").then(video => {
     //   preview.src = video.videoUrl;
     // });
+
   }
 
   handleSubmit(e) {
@@ -30,8 +31,16 @@ class Video extends React.Component {
     var preview = document.querySelector('video');
     var file    = e.currentTarget.files[0];
     var reader  = new FileReader();
-    const videoUrl = window.URL.createObjectURL(file);
-    this.setState({ videoUrl });
+    reader.onloadend = function () {
+      this.setState({ videoUrl: reader.result });
+    }.bind(this);
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+
+    // const videoUrl = window.URL.createObjectURL(file);
+    // this.setState({ videoUrl });
   }
 
   render() {
@@ -45,6 +54,8 @@ class Video extends React.Component {
         </form>
         <br />
         <video src={this.state.videoUrl} height="200" width="200" controls />
+        <img src="" />
+
       </div>
     );
   }
