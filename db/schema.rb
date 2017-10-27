@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171024141916) do
+ActiveRecord::Schema.define(version: 20171027003618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,24 @@ ActiveRecord::Schema.define(version: 20171024141916) do
     t.datetime "updated_at", null: false
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
+  end
+
+  create_table "videos", force: :cascade do |t|
+    t.text "description", null: false
+    t.string "author_id", null: false
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "video_file_name"
+    t.string "video_content_type"
+    t.integer "video_file_size"
+    t.datetime "video_updated_at"
+    t.string "thumbnail_img_file_name"
+    t.string "thumbnail_img_content_type"
+    t.integer "thumbnail_img_file_size"
+    t.datetime "thumbnail_img_updated_at"
+    t.integer "view_count", default: 0, null: false
+    t.index ["author_id"], name: "index_videos_on_author_id"
   end
 
 end
