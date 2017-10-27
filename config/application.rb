@@ -20,6 +20,7 @@ module BluTube
         :s3_region => ENV["s3_region"]
       }
     }
+    config.filter_parameters += [ :video ]
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
