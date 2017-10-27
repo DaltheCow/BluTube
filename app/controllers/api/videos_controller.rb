@@ -19,9 +19,20 @@ class Api::VideosController < ApplicationController
   end
 
   def update
+    @video = Video.find(params[:id])
+
+    if @video.update(description: params[:description], title: params[:title])
+      render :show
+    else
+      render json: @video.errors.full_messages, status: 422
+    end
   end
 
   def delete
+    @video = Video.find(params[:id])
+
+    @video.destroy
+    render json: @video.id
   end
 
   private

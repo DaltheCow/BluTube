@@ -1,3 +1,17 @@
+export const fetchVideos = () => (
+  $.ajax({
+    method: "get",
+    url: "/api/videos"
+  })
+);
+
+export const fetchVideo = (id) => (
+  $.ajax({
+    method: "get",
+    url: `/api/videos/${id}`
+  })
+);
+
 export const uploadVideo = (video) => {
   return $.ajax({
     method: "post",
@@ -5,5 +19,22 @@ export const uploadVideo = (video) => {
     contentType: false,
     processData: false,
     data: video
-  }).then(video => console.log(video));
+  });
 };
+
+export const updateVideo = (video) => {
+  return $.ajax({
+    method: "patch",
+    url: "/api/videos",
+    contentType: false,
+    processData: false,
+    data: video
+  });
+};
+
+export const deleteVideo = (id) => (
+  $.ajax({
+    method: "delete",
+    url: `/api/videos/${id}`
+  })
+);

@@ -7,14 +7,17 @@ class Video < ApplicationRecord
 
   validates_attachment_content_type :video, content_type: /\Avideo\/.*\z/
 
-  # before_post_process :get_video_duration
-  #
-  # def get_video_duration
-  #   result = `ffmpeg -i #{self.video.to_file.path} 2>&1`
-  #   r = result.match("Duration: ([0-9]+):([0-9]+):([0-9]+).([0-9]+)")
-  #   if r
-  #     self.duration = r[1].to_i*3600+r[2].to_i*60+r[3].to_i
-  #   end
-  # end
-  #
+  before_post_process :get_video_duration
+
+  belongs_to :author,
+    class_name: 'User'
+
+  def get_video_duration
+    result = `ffmpeg -i #{self.video.staged_path} 2>&1`
+    r = result.match("Duration: ([0-9]+):([0-9]+):([0-9]+).([0-9]+)")
+    if r
+      self.duration = r[1].to_i*3600+r[2].to_i*60+r[3].to_i
+    end
+  end
+
 end
