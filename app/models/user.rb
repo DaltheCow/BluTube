@@ -5,6 +5,12 @@ class User < ApplicationRecord
 
   before_validation :ensure_session_token
 
+  has_many :videos,
+    foreign_key: :author_id
+
+
+
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)

@@ -15,6 +15,7 @@
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
+    "video-thumbnail-generator": "^1.1.2",
     "webpack": "^3.8.1"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
