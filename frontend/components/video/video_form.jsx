@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class VideoForm extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class VideoForm extends React.Component {
   }
 
   componentDidMount() {
+    console.log(this.props.match)
     if (this.props.match.params.videoId) {
       this.props.fetchVideo(this.props.match.params.videoId).then(() => {
         const preview = document.querySelector('video');
@@ -47,7 +49,7 @@ class VideoForm extends React.Component {
       formData.append('video[video]', this.state.videoFile);
     }
     this.props.submitAction(formData).then((video) => {
-      this.props.history.push(`/videos/${video.id}`);
+      this.props.history.push(`/videos/${video.video.id}`);
     });
   }
 
@@ -95,4 +97,4 @@ class VideoForm extends React.Component {
   }
 }
 
-export default VideoForm;
+export default withRouter(VideoForm);

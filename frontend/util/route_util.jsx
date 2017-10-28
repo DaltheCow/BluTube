@@ -37,8 +37,10 @@ const mapStateToProps = state => (
 );
 
 const mapStateToProps2 = (state, ownProps) => {
-  const id = ownProps.match.params.videoId;
-  {ownVideo: state.session.currentUser.id === state.entities.videos[id].author_id}
+  const idx = ownProps.location.pathname.lastIndexOf('/');
+  const id = parseInt(ownProps.location.pathname.slice(idx + 1));
+  debugger
+  return {ownVideo: state.session.currentUser.videoIds.includes(id)}
 }
 
 export const AuthRoute = withRouter(connect(mapStateToProps, null)(Auth));
