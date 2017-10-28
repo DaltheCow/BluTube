@@ -31,8 +31,8 @@ export const uploadVideo = (video) => dispatch => {
   return ApiUtil.uploadVideo(video).then(video => dispatch(receiveVideo(video)));
 };
 
-export const updateVideo = (video) => dispatch => {
-  return ApiUtil.updateVideo(video).then(video => dispatch(receiveVideo(video)));
+export const updateVideo = (video, id) => dispatch => {
+  return ApiUtil.updateVideo(video, id).then(video => dispatch(receiveVideo(video)));
 };
 
 export const deleteVideo = (id) => dispatch => {

@@ -20,7 +20,7 @@ class Api::VideosController < ApplicationController
   def update
     @video = Video.find(params[:id])
 
-    if @video.update(description: params[:description], title: params[:title])
+    if @video.update(description: params[:video][:description], title: params[:video][:title])
       render :show
     else
       render json: @video.errors.full_messages, status: 422

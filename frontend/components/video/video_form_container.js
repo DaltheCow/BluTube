@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     fetchVideo: (id) => dispatch(fetchVideo(id)),
     deleteVideo: (id) => dispatch(deleteVideo(id)),
-    submitAction: (video) => dispatch(submitAction(video))
+    submitAction: (video, id) => dispatch(submitAction(video, id))
   };
 };
 

@@ -1,3 +1,5 @@
+//form drag and drop start
+
 .video-upload-form input[type="file"]{
   position: absolute;
   margin: 0;
@@ -50,4 +52,13 @@
 .form-upload-image {
   width:160px;
   height: auto;
+}
+
+//form drag and drop end
+
+//form info start
+
+.video-upload video {
+  background: black;
+  margin-bottom: 25px;
 }

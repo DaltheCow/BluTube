@@ -22,10 +22,10 @@ export const uploadVideo = (video) => {
   });
 };
 
-export const updateVideo = (video) => {
+export const updateVideo = (video, id) => {
   return $.ajax({
     method: "patch",
-    url: "/api/videos",
+    url: `/api/videos/${id}`,
     contentType: false,
     processData: false,
     data: video

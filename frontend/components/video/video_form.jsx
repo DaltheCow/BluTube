@@ -41,20 +41,22 @@ class VideoForm extends React.Component {
       // const preview = document.querySelector('video');
       // const file    = document.querySelector('input[type=file]').files[0];
       // preview.src = newProps.;
-      this.setState({videoUrl: newProps.video.videoUrl});
+      this.setState({videoUrl: newProps.video.videoUrl, title: newProps.video.title, description: newProps.video.description, id: newProps.video.id});
     }
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    if (this.state.title === "" || this.state.description === "" || this.state.videoFile === "") return;
+    if (this.state.title === "" || this.state.description === "") return;
     const formData = new FormData();
     formData.append('video[description]', this.state.description);
     formData.append('video[title]', this.state.title);
     if (this.props.formType === 'add') {
+      if (this.state.videoFile == "") return;
       formData.append('video[video]', this.state.videoFile);
     }
-    this.props.submitAction(formData).then((video) => {
+    debugger
+    this.props.submitAction(formData, this.state.id).then((video) => {
       this.props.history.push(`/videos/${video.video.id}`);
     });
   }
@@ -78,24 +80,33 @@ class VideoForm extends React.Component {
 
     return (
       <div className="video-upload">
-        {!this.state.videoFile && !this.state.videoUrl && !(this.props.formType === 'edit')?
-          (<form className="video-upload-form" onSubmit={this.handleSubmit.bind(this)}>
+        {(!this.state.videoFile && !this.state.videoUrl && !(this.props.formType === 'edit')) ?
+
+          (<form className="video-upload-form">
+
             <input type="file" onChange={(e) => this.previewFile(e)} multiple/>
             <img className="form-upload-image" src="https://s3.amazonaws.com/blutube-dev/images/upload2.png" />
             <p className="p1" >Select files to upload </p>
             <p className="p2">Or drag and drop video files.</p>
+
           </form>) : (null)}
         {this.state.videoFile || this.state.videoUrl ?
         <div>
+
+          <video src={this.state.videoUrl}  width="480" height="270" />
+
           <form onSubmit={this.handleSubmit.bind(this)}>
+
             <div>
-              <input className="video-input-title" type="text" placeholder="title" onChange={(e) => this.setState({["title"]: e.target.value})} value={this.state.title}/>
-              <textarea className="video-input-title"type="text" placeholder="description" onChange={(e) => this.setState({["description"]: e.target.value})} value={this.state.title}/>
+
+              <input className="video-upload-form-input-title" type="text" placeholder="title" onChange={(e) => this.setState({["title"]: e.target.value})} value={this.state.title}/>
+              <textarea className="video-upload-form-input-description" type="text" placeholder="description" onChange={(e) => this.setState({["description"]: e.target.value})} value={this.state.description}/>
               <button>Upload</button>
+
             </div>
+
           </form>
 
-          <video src={this.state.videoUrl} height="200" width="200" controls />
         </div>
         : (null)}
       </div>
