@@ -6,32 +6,6 @@ import { AuthRoute, ProtectedRoute, ProtectedVideoRoute } from '../util/route_ut
 import Video from './video/video';
 import VideoFormContainer from './video/video_form_container';
 
-//test form
-
-// import TestForm from './test_form';
-//
-// class App extends React.Component {
-//
-//   componentDidMount() {
-//     $(document).ready(function(){
-//       $('form input').change(function () {
-//         $('form p').text(this.files.length + " file(s) selected");
-//       });
-//     });
-//   }
-//
-//   render() {
-//     return (
-//       <div>
-//         <TestForm />
-//       </div>
-//     );
-//   }
-// }
-
-
-//test form
-
 const App = (props) => (
   <div>
     {!['/login', '/signup'].includes(props.location.pathname) ? (

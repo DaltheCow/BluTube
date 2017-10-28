@@ -7,7 +7,7 @@ class Video < ApplicationRecord
 
   validates_attachment_content_type :video, content_type: /\Avideo\/.*\z/
 
-  before_post_process :get_video_duration
+  after_post_process :get_video_duration
 
   belongs_to :author,
     class_name: 'User'
