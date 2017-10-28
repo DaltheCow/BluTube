@@ -1,0 +1,85 @@
+// input[type="file"] {
+//     display: none;
+// }
+//
+// .custom-file-upload {
+//     background: #28CADC;
+//     color: #2846DC;
+//     display: inline-block;
+//     padding: 6px 12px;
+//     font-size: 100px;
+//     border: 2px solid #28A0DC;
+//     border-radius: 20px;
+//     cursor: pointer;
+// }
+//
+// .video-form-file-input-container {
+//   width: 743px;
+//   height: 385px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   box-shadow: 0 0.1em 0.3em 0.015em #BBBBBB;
+// }
+
+.video-upload-form input[type="file"]{
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  opacity: 0;
+}
+
+.video-upload-form {
+  margin-top: 10px;
+  position: absolute;
+  width: 743px;
+  height: 385px;
+  box-shadow: 0 0.1em 0.3em 0.015em #BBBBBB;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-upload-form .p1 {
+  margin-top: 20px;
+  text-align: center;
+  color: #4285f4;
+  font-size: 20px;
+  font-family: Arial;
+}
+
+.video-upload-form .p2 {
+  margin-top: 20px;
+  text-align: center;
+  color: #4285f4;
+  font-size: 15px;
+  font-family: Arial;
+  padding: 5px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+// .video-upload-form:hover .p2 {
+//   background: #4444f4;
+//   color: #16ADED;
+//   padding: 5px;
+//   border-radius: 5px;
+//   box-sizing: border-box;
+// }
+
+.video-form-file-hover-change {
+  background: #4444f4;
+  color: #16ADED;
+  padding: 5px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.form-upload-image {
+  width:160px;
+  height: auto;
+}

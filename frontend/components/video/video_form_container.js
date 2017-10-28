@@ -9,6 +9,7 @@ const mapStateToProps = (state, ownProps) => {
   if (formType === 'edit') {
     video = state.entities.videos[ownProps.match.params.videoId];
   }
+  
   return {
     video,
     formType,

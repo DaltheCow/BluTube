@@ -16,7 +16,7 @@ const NavBar = (props) => (
         <div>Search Barrrrrrrrrrrrrrrrrr</div>
       </li>
       <li>
-        <Link class="nav-upload" to="/upload">Upload</Link>
+        <Link className="nav-upload" to="/upload">Upload</Link>
       </li>
       <li>
         Settings
