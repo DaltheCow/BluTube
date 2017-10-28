@@ -1,9 +1,12 @@
 .navbar {
-  display: flex;
-  justify-content: space-between;
 }
 
 a {
   text-decoration: none;
   color: black;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-between;
 }

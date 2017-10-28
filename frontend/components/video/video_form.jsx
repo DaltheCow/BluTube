@@ -8,16 +8,22 @@ class VideoForm extends React.component {
     video = jQuery.isEmptyObject(props.video) ? {videoFile: "", videoUrl: "", title: "", description: ""} : props.video;
     this.state = video;
   }
-  
-  componentDidMount() {
-    if (this.state.videoUrl) {
-      var preview = document.querySelector('video');
-      var file    = document.querySelector('input[type=file]').files[0];
-    }
-    // $.ajax("/api/videos/1").then(video => {
-    //   preview.src = video.videoUrl;
-    // });
 
+  componentDidMount() {
+    if (this.props.match.params.videoId) {
+      this.props.fetchVideo(this.props.match.params.videoId).then(() => {
+        var preview = document.querySelector('video');
+        var file    = document.querySelector('input[type=file]').files[0];
+        preview.src = this.state.videoUrl;
+      });
+    }
+  }
+
+  componentWillReceiveProps(newProps) {
+    //maybe move this logic to render if it doesn't work
+    if (!this.props.currentUser.videoIds.includes(newProps.match.param.videoId)) {
+      this.props.history.push("/");
+    }
   }
 
   handleSubmit(e) {
@@ -50,12 +56,11 @@ class VideoForm extends React.component {
       <div>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <input type="file" onChange={(e) => this.previewFile(e)} />
-          <input type="text" onChange={(e) => this.setState({["title"]: e.target.value})} />
-          <input type="text" onChange={(e) => this.setState({["description"]: e.target.value})} />
-          <button>Submit</button>
+          <input type="text" placeholder="title" onChange={(e) => this.setState({["title"]: e.target.value})} />
+          <textarea type="text" placeholder="description" onChange={(e) => this.setState({["description"]: e.target.value})} />
+          <button>Upload</button>
         </form>
         <video src={this.state.videoUrl} height="200" width="200" controls />
-        <img src="" />
       </div>
     );
   }
