@@ -17,7 +17,7 @@ const App = (props) => (
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
       <ProtectedRoute exact path="/upload" component={VideoFormContainer} />
-      <ProtectedVideoRoute exact path="/upload/:videoId" component={VideoFormContainer} />
+      <ProtectedVideoRoute exact path="/upload/:videoId/edit" component={VideoFormContainer} />
     </Switch>
   </div>
 );

@@ -31,6 +31,11 @@ class VideoForm extends React.Component {
 
   }
 
+  componentWillUnmount() {
+    $('.video-upload-form').off("dragover");
+    $(document).off('dragleave');
+  }
+
   componentWillReceiveProps(newProps) {
     if (newProps.video.id) {
       // const preview = document.querySelector('video');
@@ -84,8 +89,8 @@ class VideoForm extends React.Component {
         <div>
           <form onSubmit={this.handleSubmit.bind(this)}>
             <div>
-              <input className="video-input-title" type="text" placeholder="title" onChange={(e) => this.setState({["title"]: e.target.value})} />
-              <textarea className="video-input-title"type="text" placeholder="description" onChange={(e) => this.setState({["description"]: e.target.value})} />
+              <input className="video-input-title" type="text" placeholder="title" onChange={(e) => this.setState({["title"]: e.target.value})} value={this.state.title}/>
+              <textarea className="video-input-title"type="text" placeholder="description" onChange={(e) => this.setState({["description"]: e.target.value})} value={this.state.title}/>
               <button>Upload</button>
             </div>
           </form>

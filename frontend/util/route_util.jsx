@@ -37,8 +37,7 @@ const mapStateToProps = state => (
 );
 
 const mapStateToProps2 = (state, ownProps) => {
-  const idx = ownProps.location.pathname.lastIndexOf('/');
-  const id = parseInt(ownProps.location.pathname.slice(idx + 1));
+  const id = parseInt(ownProps.location.pathname.slice(8));
 
   return {ownVideo: Boolean(state.session.currentUser) && state.session.currentUser.videoIds.includes(id)}
 }
