@@ -14,10 +14,10 @@ const App = (props) => (
       </header>
     ) : (null)}
     <Switch>
-      <ProtectedVideoRoute exact path="/upload/:videoId" component={VideoFormContainer} />
-      <ProtectedRoute exact path="/upload" component={VideoFormContainer} />
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
+      <ProtectedRoute exact path="/upload" component={VideoFormContainer} />
+      <ProtectedVideoRoute exact path="/upload/:videoId" component={VideoFormContainer} />
     </Switch>
   </div>
 );

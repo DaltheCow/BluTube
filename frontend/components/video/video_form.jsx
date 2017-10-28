@@ -11,20 +11,12 @@ class VideoForm extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props.match)
     if (this.props.match.params.videoId) {
-      this.props.fetchVideo(this.props.match.params.videoId).then(() => {
-        const preview = document.querySelector('video');
-        const file    = document.querySelector('input[type=file]').files[0];
-        preview.src = this.state.videoUrl;
-      });
+      this.props.fetchVideo(this.props.match.params.videoId);
     }
 
       var dragTimer;
       $('.video-upload-form').on("dragover",function (e) {
-        e.preventDefault();
-        // if (e.originalEvent.dataTransfer.types.indexOf('Files') >= 0) {
-        // }
         const dt = e.originalEvent.dataTransfer;
         if (dt.types && (dt.types.indexOf ? dt.types.indexOf('Files') != -1 : dt.types.contains('Files'))) {
           $('.video-upload-form .p2').addClass("video-form-file-hover-change");
@@ -37,6 +29,15 @@ class VideoForm extends React.Component {
         }, 25);
       });
 
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.video.id) {
+      // const preview = document.querySelector('video');
+      // const file    = document.querySelector('input[type=file]').files[0];
+      // preview.src = newProps.;
+      this.setState({videoUrl: newProps.video.videoUrl});
+    }
   }
 
   handleSubmit(e) {
@@ -72,7 +73,7 @@ class VideoForm extends React.Component {
 
     return (
       <div className="video-upload">
-        {!this.state.videoFile && !this.state.videoUrl ?
+        {!this.state.videoFile && !this.state.videoUrl && !(this.props.formType === 'edit')?
           (<form className="video-upload-form" onSubmit={this.handleSubmit.bind(this)}>
             <input type="file" onChange={(e) => this.previewFile(e)} multiple/>
             <img className="form-upload-image" src="https://s3.amazonaws.com/blutube-dev/images/upload2.png" />

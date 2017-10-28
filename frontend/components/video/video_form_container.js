@@ -6,10 +6,10 @@ import VideoForm from './video_form';
 const mapStateToProps = (state, ownProps) => {
   const formType = ownProps.match.params.videoId ? 'edit' : 'add';
   let video = {};
-  if (formType === 'edit') {
+  if (formType === 'edit' && state.entities.videos[ownProps.match.params.videoId]) {
     video = state.entities.videos[ownProps.match.params.videoId];
   }
-  
+
   return {
     video,
     formType,

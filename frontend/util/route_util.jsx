@@ -22,7 +22,7 @@ const Protected = ({ component: Component, path, loggedIn }) => (
   )} />
 );
 
-const ProtectedVideo = ({ component: Component, path, ownVideo }) => (
+const ProtectedVideo = ({ component: Component, path, ownVideo, loggedIn }) => (
   <Route path={path} render={(props) => (
      ownVideo ? (
       <Component {...props} />
@@ -39,8 +39,8 @@ const mapStateToProps = state => (
 const mapStateToProps2 = (state, ownProps) => {
   const idx = ownProps.location.pathname.lastIndexOf('/');
   const id = parseInt(ownProps.location.pathname.slice(idx + 1));
-  debugger
-  return {ownVideo: state.session.currentUser.videoIds.includes(id)}
+
+  return {ownVideo: Boolean(state.session.currentUser) && state.session.currentUser.videoIds.includes(id)}
 }
 
 export const AuthRoute = withRouter(connect(mapStateToProps, null)(Auth));
