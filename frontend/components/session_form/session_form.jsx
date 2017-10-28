@@ -92,11 +92,11 @@ class SessionForm extends React.Component {
                   {welcomeMsg}
                 </h2>
                 {this.state.verified ? (<div className="session-username">
-                  {this.state.username}
+                  { this.state.username }
                 </div>) : (<div className="session-under-welcome">{'to continue to BluTube'}</div>)}
               </div>
               <label>
-                <input placeholder={labelText} className="session-input" type="text" onChange={this.field(labelText)} value={this.state[labelText]} />
+                <input placeholder={ labelText } className="session-input" type={ this.state.verified ? "password" : "text" } onChange={this.field(labelText)} value={ this.state[labelText] } />
               </label>
                 <ul className="session-errors">
                   {this.props.errors.map((error, i) => {
