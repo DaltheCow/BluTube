@@ -61,6 +61,13 @@
 .video-upload video {
   background: black;
   margin-bottom: 25px;
+  border: 1px solid #DDDDDD;
+}
+
+.video-upload {
+  margin: 0 auto;
+  width: 1010px;
+  padding-left: 20px;
 }
 
 .video-upload-form-input-title {
@@ -76,6 +83,55 @@
   border: 1px solid rgb(211,211,211);
   padding: 5px 10px 6px 10px;
   margin-top: 15px;
+}
+
+.video-upload-title-buttons-bar {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #DDDDDD;
+  margin: 0 0 20px 0;
+  width: 1003px;
+  padding-top: 20px;
+}
+
+.video-upload-title-buttons-bar h1 {
+  color: #333;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+  padding-top: 5px;
+}
+
+.video-upload .cancel-btn {
+  color: #333333;
+  border: 1px solid #d3d3d3;
+  border-radius: 3px;
+  padding: 7px;
+  background: white;
+}
+
+.video-upload .cancel-btn:hover {
+  cursor: pointer;
+  border: 1px solid #cdcdcd;
+}
+
+.video-upload .upload-btn {
+  background: #177ac5;
+  border-radius: 3px;
+  border: none;
+  color: white;
+  width: 120px;
+  padding: 8px 10px;
+  margin-left: 2px;
+}
+
+.video-upload .upload-btn:hover {
+  cursor: pointer;
+  background: #2b7cb8;
+}
+
+.video-upload .upload-btns {
+  display: flex;
 }
 
 .video-upload-form-input-title:hover {
@@ -98,4 +154,48 @@
 .video-upload-form-inputs {
   display: flex;
   flex-direction: column;
+}
+
+.video-upload-form-content {
+  font-family: 'Roboto',arial,sans-serif;
+  font-size: 11px;
+  border-top: 1px solid #DDDDDD;
+  padding-top: 20px;
+  width: 1003px;
+}
+
+.video-upload-form-information {
+  color: #666;
+  font-size: 9px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.video-upload-form-information-list {
+  color: #666;
+}
+
+.video-upload-form-information-container {
+  margin-left: 50px;
+}
+
+.video-upload-form-content .information-item-name {
+  width: 105px;
+  color: #666;
+}
+
+.video-upload-form-content .information-item-col {
+  font-size: 11px;
+  color: #444;
+}
+
+.video-upload-form-content .information-item {
+  width: 290px;
+  display: flex;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+.video-preview-information-row {
+  display: flex;
 }

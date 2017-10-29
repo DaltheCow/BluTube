@@ -7,7 +7,7 @@ class VideoForm extends React.Component {
 
     let video = props.video;
     video = jQuery.isEmptyObject(props.video) ? {videoFile: "", videoUrl: "", title: "", description: ""} : props.video;
-    this.state = video;
+    this.state = Object.assign({}, video, {loading: false});
   }
 
   componentDidMount() {
@@ -55,8 +55,10 @@ class VideoForm extends React.Component {
       if (this.state.videoFile == "") return;
       formData.append('video[video]', this.state.videoFile);
     }
+    this.setState({loading: true});
 
     this.props.submitAction(formData, this.state.id).then((video) => {
+      this.setState({loading: false});
       this.props.history.push(`/videos/${video.video.id}`);
     });
   }
@@ -77,10 +79,33 @@ class VideoForm extends React.Component {
   }
 
   render() {
+    const isEdit = this.props.formType === 'edit';
+    const editReady = this.state.videoUrl && isEdit;
+
+    const videoInfo = editReady ? [[
+      'Channel:', this.props.currentUser.username],[
+      'Uploaded time:', this.props.video.createdAt],[
+      'Duration:', this.props.video.duration],[
+      'Views:', this.props.video.viewCount],[
+      'Likes:', 0],[
+      'Dislikes:', 0],[
+      'Comments:', 0]
+    ] : (null);
 
     return (
       <div className="video-upload">
-        {(!this.state.videoFile && !this.state.videoUrl && !(this.props.formType === 'edit')) ?
+
+          <div className="video-upload-title-buttons-bar">
+            <h1>{this.state.title}</h1>
+            <div className="upload-btns">
+              { this.state.loading ? <div className="loader"></div>: (null)}
+              { isEdit ? <button onClick={() => this.props.history.push(this.props.location.pathname)} className="cancel-btn">Cancel</button> : (null)}
+              { isEdit || this.state.videoUrl ? <button onClick={this.handleSubmit.bind(this)} className="upload-btn">{isEdit ? 'Save Changes' : 'Publish'}</button> : (null)}
+            </div>
+          </div>
+
+
+        {(!this.state.videoFile && !this.state.videoUrl && !(isEdit)) ?
 
           (<form className="video-upload-form">
 
@@ -91,9 +116,26 @@ class VideoForm extends React.Component {
 
           </form>) : (null)}
         {this.state.videoFile || this.state.videoUrl ?
-        <div>
+        <div className="video-upload-form-content">
 
-          <video src={this.state.videoUrl}  width="480" height="270" controls />
+          <div className="video-preview-information-row">
+            <video src={this.state.videoUrl}  width="480" height="270" controls />
+            {editReady ? (
+              <div className="video-upload-form-information-container">
+                <h4 className="video-upload-form-information">VIDEO INFORMATION</h4>
+                <ul className="video-upload-form-information-list">
+                  {videoInfo ? videoInfo.map((item, i) => {
+                    return (
+                      <li key={i} className="information-item">
+                        <div className="information-item-name">{item[0]}</div>
+                        <div className="information-item-col">{item[1]}</div>
+                      </li>
+                    );
+                  }) : (null)}
+                </ul>
+              </div>
+            ) : (null)}
+          </div>
 
           <form onSubmit={this.handleSubmit.bind(this)}>
 
@@ -104,7 +146,6 @@ class VideoForm extends React.Component {
               <textarea className="video-upload-form-input-description" type="text" placeholder="description" onChange={(e) => this.setState({["description"]: e.target.value})} value={this.state.description}/>
 
             </div>
-            <button>Upload</button>
 
           </form>
 

@@ -5,6 +5,7 @@ import { Redirect, Link, Route, withRouter, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute, ProtectedVideoRoute } from '../util/route_util';
 import Video from './video/video';
 import VideoFormContainer from './video/video_form_container';
+import VideoShowContainer from './video/video_show_container';
 
 const App = (props) => (
   <div>
@@ -15,8 +16,9 @@ const App = (props) => (
     ) : (null)}
     <Switch>
       <Route exact path="/" render={() => <div></div>} />
-      <AuthRoute path="/login" component={SessionFormContainer} />
-      <AuthRoute path="/signup" component={SessionFormContainer} />
+      <Route exact path="/videos/:videoId" component={ VideoShowContainer } />
+      <AuthRoute exact path="/login" component={SessionFormContainer} />
+      <AuthRoute exact path="/signup" component={SessionFormContainer} />
       <ProtectedRoute exact path="/upload" component={VideoFormContainer} />
       <ProtectedVideoRoute exact path="/upload/:videoId/edit" component={VideoFormContainer} />
       <Route path="/" render={() => <Redirect to="/" />} />
