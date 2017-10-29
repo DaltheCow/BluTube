@@ -55,7 +55,7 @@ class VideoForm extends React.Component {
       if (this.state.videoFile == "") return;
       formData.append('video[video]', this.state.videoFile);
     }
-    debugger
+
     this.props.submitAction(formData, this.state.id).then((video) => {
       this.props.history.push(`/videos/${video.video.id}`);
     });
@@ -93,17 +93,18 @@ class VideoForm extends React.Component {
         {this.state.videoFile || this.state.videoUrl ?
         <div>
 
-          <video src={this.state.videoUrl}  width="480" height="270" />
+          <video src={this.state.videoUrl}  width="480" height="270" controls />
 
           <form onSubmit={this.handleSubmit.bind(this)}>
 
-            <div>
+            <div className="video-upload-form-inputs">
 
               <input className="video-upload-form-input-title" type="text" placeholder="title" onChange={(e) => this.setState({["title"]: e.target.value})} value={this.state.title}/>
+
               <textarea className="video-upload-form-input-description" type="text" placeholder="description" onChange={(e) => this.setState({["description"]: e.target.value})} value={this.state.description}/>
-              <button>Upload</button>
 
             </div>
+            <button>Upload</button>
 
           </form>
 

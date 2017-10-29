@@ -62,3 +62,40 @@
   background: black;
   margin-bottom: 25px;
 }
+
+.video-upload-form-input-title {
+  width: 403px;
+  border: 1px solid rgb(211,211,211);
+  padding: 5px 10px 6px 10px;
+  margin-top: 15px;
+}
+
+.video-upload-form-input-description {
+  width: 403px;
+  height: 60px;
+  border: 1px solid rgb(211,211,211);
+  padding: 5px 10px 6px 10px;
+  margin-top: 15px;
+}
+
+.video-upload-form-input-title:hover {
+  border: 1px solid #BBBBBB;
+}
+
+.video-upload-form-input-description:hover {
+  border: 1px solid #BBBBBB;
+}
+
+.video-upload-form-input-title:focus {
+  border: 1px solid #1E77C6;
+}
+
+.video-upload-form-input-description:focus {
+  border: 1px solid #1E77C6;
+}
+
+
+.video-upload-form-inputs {
+  display: flex;
+  flex-direction: column;
+}
