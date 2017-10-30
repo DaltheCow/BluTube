@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { fetchVideo, fetchVideos } from '../../actions/video_actions';
+import { fetchVideo, fetchVideos } from '../../../actions/video_actions';
 import VideoShow from './video_show';
-import shuffle from '../../util/shuffle';
+import shuffle from '../../../util/shuffle';
 
 //user needs access to all of their video ids
 const mapStateToProps = (state, ownProps) => {

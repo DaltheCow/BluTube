@@ -4,6 +4,6 @@ json.array! @videos do |video|
   json.createdAt video.created_at
   json.thumbnailUrl video.video.url(:thumb)
   json.author do
-    json.extract! video.author :username, :id
+    json.extract! video.author, :username, :id
   end
 end

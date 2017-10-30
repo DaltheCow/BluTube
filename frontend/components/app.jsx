@@ -5,7 +5,7 @@ import { Redirect, Link, Route, withRouter, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute, ProtectedVideoRoute } from '../util/route_util';
 import Video from './video/video';
 import VideoFormContainer from './video/video_form_container';
-import VideoShowContainer from './video/video_show_container';
+import VideoShowContainer from './video//video_show/video_show_container';
 
 const App = (props) => (
   <div>
