@@ -25,18 +25,21 @@
 .related-vid-container {
   display: flex;
   cursor: pointer;
+  max-width: 437px;
 }
 
 .related-vid-img {
+  min-width: 168px;
+  min-height: 92px;
   width: 168px !important;
   height: 92px !important;
   position: relative;
-  margin: 0 auto;
   background: black;
 }
 
 .related-vid-img img {
   max-width: 168px;
+  margin: 0 auto;
   max-height: 92px;
   background-color: black;
 }
@@ -61,6 +64,7 @@
 .related-vid-info {
   margin-left: 8px;
   text-align: left;
+  // min-width:
 }
 
 .related-vid-title {
@@ -70,7 +74,7 @@
   overflow: hidden;
   font-size: 14px;
   font-weight: bold;
-
+  line-height: normal;
   color: #111111;
 }
 
