@@ -15,10 +15,16 @@
 
 .video-show-related-videos {
   margin-left: 24px;
+  font-family: Roboto, Arial, sans-serif;
+}
+
+.related-vid-index-item {
+  margin-bottom: 8px;
 }
 
 .related-vid-container {
   display: flex;
+  cursor: pointer;
 }
 
 .related-vid-img {
@@ -43,11 +49,39 @@
   letter-spacing: .5px;
   font-size: 12px;
   font-weight: 500;
-  font-family: 'Roboto', Arial, sans-serif;
+
   padding: 2px 4px;
   margin: 4px;
   background: hsl(0, 0%, 6.7%);
   color: hsl(0, 0%, 100%);
   opacity: 0.8;
   border-radius: 2px;
+}
+
+.related-vid-info {
+  margin-left: 8px;
+  text-align: left;
+}
+
+.related-vid-title {
+  display: block;
+  margin: 0 0 4px 0;
+  max-height: 3.2rem;
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: bold;
+
+  color: #111111;
+}
+
+.related-vid-channel {
+  color: #707070;
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.related-vid-viewcount {
+  color: #707070;
+  font-size: 14px;
+  font-weight: lighter;
 }
