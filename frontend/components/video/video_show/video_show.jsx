@@ -31,18 +31,18 @@ class VideoShow extends React.Component {
   render() {
     const hasVideo = Boolean(this.props.video);
     const hasVideos = Boolean(this.props.videos);
-    console.log(hasVideos)
     return (
       <div className="video-show">
         <div className="video-show-container">
           <div className="video-show-content">
-            <video width="596" height="360" src={hasVideo ? this.props.video.videoUrl : ""} autoplay controls/>
+            <video width="596" height="360" src={hasVideo ? this.props.video.videoUrl : ""} autoPlay controls/>
             <div>Description</div>
             <div>Comments</div>
           </div>
           <div className="video-show-related-videos">
             <ul>
               {hasVideos ? this.props.videos.map((video, i) => {
+                console.log(video.thumbnailUrl)
                 return (
                   <li key={i} className="related-vid-index-item">
                     <Link to={`/videos/${video.id}`}>
