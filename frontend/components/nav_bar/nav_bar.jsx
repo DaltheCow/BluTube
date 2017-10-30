@@ -25,11 +25,8 @@ const NavBar = (props) => (
       <li className="nav-upload" >
         <Link to="/upload"><i className="fa fa-upload"></i></Link>
       </li>
-      <li className="nav-settings">
-        Settings
-      </li>
       <li className="nav-sign-in">
-        {props.signedIn ? (<button className="navbar-signout" onClick={() => props.logout()}>SIGN OUT</button>) : (<Link className="navbar-signin" to='/login'>SIGN IN</Link>)}
+        {props.signedIn ? (<button className="nav-sign-out" onClick={() => props.logout()}>SIGN OUT</button>) : (<Link className="nav-sign-in-link" to='/login'>SIGN IN</Link>)}
       </li>
     </ul>
   </div>

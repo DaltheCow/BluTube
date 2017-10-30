@@ -20,16 +20,21 @@ a {
 }
 
 .side-bar-hamburger i {
-  font-size: 24px;
+  font-size: 20px;
+  margin-bottom: 2px;
+  margin-left: 20px;
+  margin-right: 20px;
+  color: #a0a0a0;
 }
 
 .nav-logo img {
-  max-width: 30px;
+  max-width: 29px;
+  margin-top: 3px;
 }
 
-.side-bar-hamburger div {
-  font-size: 20px;
-  font-weight: 600;
+
+.side-bar-hamburger i {
+  cursor: pointer;
 }
 
 
@@ -39,8 +44,8 @@ a {
 }
 
 .nav-logo-text span {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 500;
   letter-spacing: -1px;
   font-family: "Roboto", sans-serif;
   display: flex;
@@ -56,8 +61,8 @@ a {
   display: flex;
 }
 
-@media (max-width: 500px) {
-    .nav-logo, .side-bar-hamburger, .nav-upload, .nav-settings, .nav-sign-in {
+@media (max-width: 600px) {
+    .nav-logo, .side-bar-hamburger, .nav-upload, .nav-settings, .nav-sign-in, .nav-logo-text {
       display: none;
     }
 }
@@ -65,7 +70,7 @@ a {
 .nav-search i {
   font-size: 14px;
   -webkit-text-stroke: .6px white;
-  padding: 6px 25px;
+  padding: 7px 25px 5px 25px;
   border: 1px solid #cccccc;
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
@@ -93,6 +98,7 @@ a {
   font-size: 16px;
   font-weight: 200;
   border-right: none;
+  margin-left: 40px;
 }
 .nav-search input:focus {
   border-right: 1px solid #1E77C6;
@@ -101,15 +107,29 @@ a {
 
 }
 
+.nav-upload {
+  margin-left: 53px !important;
+  margin-right: 35px !important;
+}
+
 .nav-upload i {
   font-size: 20px;
   color: #a0a0a0;
 }
 
-.nav-settings {
-
+.nav-sign-in-link {
+  font-family: "Roboto", sans-serif;
+  color: #ff090d;
+  font-size: 13px;
+  font-weight: 600;
 }
 
-.nav-sign-in {
-
+.nav-sign-out {
+  font-family: "Roboto", sans-serif;
+  color: #ff090d;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
