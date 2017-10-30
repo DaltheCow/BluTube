@@ -16,6 +16,9 @@ class VideoShow extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
+    if (newProps.video && newProps.video.videoUrl && newProps.video !== this.props.video){
+      $("video").attr("src", newProps.video.videoUrl);
+    }
   }
 
   views(count) {
@@ -26,6 +29,12 @@ class VideoShow extends React.Component {
         )
       )
     );
+  }
+
+  handleRedirect(id) {
+    this.props.fetchVideo(id);
+    this.props.fetchVideos();
+    this.props.history.push(`/videos/${id}`);
   }
 
   render() {
@@ -42,15 +51,16 @@ class VideoShow extends React.Component {
           <div className="video-show-related-videos">
             <ul>
               {hasVideos ? this.props.videos.map((video, i) => {
-                console.log(video.thumbnailUrl)
                 return (
                   <li key={i} className="related-vid-index-item">
-                    <Link to={`/videos/${video.id}`}>
-                      <img className="related-vid-thumbnail" src={video.thumbnailUrl} />
+                    <button onClick={() => this.handleRedirect(video.id)}>
+                      <div className="related-vid-container"><img className="related-vid-thumbnail" src={video.thumbnailUrl} />
+                      <div className="related-vid-duration">{video.duration}</div>
+                      </div>
                       <div className="related-vid-title">{video.title}</div>
                       <div className="related-vid-channel">{video.author.username}</div>
                       <div className="related-vid-viewcount">{this.views(video.viewCount)} views</div>
-                    </Link>
+                    </button>
                   </li>
                 );
               }) : (null)}

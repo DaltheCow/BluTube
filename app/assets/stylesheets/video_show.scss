@@ -14,11 +14,25 @@
 
 .related-vid-index-item img {
   max-width: 168px;
-  width: 100%;
-  max-height: 92;
+  max-height: 92px;
   background-color: black;
 }
 
 .video-show-related-videos {
   margin-left: 24px;
+}
+
+.related-vid-container {
+  width: 168px !important;
+  height: 92px !important;
+  position: relative;
+  margin: 0 auto;
+  background: black;
+}
+
+.related-vid-duration {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: white;
 }
