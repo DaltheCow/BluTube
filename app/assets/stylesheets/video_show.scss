@@ -23,6 +23,7 @@
   .video-show-related-videos {
     margin-left: 0 !important;
   }
+
 }
 
 @media (max-width: 857px) {
@@ -39,6 +40,9 @@
   }
 
 }
+
+
+
 
 .video-show video {
   background: black;
@@ -121,4 +125,24 @@
   color: #707070;
   font-size: 14px;
   font-weight: lighter;
+}
+
+
+
+
+
+
+
+.channel-info .profile-image {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  background: white;
+  display: flex;
+  justify-content: center;
+}
+
+.channel-info .profile-image img {
+  height: 48px;
 }

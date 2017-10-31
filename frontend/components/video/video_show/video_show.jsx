@@ -55,7 +55,34 @@ class VideoShow extends React.Component {
         <div className="video-show-container">
           <div className="video-show-content">
             <video width="596" height="360" src={hasVideo ? this.props.video.videoUrl : ""} autoPlay controls/>
-            <div>Description</div>
+            { this.props.video ? (<div className="video-show-vid-description">
+              <div className="video-show-vid-title">
+                {this.props.video.title}
+              </div>
+              {/* thumbs-down thumbs-o-down thumbs-up thumbs-o-up */}
+              <div className="video-show-views-likes">
+                <div className="views">
+                  {this.props.video.viewCount} views
+                </div>
+                <div className="likes-dislikes">
+                  <div className="likes">
+                    <i className="fa fa-thumbs-o-up"></i>
+                      <span>0</span>
+                  </div>
+                  <div className="dislikes">
+                    <i className="fa fa-thumbs-o-down"></i>
+                    <span>0</span>
+                  </div>
+                </div>
+              </div>
+              <div className="channel-info">
+                <Link className="profile-image" to={`/channel/${this.props.video.author.id}`}><img src="https://s3.amazonaws.com/blutube-dev/images/profile_image_300x200.png" /></Link>
+                <div>
+                  <Link to={`/channel/${this.props.video.author.id}`}>{this.props.video.author.username}</Link>
+                  <div>Published on {this.props.video.createdAt}</div>
+                </div>
+              </div>
+            </div>) : (null)}
             <div>Comments</div>
           </div>
           <div className="video-show-related-videos">
