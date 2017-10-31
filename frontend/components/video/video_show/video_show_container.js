@@ -1,11 +1,15 @@
 import { connect } from 'react-redux';
-import { fetchVideo, fetchVideos } from '../../../actions/video_actions';
+import { fetchVideo, fetchVideos, addView } from '../../../actions/video_actions';
 import VideoShow from './video_show';
 import shuffle from '../../../util/shuffle';
 
 //user needs access to all of their video ids
 const mapStateToProps = (state, ownProps) => {
-  const video = state.entities.videos[ownProps.match.params.videoId];
+  const newVideo = state.entities.videos[ownProps.match.params.videoId];
+  console.log("here, this should always be the video!!!")
+  console.log(newVideo);
+  console.log("hard coded");
+  console.log(state.entities.videos[26]);
   const UnfilteredVideos = shuffle(Object.values(state.entities.videos));
   const filteredVideos = UnfilteredVideos.filter(video => video.id !== parseInt(ownProps.match.params.videoId));
   const videos = filteredVideos
@@ -15,9 +19,9 @@ const mapStateToProps = (state, ownProps) => {
     return videoIds.indexOf(video.id) === videoIds.lastIndexOf(video.id);
   })
   .slice(0, 20);
-
+  // debugger
   return {
-    video,
+    video: newVideo,
     currentUser: state.session.currentUser,
     videos
   };
@@ -27,6 +31,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     fetchVideo: (id) => dispatch(fetchVideo(id)),
     fetchVideos: () => dispatch(fetchVideos()),
+    addView: (id) => dispatch(addView(id))
   };
 };
 

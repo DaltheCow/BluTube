@@ -36,5 +36,9 @@ export const updateVideo = (video, id) => dispatch => {
 };
 
 export const deleteVideo = (id) => dispatch => {
-  return ApiUtil.deleteVideo(id).then(id => dispatch(receiveVideos(id)));
+  return ApiUtil.deleteVideo(id).then(id => dispatch(removeVideo(id)));
+};
+
+export const addView = (id) => dispatch => {
+  return ApiUtil.addView(id).then(video => dispatch(receiveVideo(video)));
 };
