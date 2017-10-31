@@ -10,17 +10,16 @@ class VideoShow extends React.Component {
     this.props.fetchVideo(this.props.match.params.videoId);
     this.props.fetchVideos();
     $('html,body').scrollTop(0);
-    // this.props.addView(this.props.match.params.videoId);
+    this.props.addView(this.props.match.params.videoId);
   }
 
   componentWillReceiveProps(newProps) {
     if (newProps.video && newProps.video.videoUrl && newProps.video !== this.props.video){
       if (newProps.match.params.videoId !== this.props.match.params.videoId) {
-        // this.props.addView(newProps.video.id);
+        this.props.addView(newProps.video.id);
       }
       $("video").attr("src", newProps.video.videoUrl);
     }
-    // debugger
   }
 
   views(count) {
@@ -51,7 +50,6 @@ class VideoShow extends React.Component {
   }
 
   render() {
-    // debugger
     const hasVideo = Boolean(this.props.video);
     const hasVideos = Boolean(this.props.videos);
     const vid = this.props.video;
@@ -115,7 +113,7 @@ class VideoShow extends React.Component {
                 </div>
 
                 <div className="description">
-                  {vid.description}
+                  { console.log(vid) || vid.description}
                 </div>
 
               </div>
@@ -157,7 +155,6 @@ class VideoShow extends React.Component {
             </ul>
           </div>
         </div>
-        {console.log(this.props)}
       </div>
     );
   }
