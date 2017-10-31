@@ -123,7 +123,7 @@ class VideoShow extends React.Component {
           <div className="video-show-related-videos">
             <ul>
 
-              {hasVideos ? this.props.videos.filter(video => video.id !== parseInt(this.props.match.params.videoId)).map((video, i) => {
+              {hasVideos ? this.props.videos.map((video, i) => {
                 return (
                   <li key={i} className="related-vid-index-item">
 
