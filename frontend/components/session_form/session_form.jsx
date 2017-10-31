@@ -111,7 +111,7 @@ class SessionForm extends React.Component {
                 <button className="session-next">NEXT</button>
               </div>
               <div className="session-buttons but-not-really">
-                <button className="session-demo" onClick={() => this.props.submitAction({username: 'asdlfkajlekfaivpionelianALDSIJFIJ2398R2', password: 'asdlfkajlekfaivpionelianALDSIJFIJ2398R2'})}>DEMO</button>
+                <button className="session-demo" onClick={() => this.props.submitAction({username: 'demo', password: 'password'})}>DEMO</button>
               </div>
             </form>
           </div>
