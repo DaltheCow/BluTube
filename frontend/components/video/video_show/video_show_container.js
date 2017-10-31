@@ -6,12 +6,16 @@ import shuffle from '../../../util/shuffle';
 //user needs access to all of their video ids
 const mapStateToProps = (state, ownProps) => {
   const video = state.entities.videos[ownProps.match.params.videoId];
-  const Unfilteredvideos = shuffle(Object.values(state.entities.videos)).slice(0, 20);
-  const filteredVideos = Unfilteredvideos.filter(video => video.id !== parseInt(this.props.match.params.videoId));
+  const UnfilteredVideos = shuffle(Object.values(state.entities.videos));
+  const filteredVideos = UnfilteredVideos.filter(video => video.id !== parseInt(ownProps.match.params.videoId));
   const videos = filteredVideos
-  .filter(video => !filteredVideos
-    .map(video => video.id)
-    .includes(video.id));
+  .filter(video => {
+    const videoIds = filteredVideos
+      .map(video => video.id);
+    return videoIds.indexOf(video.id) === videoIds.lastIndexOf(video.id);
+  })
+  .slice(0, 20);
+
   return {
     video,
     currentUser: state.session.currentUser,
