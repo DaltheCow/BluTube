@@ -5,7 +5,8 @@ import shuffle from '../../../util/shuffle';
 
 //user needs access to all of their video ids
 const mapStateToProps = (state, ownProps) => {
-  const videos = shuffle(Object.values(state.entities.videos)).slice(40);
+  const videos = shuffle(Object.values(state.entities.videos)).slice(0, 40);
+  debugger
   return {
     videos
   };

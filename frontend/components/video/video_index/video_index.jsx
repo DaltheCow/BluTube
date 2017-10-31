@@ -10,9 +10,7 @@ class VideoIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchVideos().then(action => {
-      this.setState({ videos: action.videos });
-    });
+    this.props.fetchVideos()
   }
 
   views(count) {
@@ -36,7 +34,7 @@ class VideoIndex extends React.Component {
   }
 
   render() {
-    const videos = this.state.videos;
+    const videos = this.props.videos;
 
     return(
       <div className="video-index">
