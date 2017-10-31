@@ -92,8 +92,21 @@
   font-weight: lighter;
 }
 
-.index-viewcount {
+.index-view-time {
   color: #707070;
   font-size: 14px;
   font-weight: lighter;
+  display: flex;
 }
+
+.before-target:before{
+  content: '•';
+  margin: 0 4px;
+}
+
+//
+// .index-viewcount {
+//   color: #707070;
+//   font-size: 14px;
+//   font-weight: lighter;
+// }
