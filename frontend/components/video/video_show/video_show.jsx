@@ -45,6 +45,7 @@ class VideoShow extends React.Component {
     this.props.fetchVideo(id);
     this.props.fetchVideos();
     this.props.history.push(`/videos/${id}`);
+    $('html,body').scrollTop(0);
   }
 
   render() {
@@ -76,7 +77,9 @@ class VideoShow extends React.Component {
                 </div>
               </div>
               <div className="channel-info">
-                <Link className="profile-image" to={`/channel/${this.props.video.author.id}`}><img src="https://s3.amazonaws.com/blutube-dev/images/profile_image_300x200.png" /></Link>
+                <Link className="profile-image" to={`/channel/${this.props.video.author.id}`}>
+                  <img src="https://s3.amazonaws.com/blutube-dev/images/profile_image_300x200.png" />
+                </Link>
                 <div>
                   <Link to={`/channel/${this.props.video.author.id}`}>{this.props.video.author.username}</Link>
                   <div>Published on {this.props.video.createdAt}</div>
