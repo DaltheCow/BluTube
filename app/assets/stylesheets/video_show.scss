@@ -246,6 +246,21 @@
   cursor: pointer;
 }
 
+.edit {
+  color: white;
+  padding: 0 15px;
+  background: rgb(33, 126, 223);
+  max-height: 36px;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 2px;
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 .subscribe .sub {
   color: white;
 }

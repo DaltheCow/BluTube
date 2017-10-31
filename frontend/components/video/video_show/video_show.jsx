@@ -104,11 +104,17 @@ class VideoShow extends React.Component {
                     </div>
 
                   </div>
-
-                  <button className="subscribe">
-                    <span className="sub">SUBSCRIBE </span>
-                    <span className="subcount"> 0</span>
-                  </button>
+                  { !this.props.currentUser.videoIds.includes(vid.id) ?
+                    (
+                      <button className="subscribe">
+                        <span className="sub">SUBSCRIBE </span>
+                        <span className="subcount"> 0</span>
+                      </button>
+                    ) : (
+                      <Link to={`/upload/${vid.id}/edit`} className="edit">
+                        EDIT VIDEO
+                      </Link>
+                    )}
 
                 </div>
 
