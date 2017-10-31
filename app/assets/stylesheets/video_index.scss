@@ -2,6 +2,7 @@
   // margin: 20px auto;
   // max-width: 1323px;
   // margin: 0 auto;
+  font-family: 'Roboto', Arial, sans-serif;
 }
 
 .index-index-item {
@@ -26,8 +27,14 @@
   justify-content: center;
   max-width: 1423px;
   min-width: 450px;
-  width: 95%;
+  width: 98%;
   margin: 0 auto;
+}
+
+.video-index-header {
+  text-align: center;
+  margin: 20px;
+  font-size: 20px;
 }
 
 .index-img {

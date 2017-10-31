@@ -40,6 +40,7 @@ class VideoIndex extends React.Component {
 
     return(
       <div className="video-index">
+        <div className="video-index-header">Look at All of These Videos!</div>
         <ul className="video-index-list">
         {videos ? videos.map((video, i) => {
           return (
