@@ -3,36 +3,62 @@ import { Link } from 'react-router-dom';
 
 class VideoIndex extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {videos: []};
+  }
+
   componentDidMount() {
-    this.props.fetchVideos();
+    this.props.fetchVideos().then(action => {
+      this.setState({ videos: action.videos });
+    });
+  }
+
+  views(count) {
+    return (
+      count < 1000 ? count : (
+        count < 999999 ? Math.floor((count/1000)).toString() + "K" : (
+          Math.floor((count/1000000)).toString() + "M"
+        )
+      )
+    );
+  }
+
+  duration(time) {
+    const secs = time % 60;
+    const mins = Math.floor(time / 60) % 60;
+    const hrs = Math.floor(time / 3600);
+    const seconds = `:${secs < 10 ? '0' : ''}${secs}`;
+    const hours = `${hrs > 0 ? hrs : ''}${hrs > 0 ? ':' : ''}`;
+    const minutes = `${hrs > 0 && mins < 10 ? '0' : ''}${mins}`;
+    return hours + minutes + seconds;
   }
 
   render() {
-    const videos = this.props.videos;
+    const videos = this.state.videos;
 
     return(
-      <div>
-        <ul>
+      <div className="video-index">
+        <ul className="video-index-list">
         {videos ? videos.map((video, i) => {
           return (
-            <li key={i} className="related-vid-index-item">
+            <li key={i} className="index-index-item">
 
-              <button className="related-vid-container" onClick={() => this.handleRedirect(video.id)}>
+              <Link to={`/videos/${video.id}`} className="index-link">
 
-                <div className="related-vid-img">
-                  <img className="related-vid-thumbnail" src={video.thumbnailUrl} />
-                  <div className="related-vid-duration">
+                <div className="index-img">
+                  <img className="index-thumbnail" src={video.thumbnailUrl} />
+                  <div className="index-duration">
                     {this.duration(video.duration)}
                   </div>
                 </div>
 
-                <div className="related-vid-info">
-                  <div className="related-vid-title">{video.title}</div>
-                  <div className="related-vid-channel">{video.author.username}</div>
-                  <div className="related-vid-viewcount">{this.views(video.viewCount)} views</div>
-                </div>
+                <div className="index-title">{video.title}</div>
+                <div className="index-channel">{video.author.username}</div>
+                <div className="index-viewcount">{this.views(video.viewCount)} views</div>
 
-              </button>
+              </Link>
 
             </li>
           );

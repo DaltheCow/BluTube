@@ -1,0 +1,92 @@
+.video-index {
+  // margin: 20px auto;
+  // max-width: 1323px;
+  // margin: 0 auto;
+}
+
+.index-index-item {
+  margin: 0 0 8px 5px !important;
+}
+
+.video-index .index-index-item {
+  margin: 0 0 8px 0;
+  width: 210px;
+}
+
+.video-index .index-link {
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-index-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1423px;
+  min-width: 450px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.index-img {
+  min-width: 210px;
+  min-height: 117px;
+  width: 210px !important;
+  height: 117px !important;
+  position: relative;
+  background: black;
+}
+
+.index-img img {
+  max-width: 210px;
+  margin: 0 auto;
+  max-height: 117px;
+  background-color: black;
+}
+
+.index-duration {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: white;
+  letter-spacing: .5px;
+  font-size: 12px;
+  font-weight: 500;
+
+  padding: 2px 4px;
+  margin: 4px;
+  background: hsl(0, 0%, 6.7%);
+  color: hsl(0, 0%, 100%);
+  opacity: 0.8;
+  border-radius: 2px;
+}
+
+.index-info {
+  margin-left: 8px;
+  text-align: left;
+}
+
+.index-title {
+  display: block;
+  margin: 0 0 4px 0;
+  max-height: 3rem;
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.4rem;
+  color: #111111;
+}
+
+.index-channel {
+  color: #707070;
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.index-viewcount {
+  color: #707070;
+  font-size: 14px;
+  font-weight: lighter;
+}
