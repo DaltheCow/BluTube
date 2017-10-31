@@ -11,6 +11,7 @@ const App = (props) => (
   <div>
     {!['/login', '/signup'].includes(props.location.pathname) ? (
       <header>
+        <div className="under-nav"></div>
         <Route path="/" component={NavBarContainer} />
       </header>
     ) : (null)}

@@ -24,6 +24,10 @@
     margin-left: 0 !important;
   }
 
+  .video-show-content {
+    max-width: 857px;
+  }
+
 }
 
 @media (max-width: 857px) {
@@ -39,13 +43,25 @@
     max-width: 640px;
   }
 
+  .video-show-content {
+    max-width: 640px;
+  }
+
 }
 
 
+.video-show-content {
+  max-width: 596px;
+}
 
 
 .video-show video {
   background: black;
+  position: relative;
+}
+
+.video-video-container {
+  position: relative
 }
 
 
@@ -126,10 +142,6 @@
   font-size: 14px;
   font-weight: lighter;
 }
-
-
-
-
 
 
 

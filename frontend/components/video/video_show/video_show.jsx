@@ -55,7 +55,7 @@ class VideoShow extends React.Component {
       <div className="video-show">
         <div className="video-show-container">
           <div className="video-show-content">
-            <video width="596" height="360" src={hasVideo ? this.props.video.videoUrl : ""} autoPlay controls/>
+            <div className="video-video-container"><video width="596" height="360" src={hasVideo ? this.props.video.videoUrl : ""} autoPlay controls/></div>
             { this.props.video ? (<div className="video-show-vid-description">
               <div className="video-show-vid-title">
                 {this.props.video.title}
