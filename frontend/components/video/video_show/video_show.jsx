@@ -53,18 +53,7 @@ class VideoShow extends React.Component {
     if (!this.props.currentUser || !this.props.video) {
       return;
     }
-    // if (this.props.video.currentUsersLike.like_value !== 'N/A') {
-    //   if (isLike && this.props.video.currentUsersLike.like_value) {
-    //     console.log(`user hit like and they already liked it so destroy`);
-    //   } else if (isLike && !this.props.video.currentUsersLike.like_value){
-    //     console.log(`user hit like and they disliked it before so update`);
-    //   } else if (!isLike && this.props.video.currentUsersLike.like_value) {
-    //     console.log(`user hit dislike and they liked it before so update`);
-    //   } else if (!isLike && !this.props.video.currentUsersLike.like_value) {
-    //     console.log(`user hit dislike and they disliked it before so delete`);
-    //   }
-    // }
-    //
+
     if (this.props.video.currentUsersLike.like_value === 'N/A') {
       this.props.createLike(this.props.video.id, {like_value: isLike});
     } else if (isLike === this.props.video.currentUsersLike.like_value) {
