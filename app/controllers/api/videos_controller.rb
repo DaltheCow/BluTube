@@ -8,6 +8,10 @@ class Api::VideosController < ApplicationController
   end
 
   def create
+    if params[:video][:video] == "null"
+      render json: ["Was that a folder? What are you trying to upload??"], status: 422
+      return
+    end
     @video = Video.new(video_params)
     @video.author_id = current_user.id
     if @video.save
@@ -20,7 +24,6 @@ class Api::VideosController < ApplicationController
   def update
     @video = Video.find(params[:id])
     update_info = params[:video] ? {description: params[:video][:description], title: params[:video][:title]} : {view_count: @video.view_count + 1}
-
     if @video.update(update_info)
       render :show
     else

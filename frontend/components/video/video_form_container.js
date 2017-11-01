@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchVideo, uploadVideo, updateVideo, deleteVideo,  } from '../../actions/video_actions';
+import { fetchVideo, uploadVideo, updateVideo, deleteVideo, clearErrors } from '../../actions/video_actions';
 import VideoForm from './video_form';
 
 //user needs access to all of their video ids
@@ -24,6 +24,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     fetchVideo: (id) => dispatch(fetchVideo(id)),
     deleteVideo: (id) => dispatch(deleteVideo(id)),
     submitAction: (video, id) => dispatch(submitAction(video, id)),
+    clearErrors: () => dispatch(clearErrors())
   };
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 class VideoForm extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class VideoForm extends React.Component {
     if (this.props.match.params.videoId) {
       this.props.fetchVideo(this.props.match.params.videoId);
     }
-
+    this.props.clearErrors();
       var dragTimer;
       $('.video-upload-form').on("dragover",function (e) {
         const dt = e.originalEvent.dataTransfer;
@@ -78,6 +78,11 @@ class VideoForm extends React.Component {
     this.setState({ videoUrl: window.URL.createObjectURL(file)});
   }
 
+  resetVideo() {
+    this.setState({videoUrl: "", videoFile: "", loading: false});
+    this.props.clearErrors();
+  }
+
   render() {
     const isEdit = this.props.formType === 'edit';
     const editReady = this.state.videoUrl && isEdit;
@@ -98,7 +103,7 @@ class VideoForm extends React.Component {
           <div className="video-upload-title-buttons-bar">
             <h1>{this.state.title}</h1>
             <div className="upload-btns">
-              { this.state.loading ? <div className="loader"></div>: (null)}
+              { this.state.loading && this.props.errors.length === 0 ? <div className="loader"></div>: (null)}
               { isEdit ? <button onClick={() => this.props.history.push(this.props.location.pathname)} className="cancel-btn">Cancel</button> : (null)}
               { isEdit || this.state.videoUrl ? <button onClick={this.handleSubmit.bind(this)} className="upload-btn">{isEdit ? 'Save Changes' : 'Publish'}</button> : (null)}
             </div>
@@ -142,6 +147,23 @@ class VideoForm extends React.Component {
             <div className="video-upload-form-inputs">
 
               <input className="video-upload-form-input-title" type="text" placeholder="title" onChange={(e) => this.setState({["title"]: e.target.value})} value={this.state.title}/>
+
+              <ul>
+                {this.props.errors.map(error => (
+                  <li className="video-errors">
+                    { error }
+                  </li>
+                ))}
+              </ul>
+
+              { this.props.errors.some(error => error.toLowerCase().includes('video') || error.includes('folder')) ? (
+                <div className="error-reset">
+                  Was your file type invalid?
+                  <button onClick={() => this.resetVideo()}>
+                    Try again
+                  </button>
+                </div>
+              ) : null }
 
               <textarea className="video-upload-form-input-description" type="text" placeholder="description" onChange={(e) => this.setState({["description"]: e.target.value})} value={this.state.description}/>
 

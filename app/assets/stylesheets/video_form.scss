@@ -199,3 +199,23 @@
 .video-preview-information-row {
   display: flex;
 }
+
+.video-errors {
+  color: #d50000;
+  padding: 5px 0;
+  font-size: 12px;
+}
+
+.error-reset {
+  color: #d50000;
+  padding: 5px 0;
+  font-size: 12px;
+}
+
+.error-reset button {
+  color: inherit;
+}
+
+.error-reset button:hover {
+  color: rgb(59, 127, 225);
+}

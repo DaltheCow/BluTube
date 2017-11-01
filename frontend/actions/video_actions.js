@@ -3,6 +3,9 @@ import * as ApiUtil from '../util/video_api_util';
 export const RECEIVE_VIDEOS = "RECEIVE_VIDEOS";
 export const RECEIVE_VIDEO = "RECEIVE_VIDEO";
 export const REMOVE_VIDEO = "REMOVE_VIDEO";
+export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
+export const CLEAR_ERRORS = "CLEAR_ERRORS";
+
 
 const receiveVideos = (videos) => ({
   type: RECEIVE_VIDEOS,
@@ -24,6 +27,10 @@ const receiveErrors = (errors) => ({
   errors
 });
 
+export const clearErrors = () => ({
+  type: CLEAR_ERRORS
+});
+
 export const fetchVideos = () => dispatch => {
   return ApiUtil.fetchVideos().then(videos => dispatch(receiveVideos(videos)));
 };
@@ -35,14 +42,14 @@ export const fetchVideo = (id) => dispatch => {
 export const uploadVideo = (video) => dispatch => {
   return ApiUtil.uploadVideo(video).then(
     video => dispatch(receiveVideo(video)),
-    errors => dispatch(receiveErrors(errors))
+    errors => dispatch(receiveErrors(errors.responseJSON))
   );
 };
 
 export const updateVideo = (video, id) => dispatch => {
   return ApiUtil.updateVideo(video, id).then(
     video => dispatch(receiveVideo(video)),
-    errors => dispatch(receiveErrors(errors))
+    errors => dispatch(receiveErrors(errors.responseJSON))
   );
 };
 
