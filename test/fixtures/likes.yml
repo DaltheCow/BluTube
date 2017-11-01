@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: MyString
+  video_id: MyString
+  like_value: 
+
+two:
+  user_id: MyString
+  video_id: MyString
+  like_value: 

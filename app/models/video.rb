@@ -12,6 +12,8 @@ class Video < ApplicationRecord
   belongs_to :author,
     class_name: 'User'
 
+  has_many :likes
+
   def get_video_duration
     result = `ffmpeg -i #{self.video.staged_path} 2>&1`
     r = result.match("Duration: ([0-9]+):([0-9]+):([0-9]+).([0-9]+)")
