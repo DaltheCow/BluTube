@@ -4,8 +4,10 @@ class Api::LikesController < ApplicationController
     @like = current_user.likes.new(like_value: params[:like][:like_value])
     @like.video_id = params[:video_id]
     if @like.save
-      render json: Video.find(params[:video_id])
+      @video = Video.find(params[:video_id])
+      render 'api/videos/show'
     else
+      # debugger
       render json: @like.errors.full_messages, status: 422
     end
   end
@@ -15,8 +17,10 @@ class Api::LikesController < ApplicationController
     @like = current_user.likes.find_by(video_id: params[:video_id])
 
     if @like.update(like_value: (params[:like][:like_value] == 'true'))
-      render json: Video.find(params[:video_id])
+      @video = Video.find(params[:video_id])
+      render 'api/videos/show'
     else
+      # debugger
       render json: @like.errors.full_messages, status: 422
     end
   end
@@ -24,7 +28,9 @@ class Api::LikesController < ApplicationController
   def destroy
     @like = Like.find(params[:id])
     @like.destroy
-    render json: Video.find(@like.video_id)
+    @video = Video.find(@like.video_id)
+    # debugger
+    render 'api/videos/show'
   end
 
 end

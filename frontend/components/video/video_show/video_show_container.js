@@ -29,7 +29,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     addView: (id) => dispatch(addView(id)),
     createLike: (videoId, like) => dispatch(createLike(videoId, like)),
     updateLike: (videoId, userId, like) => dispatch(updateLike(videoId, userId, like)),
-    deleteLike: (id) => dispatch(deleteLike(id)),
+    deleteLike: (id) => dispatch(deleteLike(id))
   };
 };
 

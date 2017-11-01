@@ -50,26 +50,30 @@ class VideoShow extends React.Component {
   }
 
   handleLike(isLike) {
-    //don't really need to store likes or currentUserLikes in the global state, just put it in temporary state and change on promise
-    if (!this.props.currentUser) {
+    if (!this.props.currentUser || !this.props.video) {
       return;
     }
-    debugger
-    if (this.props.video.currentUserLikes === 'N/A') {
+    // if (this.props.video.currentUsersLike.like_value !== 'N/A') {
+    //   if (isLike && this.props.video.currentUsersLike.like_value) {
+    //     console.log(`user hit like and they already liked it so destroy`);
+    //   } else if (isLike && !this.props.video.currentUsersLike.like_value){
+    //     console.log(`user hit like and they disliked it before so update`);
+    //   } else if (!isLike && this.props.video.currentUsersLike.like_value) {
+    //     console.log(`user hit dislike and they liked it before so update`);
+    //   } else if (!isLike && !this.props.video.currentUsersLike.like_value) {
+    //     console.log(`user hit dislike and they disliked it before so delete`);
+    //   }
+    // }
+    //
+    if (this.props.video.currentUsersLike.like_value === 'N/A') {
       this.props.createLike(this.props.video.id, {like_value: isLike});
-    } else if (isLike === this.props.video.currentUserLikes) {
-      const like = this.props.currentUser.likes.filter(like => like.videoId === this.props.video.id)[0];
-      debugger
-      this.props.deleteLike(like.id);
+    } else if (isLike === this.props.video.currentUsersLike.like_value) {
+      //need to get the like id
+      const likeId = this.props.video.currentUsersLike.id;
+      this.props.deleteLike(likeId);
     } else {
-      debugger
       this.props.updateLike(this.props.video.id, this.props.currentUser.id, {like_value: isLike});
     }
-    //if current user has no like
-      //create like with value isLike
-    //else if isLike === currentUserLikes
-      //destroy like
-    //else update with isLike
   }
 
   render() {
@@ -100,12 +104,12 @@ class VideoShow extends React.Component {
                 <div className="likes-dislikes">
 
                   <div className="likes">
-                    <i onClick={() => this.handleLike(true)} className="fa fa-thumbs-up"></i>
+                    <i onClick={() => this.handleLike(true)} className={`fa fa-thumbs-up ${this.props.video && this.props.video.currentUsersLike.like_value === true ? 'selected-thumb' : ''}`}></i>
                       <span>{this.props.video.likes}</span>
                   </div>
 
                   <div className="dislikes">
-                    <i onClick={() => this.handleLike(false)} className="fa fa-thumbs-down"></i>
+                    <i onClick={() => this.handleLike(false)} className={`fa fa-thumbs-down ${this.props.video && this.props.video.currentUsersLike.like_value === false ? 'selected-thumb' : ''}`}></i>
                     <span>{this.props.video.dislikes}</span>
                   </div>
 

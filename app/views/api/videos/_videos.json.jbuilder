@@ -20,7 +20,11 @@ json.dislikes dislike_count
 
 c_u_like = current_user.likes.find_by(video_id: video.id)
 if c_u_like
-  json.currentUserLikes c_u_like.like_value
+  json.currentUsersLike do
+    json.extract! c_u_like, :user_id, :video_id, :id, :like_value
+  end
 else
-  json.currentUserLikes "N/A"
+  json.currentUsersLike do
+    json.like_value  "N/A"
+  end
 end
