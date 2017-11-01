@@ -19,6 +19,11 @@ const removeVideo = (videoId) => ({
   videoId
 });
 
+const receiveErrors = (errors) => ({
+  type: RECEIVE_ERRORS,
+  errors
+});
+
 export const fetchVideos = () => dispatch => {
   return ApiUtil.fetchVideos().then(videos => dispatch(receiveVideos(videos)));
 };
@@ -28,11 +33,17 @@ export const fetchVideo = (id) => dispatch => {
 };
 
 export const uploadVideo = (video) => dispatch => {
-  return ApiUtil.uploadVideo(video).then(video => dispatch(receiveVideo(video)));
+  return ApiUtil.uploadVideo(video).then(
+    video => dispatch(receiveVideo(video)),
+    errors => dispatch(receiveErrors(errors))
+  );
 };
 
 export const updateVideo = (video, id) => dispatch => {
-  return ApiUtil.updateVideo(video, id).then(video => dispatch(receiveVideo(video)));
+  return ApiUtil.updateVideo(video, id).then(
+    video => dispatch(receiveVideo(video)),
+    errors => dispatch(receiveErrors(errors))
+  );
 };
 
 export const deleteVideo = (id) => dispatch => {
