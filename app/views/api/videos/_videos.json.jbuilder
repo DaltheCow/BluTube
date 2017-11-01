@@ -8,3 +8,9 @@ json.thumbnailUrl asset_path(video.video.url(:thumb))
 json.author do
   json.extract! video.author, :username, :id
 end
+like = current_user.likes.find_by(video_id: video.id)
+if like
+  json.currentUserLikes like.like_value
+else
+  json.currentUserLikes "N/A"
+end
