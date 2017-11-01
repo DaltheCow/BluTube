@@ -49,6 +49,26 @@ class VideoShow extends React.Component {
     $('html,body').scrollTop(0);
   }
 
+  handleLike(isLike) {
+    if (!this.props.currentUser) {
+      return;
+    }
+    if (this.props.video.currentUserLikes === 'N/A') {
+      this.props.createLike(this.props.video.id, {like_value: isLike});
+    } else if (isLike === (this.props.video.currentUserLikes === 'true')) {
+      const like = this.props.currentUser.likes.filter(like => like.videoId === this.props.video.id)[0];
+      debugger
+      this.props.deleteLike(like.id);
+    } else {
+      this.props.updateLike(this.props.video.id, this.props.currentUser.id, {like_value: isLike});
+    }
+    //if current user has no like
+      //create like with value isLike
+    //else if isLike === currentUserLikes
+      //destroy like
+    //else update with isLike
+  }
+
   render() {
     const hasVideo = Boolean(this.props.video);
     const hasVideos = Boolean(this.props.videos);
@@ -77,12 +97,12 @@ class VideoShow extends React.Component {
                 <div className="likes-dislikes">
 
                   <div className="likes">
-                    <i className="fa fa-thumbs-up"></i>
+                    <i onClick={() => this.handleLike(true)} className="fa fa-thumbs-up"></i>
                       <span>0</span>
                   </div>
 
                   <div className="dislikes">
-                    <i className="fa fa-thumbs-down"></i>
+                    <i onClick={() => this.handleLike(false)} className="fa fa-thumbs-down"></i>
                     <span>0</span>
                   </div>
 

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchVideo, fetchVideos, addView } from '../../../actions/video_actions';
+import { fetchVideo, fetchVideos, addView, createLike, updateLike, deleteLike } from '../../../actions/video_actions';
 import VideoShow from './video_show';
 import shuffle from '../../../util/shuffle';
 
@@ -26,7 +26,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     fetchVideo: (id) => dispatch(fetchVideo(id)),
     fetchVideos: () => dispatch(fetchVideos()),
-    addView: (id) => dispatch(addView(id))
+    addView: (id) => dispatch(addView(id)),
+    createLike: (videoId, like) => dispatch(createLike(videoId, like)),
+    updateLike: (videoId, userId, like) => dispatch(updateLike(videoId, userId, like)),
+    deleteLike: (id) => dispatch(deleteLike(id)),
   };
 };
 

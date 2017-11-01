@@ -1,4 +1,5 @@
 import * as ApiUtil from '../util/video_api_util';
+import * as LikeApiUtil from '../util/like_api_util';
 
 export const RECEIVE_VIDEOS = "RECEIVE_VIDEOS";
 export const RECEIVE_VIDEO = "RECEIVE_VIDEO";
@@ -59,4 +60,16 @@ export const deleteVideo = (id) => dispatch => {
 
 export const addView = (id) => dispatch => {
   return ApiUtil.addView(id).then(video => dispatch(receiveVideo(video)));
+};
+
+export const createLike = (videoId, like) => dispatch => {
+  return LikeApiUtil.createLike(videoId, like).then(video => dispatch(receiveVideo(video)));
+};
+
+export const updateLike = (videoId, userId, like) => dispatch => {
+  return LikeApiUtil.updateLike(videoId, userId, like).then(video => dispatch(receiveVideo(video)));
+};
+
+export const deleteLike = (id) => dispatch => {
+  return LikeApiUtil.deleteLike(id).then(video => dispatch(receiveVideo(video)));
 };

@@ -2,6 +2,8 @@ json.extract! user, :id, :username
 json.videoIds do
   json.array! user.videos.map{|video| video.id}
 end
-json.likeIds do
-  json.array! user.likes.map{|like| like.id}
+json.likes user.likes do |like|
+  json.id like.id
+  json.userId like.user_id
+  json.videoId like.video_id
 end
