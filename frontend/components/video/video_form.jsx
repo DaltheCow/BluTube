@@ -92,8 +92,8 @@ class VideoForm extends React.Component {
       'Uploaded time:', this.props.video.createdAt],[
       'Duration:', this.props.video.duration],[
       'Views:', this.props.video.viewCount],[
-      'Likes:', 0],[
-      'Dislikes:', 0],[
+      'Likes:', this.props.video.likes],[
+      'Dislikes:', this.props.video.dislikes],[
       'Comments:', 0]
     ] : (null);
 

@@ -50,16 +50,19 @@ class VideoShow extends React.Component {
   }
 
   handleLike(isLike) {
+    //don't really need to store likes or currentUserLikes in the global state, just put it in temporary state and change on promise
     if (!this.props.currentUser) {
       return;
     }
+    debugger
     if (this.props.video.currentUserLikes === 'N/A') {
       this.props.createLike(this.props.video.id, {like_value: isLike});
-    } else if (isLike === (this.props.video.currentUserLikes === 'true')) {
+    } else if (isLike === this.props.video.currentUserLikes) {
       const like = this.props.currentUser.likes.filter(like => like.videoId === this.props.video.id)[0];
       debugger
       this.props.deleteLike(like.id);
     } else {
+      debugger
       this.props.updateLike(this.props.video.id, this.props.currentUser.id, {like_value: isLike});
     }
     //if current user has no like
@@ -98,12 +101,12 @@ class VideoShow extends React.Component {
 
                   <div className="likes">
                     <i onClick={() => this.handleLike(true)} className="fa fa-thumbs-up"></i>
-                      <span>0</span>
+                      <span>{this.props.video.likes}</span>
                   </div>
 
                   <div className="dislikes">
                     <i onClick={() => this.handleLike(false)} className="fa fa-thumbs-down"></i>
-                    <span>0</span>
+                    <span>{this.props.video.dislikes}</span>
                   </div>
 
                 </div>
