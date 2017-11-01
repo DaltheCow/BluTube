@@ -12,8 +12,9 @@ class Api::LikesController < ApplicationController
 
   def update
     @user = current_user
-    @like = current_user.likes.find(params[:video_id])
-    if @like.update(params[:like][:like_value])
+    @like = current_user.likes.find_by(video_id: params[:video_id])
+    debugger
+    if @like.update(like_value: (params[:like][:like_value] == 'true'))
       render 'api/users/show'
     else
       render json: @like.errors.full_messages, status: 422
