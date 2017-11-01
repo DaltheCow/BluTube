@@ -1,9 +1,12 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import shuffle from '../../../util/shuffle';
 
 class VideoShow extends React.Component {
   constructor(props) {
     super(props);
+
+    this.videos = [];
   }
 
   componentDidMount() {
@@ -14,9 +17,10 @@ class VideoShow extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (newProps.video && newProps.video.videoUrl && newProps.video !== this.props.video){
+    if (newProps.video && this.props.video && newProps.video.videoUrl && newProps.video.id !== this.props.video.id){
       if (newProps.match.params.videoId !== this.props.match.params.videoId) {
         this.props.addView(newProps.video.id);
+        this.videos = shuffle(newProps.videos);
       }
       $("video").attr("src", newProps.video.videoUrl);
     }
@@ -57,7 +61,6 @@ class VideoShow extends React.Component {
     if (this.props.video.currentUsersLike.like_value === 'N/A') {
       this.props.createLike(this.props.video.id, {like_value: isLike});
     } else if (isLike === this.props.video.currentUsersLike.like_value) {
-      //need to get the like id
       const likeId = this.props.video.currentUsersLike.id;
       this.props.deleteLike(likeId);
     } else {
@@ -69,6 +72,7 @@ class VideoShow extends React.Component {
     const hasVideo = Boolean(this.props.video);
     const hasVideos = Boolean(this.props.videos);
     const vid = this.props.video;
+
     return (
       <div className="video-show">
         <div className="video-show-container">
@@ -93,13 +97,13 @@ class VideoShow extends React.Component {
                 <div className="likes-dislikes">
 
                   <div className="likes">
-                    <i onClick={() => this.handleLike(true)} className={`fa fa-thumbs-up ${this.props.video && this.props.video.currentUsersLike.like_value === true ? 'selected-thumb' : ''}`}></i>
-                      <span>{this.props.video.likes}</span>
+                    <i onClick={() => this.handleLike(true)} className={`fa fa-thumbs-up ${vid && vid.currentUsersLike && vid.currentUsersLike.like_value === true ? 'selected-thumb' : ''}`}></i>
+                      <span>{this.views(vid.likes)}</span>
                   </div>
 
                   <div className="dislikes">
-                    <i onClick={() => this.handleLike(false)} className={`fa fa-thumbs-down ${this.props.video && this.props.video.currentUsersLike.like_value === false ? 'selected-thumb' : ''}`}></i>
-                    <span>{this.props.video.dislikes}</span>
+                    <i onClick={() => this.handleLike(false)} className={`fa fa-thumbs-down ${vid && vid.currentUsersLike && vid.currentUsersLike.like_value === false ? 'selected-thumb' : ''}`}></i>
+                    <span>{this.views(vid.dislikes)}</span>
                   </div>
 
                 </div>
@@ -120,7 +124,7 @@ class VideoShow extends React.Component {
                     </div>
 
                   </div>
-                  { !this.props.currentUser.videoIds.includes(vid.id) ?
+                  {  !this.props.currentUser || !this.props.currentUser.videoIds.includes(vid.id) ?
                     (
                       <button className="subscribe">
                         <span className="sub">SUBSCRIBE </span>

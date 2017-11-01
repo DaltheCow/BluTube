@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import { fetchVideo, fetchVideos, addView, createLike, updateLike, deleteLike } from '../../../actions/video_actions';
 import VideoShow from './video_show';
-import shuffle from '../../../util/shuffle';
 
 //user needs access to all of their video ids
 const mapStateToProps = (state, ownProps) => {
   const newVideo = state.entities.videos[ownProps.match.params.videoId];
-  const UnfilteredVideos = shuffle(Object.values(state.entities.videos));
-  const filteredVideos = UnfilteredVideos.filter(video => video.id !== parseInt(ownProps.match.params.videoId));
+
+  // const UnfilteredVideos = shuffle(Object.values(state.entities.videos));
+  const filteredVideos = Object.values(state.entities.videos).filter(video => video.id !== parseInt(ownProps.match.params.videoId));
   const videos = filteredVideos
   .filter(video => {
     const videoIds = filteredVideos

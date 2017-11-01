@@ -18,8 +18,8 @@ end
 json.likes like_count
 json.dislikes dislike_count
 
-c_u_like = current_user.likes.find_by(video_id: video.id)
-if c_u_like
+c_u_like = current_user.likes.find_by(video_id: video.id) if logged_in?
+if logged_in? && c_u_like
   json.currentUsersLike do
     json.extract! c_u_like, :user_id, :video_id, :id, :like_value
   end

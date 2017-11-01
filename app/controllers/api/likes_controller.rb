@@ -7,7 +7,6 @@ class Api::LikesController < ApplicationController
       @video = Video.find(params[:video_id])
       render 'api/videos/show'
     else
-      # debugger
       render json: @like.errors.full_messages, status: 422
     end
   end
@@ -20,7 +19,6 @@ class Api::LikesController < ApplicationController
       @video = Video.find(params[:video_id])
       render 'api/videos/show'
     else
-      # debugger
       render json: @like.errors.full_messages, status: 422
     end
   end
@@ -29,7 +27,6 @@ class Api::LikesController < ApplicationController
     @like = Like.find(params[:id])
     @like.destroy
     @video = Video.find(@like.video_id)
-    # debugger
     render 'api/videos/show'
   end
 

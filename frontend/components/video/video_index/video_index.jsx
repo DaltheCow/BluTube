@@ -36,7 +36,6 @@ class VideoIndex extends React.Component {
   whenPosted(time) {
     const lapsed = Date.now() - time;
     const times = [60000, 60, 24, 7, 4, 12];
-    // debugger
     const timeAmounts = [1,2,3,4,5,6].
       map(int => Math.floor(lapsed / times.slice(0,int).reduce((tot, time) => tot * time)));
     const index = [timeAmounts[0], timeAmounts[1], timeAmounts[2], timeAmounts[3], timeAmounts[4], timeAmounts[5]].indexOf(0);
