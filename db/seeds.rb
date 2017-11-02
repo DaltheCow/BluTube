@@ -13,7 +13,7 @@ jomez = User.create!(username: 'JomezPro', password: 'discgolf')
 superman = User.create!(username: 'Superman', password: 'loislane')
 animalkingdom = User.create!(username: 'AnimalKingdom', password: 'skatpoop')
 homevideos = User.create!(username: 'HomeVideos', password: 'americasfuniest')
-movies = User.create!(username: 'HomeVideos', password: 'americasfuniest')
+movies = User.create!(username: 'movies', password: 'password')
 
 
 user1 = User.create!(username: 'user1', password: 'starwars')
@@ -35,18 +35,64 @@ user16 = User.create!(username: 'user16', password: 'starwars')
 user17 = User.create!(username: 'user17', password: 'starwars')
 user18 = User.create!(username: 'user18', password: 'starwars')
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Video.destroy_all
 
-video1 = Video.create!(title: , description: , video: , author_id: )
+# video = Video.create!(title: , description: , author_id: , video: )
 
 video1 = Video.create!(title: "Sortalot app demo", description: "This game isn't complete yet, this is just a demo version", video: 'https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Sortalot.mov', author_id: homevideos.id)
 
 video2 = Video.create!(title: 'Paul McBeth Disc Golf Hole In One - Texas States 2017 Round Two
 ', description: "Paul McBeth Disc Golf Hole In One Ace\r\nTexas States Disc Golf Championship 2017 Round Two\r\nHole 15 Milby Disc Golf Course Houston, Texas\r\nJomez Productions\r\n\rCamera: Chase Hayden\r\n\rGraphics by Overstable Studios",
-video: 'https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Paul+McBeth+Disc+Golf+Hole+In+One+-+Texas+States+2017+Round+Two.mp4
-', author_id: jomez.id)
+video: 'https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Paul+McBeth+Disc+Golf+Hole+In+One+-+Texas+States+2017+Round+Two.mp4', author_id: jomez.id)
 
 video3 = Video.create!(title: "Now THIS is as close to an ACE as you can get! | Paul McBeth", description: "Paul McBeth nearly aces Hole 5 at the Eureka Temp course in Round 3 of the 2017 Ledgestone Insurance Open.\r\n\rGraphics by Overstable Studios\r\n\rMusic by Starframe Audio", video: "https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Now+THIS+is+as+close+to+an+ACE+as+you+can+get!+-+Paul+McBeth.mp4", author_id: jomez.id)
+
+video4 = Video.create!(title: "When you're in that weird part of BluTube", description: "A worthy upload", author_id: movies.id, video:"https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/I_am_too_sexy_512kb.mp4")
+
+video5 = Video.create!(title: "Some llamas are in town", description: "All the animals are just hanging around\r\n\rWould you like to join them?\r\nWell come on down to farmer bob's farms and we will seat ya and have ya a real good dinner!", author_id: animalKingdom.id, video: "https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/SeveralAnimals.mp4" )
+
+video6 = Video.create!(title: "Sneak on the squirrel in the rubbish", description: "Well this little guy never knew what was coming did he!!!! LOLOL", author_id: animalKingdom.id, video: "https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20170422_191430.mp4")
+
+video7 = Video.create!(title: "My little cousin throwing a disc golf disc", description: "He pretty gud aye", author_id: homevideos.id, video: "https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20170622_123039.mp4")
+
+video8 = Video.create!(title: "Stare off with some cows", description: "Bondurant, WY (outside of Jackson Hole)", author_id: homevideos.id, video: "https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20170626_205230.mp4")
+
+video9 = Video.create!(title: "Little ferret too tired to move", description: "ain't she adorable", author_id: homevideos.id, video: "https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20170703_000056.mp4")
+
+# video = Video.create!(title: , description: , author_id: , video: )
+
+video = Video.create!(title: "Little ferret digging in the rice bucket", description: "Don't worry, it's exercise rice", author_id: homevideos.id , video: "https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20170724_220516.mp4")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Like.destroy_all
 
 Like.create!(user_id: user1.id, video_id: video1.id, like_value: true)
 Like.create!(user_id: user2.id, video_id: video1.id, like_value: true)
