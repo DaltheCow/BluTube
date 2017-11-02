@@ -6,22 +6,24 @@ import { AuthRoute, ProtectedRoute, ProtectedVideoRoute } from '../util/route_ut
 import VideoFormContainer from './video/video_form_container';
 import VideoShowContainer from './video/video_show/video_show_container';
 import VideoIndexContainer from './video/video_index/video_index_container';
+import Results from './video/video_search_results';
 
 const App = (props) => (
   <div>
     {!['/login', '/signup'].includes(props.location.pathname) ? (
       <header>
         <div className="under-nav"></div>
-        <Route path="/" component={NavBarContainer} />
+        <Route path="/" component={ NavBarContainer } />
       </header>
     ) : (null)}
     <Switch>
       <Route exact path="/videos/:videoId" component={ VideoShowContainer } />
       <Route exact path="/" component={ VideoIndexContainer } />
-      <AuthRoute exact path="/login" component={SessionFormContainer} />
-      <AuthRoute exact path="/signup" component={SessionFormContainer} />
-      <ProtectedRoute exact path="/upload" component={VideoFormContainer} />
-      <ProtectedVideoRoute exact path="/upload/:videoId/edit" component={VideoFormContainer} />
+      <Route exact path="/results" component={ Results } />
+      <AuthRoute exact path="/login" component={ SessionFormContainer } />
+      <AuthRoute exact path="/signup" component={ SessionFormContainer } />
+      <ProtectedRoute exact path="/upload" component={ VideoFormContainer } />
+      <ProtectedVideoRoute exact path="/upload/:videoId/edit" component={ VideoFormContainer } />
       <Route path="/" render={() => <Redirect to="/" />} />
     </Switch>
   </div>

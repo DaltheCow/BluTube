@@ -1,7 +1,9 @@
 import * as ApiUtil from '../util/video_api_util';
 import * as LikeApiUtil from '../util/like_api_util';
+import * as SearchApiUtil from '../util/search_api_util';
 
 export const RECEIVE_VIDEOS = "RECEIVE_VIDEOS";
+export const RECEIVE_SEARCH_VIDEOS = "RECEIVE_SEARCH_VIDEOS";
 export const RECEIVE_VIDEO = "RECEIVE_VIDEO";
 export const REMOVE_VIDEO = "REMOVE_VIDEO";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
@@ -15,6 +17,11 @@ const receiveVideos = (videos) => ({
 
 const receiveVideo = (video) => ({
   type: RECEIVE_VIDEO,
+  video
+});
+
+const receiveSearchVideos = (video) => ({
+  type: RECEIVE_SEARCH_VIDEOS,
   video
 });
 
@@ -72,4 +79,10 @@ export const updateLike = (videoId, userId, like) => dispatch => {
 
 export const deleteLike = (id) => dispatch => {
   return LikeApiUtil.deleteLike(id).then(video => dispatch(receiveVideo(video)));
+};
+
+export const sendSearch = (query) => dispatch => {
+  return SearchApiUtil.sendSearch(query).then(videos => {
+    return dispatch(receiveSearchVideos(videos));
+  });
 };

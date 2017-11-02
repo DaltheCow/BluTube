@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     resources :likes, only: [:destroy]
   end
 
+  namespace :api do
+    get 'search/:query', to: 'search#index'
+  end
+
 
   root "static_pages#root"
 end
