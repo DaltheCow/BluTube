@@ -12,10 +12,6 @@ const mapDispatchToProps = (dispatch) => ({
 
 class Results extends React.Component {
 
-  componentDidMount() {
-
-  }
-
   render() {
     return (
       <div>
@@ -23,9 +19,8 @@ class Results extends React.Component {
           return (
             <div>
               <div>{ video.title }</div>
-              <div>{ video.id }</div>
-              <div>{ video.description }</div>
               <div>{ video.author_id }</div>
+              <img src={ video.thumbnailUrl } className="search-thumbnail"/>
             </div>
           );
         })}

@@ -286,3 +286,8 @@
 .channel-info .description {
   margin: 20px 0 0 63px;
 }
+
+.channel-info .description > div {
+  min-height: 16px;
+  min-width: 1px;
+}

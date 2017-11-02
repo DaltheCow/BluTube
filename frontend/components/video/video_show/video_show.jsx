@@ -139,7 +139,9 @@ class VideoShow extends React.Component {
                 </div>
 
                 <div className="description">
-                  { console.log(vid) || vid.description}
+                  { vid.description && vid.description.split("\r").map(row => (
+                    <div style={{display: 'flex', flexDirection: 'column'}}>{ row }</div>
+                  )) }
                 </div>
 
               </div>
