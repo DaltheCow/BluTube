@@ -1,4 +1,7 @@
 class Video < ApplicationRecord
+  include PgSearch
+  multisearchable against: %i(title)
+  
   validates :title, :description, :author_id, presence: true
 
   has_attached_file :video,
@@ -21,5 +24,7 @@ class Video < ApplicationRecord
       self.duration = r[1].to_i*3600+r[2].to_i*60+r[3].to_i
     end
   end
+
+
 
 end

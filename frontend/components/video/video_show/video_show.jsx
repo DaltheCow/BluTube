@@ -124,7 +124,7 @@ class VideoShow extends React.Component {
                     </div>
 
                   </div>
-                  {  !this.props.currentUser || !this.props.currentUser.videoIds.includes(vid.id) ?
+                  { !this.props.currentUser || !this.props.currentUser.videoIds.includes(vid.id) ?
                     (
                       <button className="subscribe">
                         <span className="sub">SUBSCRIBE </span>
