@@ -20,9 +20,11 @@ class VideoShow extends React.Component {
     if (newProps.video && this.props.video && newProps.video.videoUrl && newProps.video.id !== this.props.video.id){
       if (newProps.match.params.videoId !== this.props.match.params.videoId) {
         this.props.addView(newProps.video.id);
-        this.videos = shuffle(newProps.videos);
       }
       $("video").attr("src", newProps.video.videoUrl);
+    }
+    if (this.videos.length < 1) {
+      this.videos = shuffle(newProps.videos);
     }
   }
 
@@ -49,6 +51,7 @@ class VideoShow extends React.Component {
   handleRedirect(id) {
     this.props.fetchVideo(id);
     this.props.fetchVideos();
+    this.videos = [];
     this.props.history.push(`/videos/${id}`);
     $('html,body').scrollTop(0);
   }
@@ -70,7 +73,7 @@ class VideoShow extends React.Component {
 
   render() {
     const hasVideo = Boolean(this.props.video);
-    const hasVideos = Boolean(this.props.videos);
+    const hasVideos = this.props.videos.length > 0;
     const vid = this.props.video;
 
     return (
@@ -156,7 +159,7 @@ class VideoShow extends React.Component {
           <div className="video-show-related-videos">
             <ul>
 
-              {hasVideos ? this.props.videos.map((video, i) => {
+              {hasVideos ? this.videos.map((video, i) => {
                 return (
                   <li key={i} className="related-vid-index-item">
 

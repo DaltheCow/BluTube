@@ -13,6 +13,7 @@ class NavBar extends React.Component {
     e.preventDefault();
     this.props.sendSearch(this.state.search).then(() => {
       this.props.history.push("/results");
+      this.setState({search: ""});
     });
   }
 
