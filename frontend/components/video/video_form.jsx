@@ -102,11 +102,13 @@ class VideoForm extends React.Component {
 
           <div className="video-upload-title-buttons-bar">
             <h1>{this.state.title}</h1>
+
             <div className="upload-btns">
               { this.state.loading && this.props.errors.length === 0 ? <div className="loader"></div>: (null)}
               { isEdit ? <button onClick={() => this.props.history.push(this.props.location.pathname)} className="cancel-btn">Cancel</button> : (null)}
               { isEdit || this.state.videoUrl ? <button onClick={this.handleSubmit.bind(this)} className="upload-btn">{isEdit ? 'Save Changes' : 'Publish'}</button> : (null)}
             </div>
+
           </div>
 
 
@@ -127,6 +129,7 @@ class VideoForm extends React.Component {
             <video src={this.state.videoUrl}  width="480" height="270" controls />
             {editReady ? (
               <div className="video-upload-form-information-container">
+
                 <h4 className="video-upload-form-information">VIDEO INFORMATION</h4>
                 <ul className="video-upload-form-information-list">
                   {videoInfo ? videoInfo.map((item, i) => {
@@ -138,6 +141,7 @@ class VideoForm extends React.Component {
                     );
                   }) : (null)}
                 </ul>
+
               </div>
             ) : (null)}
           </div>
@@ -157,12 +161,14 @@ class VideoForm extends React.Component {
               </ul>
 
               { this.props.errors.some(error => error.toLowerCase().includes('video') || error.includes('folder')) ? (
+
                 <div className="error-reset">
                   Was your file type invalid?
                   <button onClick={() => this.resetVideo()}>
                     Try again
                   </button>
                 </div>
+                
               ) : null }
 
               <textarea className="video-upload-form-input-description" type="text" placeholder="description" onChange={(e) => this.setState({["description"]: e.target.value})} value={this.state.description}/>
