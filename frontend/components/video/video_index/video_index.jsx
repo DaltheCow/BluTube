@@ -74,7 +74,7 @@ class VideoIndex extends React.Component {
                     {this.duration(video.duration)}
                   </div>
                 </div>
-
+                
                 <div className="index-title">{video.title}</div>
                 <div className="index-channel">{video.author.username}</div>
                 <div className="index-view-time">

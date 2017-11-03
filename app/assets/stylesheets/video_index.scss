@@ -110,3 +110,44 @@
 //   font-size: 14px;
 //   font-weight: lighter;
 // }
+
+.video-search {
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+.search-video-description {
+  color: #707070;
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.search-index-item a {
+  display: flex;
+}
+
+.search-index-item {
+  margin-left: 24px;
+  margin-bottom: 16px;
+}
+
+.search-thumbnail {
+  max-width: 246;
+  max-height: 147;
+}
+
+.search-info {
+  margin-left: 16px;
+}
+
+.search-title {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.search-channel {
+  padding-right: 8px;
+}
+
+.search-info-minus-desc {
+  margin-bottom: 16px;
+}
