@@ -13,6 +13,12 @@ class VideoIndex extends React.Component {
     this.props.fetchVideos();
   }
 
+  componentWillReceiveProps(newProps) {
+    if (newProps.filter.length > 0 && newProps.videos.length === 0) {
+      newProps.clearFilter();
+    }
+  }
+
   views(count) {
     return (
       count < 1000 ? count : (
@@ -55,39 +61,51 @@ class VideoIndex extends React.Component {
     return "less than 1 minute ago";
   }
 
+  handleFilter(filter) {
+    this.props.receiveFilter(filter);
+  }
+
   render() {
     const videos = this.props.videos;
 
     return(
-      <div className="video-index">
-        <div className="video-index-header">Look at All of These Videos!</div>
-        <ul className="video-index-list">
-        {videos ? videos.map((video, i) => {
-          return (
-            <li key={i} className="index-index-item">
+      <div className="video-and-filter">
+        <div className="video-filter">
+          <button onClick={() => this.handleFilter("viewCount")}>Most Viewed</button><span className="none">|</span>
+          <button onClick={() => this.handleFilter("duration")}>Longest</button><span className="none">|</span>
+          <button onClick={() => this.handleFilter("likes")}>likes</button><span className="none">|</span>
+          <button onClick={() => this.handleFilter("createdAtInt")}>newest</button>
+        </div>
+        <div className="video-index">
+          <div className="video-index-header">Look at All of These Videos!</div>
+          <ul className="video-index-list">
+          {videos ? videos.map((video, i) => {
+            return (
+              <li key={i} className="index-index-item">
 
-              <Link to={`/videos/${video.id}`} className="index-link">
+                <Link to={`/videos/${video.id}`} className="index-link">
 
-                <div className="index-img">
-                  <img className="index-thumbnail" src={video.thumbnailUrl} />
-                  <div className="index-duration">
-                    {this.duration(video.duration)}
+                  <div className="index-img">
+                    <img className="index-thumbnail" src={video.thumbnailUrl} />
+                    <div className="index-duration">
+                      {this.duration(video.duration)}
+                    </div>
                   </div>
-                </div>
-                
-                <div className="index-title">{video.title}</div>
-                <div className="index-channel">{video.author.username}</div>
-                <div className="index-view-time">
-                  <div className="index-viewcount">{this.views(video.viewCount)} views</div><span className="before-target"></span>
-                  <div>{this.whenPosted(video.createdAtInt)}</div>
-                </div>
 
-              </Link>
+                  <div className="index-title">{video.title}</div>
+                  <div className="index-channel">{video.author.username}</div>
+                  <div className="index-view-time">
+                    <div className="index-viewcount">{this.views(video.viewCount)} views</div><span className="before-target"></span>
+                    <div>{this.whenPosted(video.createdAtInt)}</div>
+                  </div>
 
-            </li>
-          );
-        }) : (null)}
-        </ul>
+                </Link>
+
+              </li>
+            );
+          }) : (null)}
+          </ul>
+        </div>
       </div>
     );
   }

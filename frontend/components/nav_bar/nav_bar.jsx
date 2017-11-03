@@ -29,12 +29,18 @@ class NavBar extends React.Component {
             <i className="fa fa-bars"></i>
           </li>
           <li className="nav-logo">
-            <Link to="/">
+            <Link to="/" onClick={(e) => {
+                e.preventDefault();
+                this.props.clearFilter();
+                this.props.history.push("/");}}>
               <img src="https://s3.amazonaws.com/blutube-dev/images/play_logo_small.png" />
             </Link>
           </li>
           <li className="nav-logo-text">
-            <Link to="/">
+            <Link to="/" onClick={(e) => {
+                e.preventDefault();
+                this.props.clearFilter();
+                this.props.history.push("/");}}>
               <span>Bl<div className="ut">uT</div>ube</span>
             </Link>
           </li>

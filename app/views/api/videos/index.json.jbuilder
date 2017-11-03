@@ -2,6 +2,7 @@
   json.set! video.id do
     json.extract! video, :id, :title, :duration
     json.viewCount video.view_count
+    json.likes video.likes.each.select{|like| like.like_value}.length
     date = video.created_at.to_formatted_s(:rfc822).split(' ')[1..3]
     fixed_date = "#{date[1]} #{date[0]}, #{date[2]}"
     json.createdAt fixed_date

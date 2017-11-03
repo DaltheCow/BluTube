@@ -10,5 +10,5 @@ export default combineReducers({
   errors: ErrorsReducer,
   entities: EntitiesReducer,
   search: SearchReducer,
-  filter: UIReducer
+  ui: UIReducer,
 });
