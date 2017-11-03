@@ -24,7 +24,7 @@ class VideoShow extends React.Component {
       $("video").attr("src", newProps.video.videoUrl);
     }
     if (this.videos.length < 1) {
-      this.videos = shuffle(newProps.videos);
+      this.videos = shuffle(newProps.videos).slice(0,20);
     }
   }
 

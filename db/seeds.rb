@@ -632,7 +632,6 @@ Like.create!(user_id: user56.id, video_id: video14.id, like_value: true)
 Like.create!(user_id: user57.id, video_id: video14.id, like_value: true)
 Like.create!(user_id: user58.id, video_id: video14.id, like_value: true)
 Like.create!(user_id: user59.id, video_id: video14.id, like_value: true)
-Like.create!(user_id: user59.id, video_id: video14.id, like_value: true)
 
 
 

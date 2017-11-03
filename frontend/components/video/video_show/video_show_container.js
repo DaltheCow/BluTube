@@ -13,8 +13,7 @@ const mapStateToProps = (state, ownProps) => {
     const videoIds = filteredVideos
       .map(video => video.id);
     return videoIds.indexOf(video.id) === videoIds.lastIndexOf(video.id);
-  })
-  .slice(0, 20);
+  });
   return {
     video: newVideo,
     currentUser: state.session.currentUser,
