@@ -51,7 +51,7 @@ class NavBar extends React.Component {
             <Link to="/upload"><i className="fa fa-upload"></i></Link>
           </li>
           <li className="nav-sign-in">
-            {this.props.signedIn ? (<button className="nav-sign-out" onClick={() => props.logout()}>SIGN OUT</button>) : (<Link className="nav-sign-in-link" to='/login'>SIGN IN</Link>)}
+            {this.props.signedIn ? (<button className="nav-sign-out" onClick={() => this.props.logout()}>SIGN OUT</button>) : (<Link className="nav-sign-in-link" to='/login'>SIGN IN</Link>)}
           </li>
         </ul>
       </div>
