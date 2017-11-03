@@ -7,121 +7,119 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-User.destroy_all
+# User.destroy_all
 
-demo = User.create!(username: 'demo', password: 'password')
+demo = User.find_by(username: 'demo')
 
-jomez = User.create!(username: 'JomezPro', password: 'discgolf')
-superman = User.create!(username: 'Superman', password: 'loislane')
-animalkingdom = User.create!(username: 'AnimalKingdom', password: 'skatpoop')
-homevideos = User.create!(username: 'HomeVideos', password: 'americasfuniest')
-movies = User.create!(username: 'movies', password: 'password')
-
-
+jomez = User.find_by(username: 'JomezPro')
+superman = User.find_by(username: 'Supermam')
+animalkingdom = User.find_by(username: 'AnimalKingdom')
+homevideos = User.find_by(username: 'HomeVideos')
+movies = User.find_by(username: 'movies')
 
 
-user1 = User.create!(username: 'user1', password: 'starwars')
-user2 = User.create!(username: 'user2', password: 'starwars')
-user3 = User.create!(username: 'user3', password: 'starwars')
-user4 = User.create!(username: 'user4', password: 'starwars')
-user5 = User.create!(username: 'user5', password: 'starwars')
-user6 = User.create!(username: 'user6', password: 'starwars')
-user7 = User.create!(username: 'user7', password: 'starwars')
-user8 = User.create!(username: 'user8', password: 'starwars')
-user9 = User.create!(username: 'user9', password: 'starwars')
-user10 = User.create!(username: 'user10', password: 'starwars')
-user11 = User.create!(username: 'user11', password: 'starwars')
-user12 = User.create!(username: 'user12', password: 'starwars')
-user13 = User.create!(username: 'user13', password: 'starwars')
-user14 = User.create!(username: 'user14', password: 'starwars')
-user15 = User.create!(username: 'user15', password: 'starwars')
-user16 = User.create!(username: 'user16', password: 'starwars')
-user17 = User.create!(username: 'user17', password: 'starwars')
-user18 = User.create!(username: 'user18', password: 'starwars')
-user19 = User.create!(username: 'user19', password: 'starwars')
-user20 = User.create!(username: 'user20', password: 'starwars')
-user21 = User.create!(username: 'user21', password: 'starwars')
-user22 = User.create!(username: 'user22', password: 'starwars')
-user23 = User.create!(username: 'user23', password: 'starwars')
-user24 = User.create!(username: 'user24', password: 'starwars')
-user25 = User.create!(username: 'user25', password: 'starwars')
-user26 = User.create!(username: 'user26', password: 'starwars')
-user27 = User.create!(username: 'user27', password: 'starwars')
-user28 = User.create!(username: 'user28', password: 'starwars')
-user29 = User.create!(username: 'user29', password: 'starwars')
-user30 = User.create!(username: 'user30', password: 'starwars')
-user31 = User.create!(username: 'user31', password: 'starwars')
-user32 = User.create!(username: 'user32', password: 'starwars')
-user33 = User.create!(username: 'user33', password: 'starwars')
-user34 = User.create!(username: 'user34', password: 'starwars')
-user35 = User.create!(username: 'user35', password: 'starwars')
-user36 = User.create!(username: 'user36', password: 'starwars')
-user37 = User.create!(username: 'user37', password: 'starwars')
-user38 = User.create!(username: 'user38', password: 'starwars')
-user39 = User.create!(username: 'user39', password: 'starwars')
-user40 = User.create!(username: 'user40', password: 'starwars')
-user41 = User.create!(username: 'user41', password: 'starwars')
-user42 = User.create!(username: 'user42', password: 'starwars')
-user43 = User.create!(username: 'user43', password: 'starwars')
-user44 = User.create!(username: 'user44', password: 'starwars')
-user45 = User.create!(username: 'user45', password: 'starwars')
-user46 = User.create!(username: 'user46', password: 'starwars')
-user47 = User.create!(username: 'user47', password: 'starwars')
-user48 = User.create!(username: 'user48', password: 'starwars')
-user49 = User.create!(username: 'user49', password: 'starwars')
-user50 = User.create!(username: 'user50', password: 'starwars')
-user51 = User.create!(username: 'user51', password: 'starwars')
-user52 = User.create!(username: 'user52', password: 'starwars')
-user53 = User.create!(username: 'user53', password: 'starwars')
-user54 = User.create!(username: 'user54', password: 'starwars')
-user55 = User.create!(username: 'user55', password: 'starwars')
-user56 = User.create!(username: 'user56', password: 'starwars')
-user57 = User.create!(username: 'user57', password: 'starwars')
-user58 = User.create!(username: 'user58', password: 'starwars')
-user59 = User.create!(username: 'user59', password: 'starwars')
-user60 = User.create!(username: 'user60', password: 'starwars')
-user61 = User.create!(username: 'user61', password: 'starwars')
-user62 = User.create!(username: 'user62', password: 'starwars')
-user63 = User.create!(username: 'user63', password: 'starwars')
-user64 = User.create!(username: 'user64', password: 'starwars')
-user65 = User.create!(username: 'user65', password: 'starwars')
-user66 = User.create!(username: 'user66', password: 'starwars')
-user67 = User.create!(username: 'user67', password: 'starwars')
-user68 = User.create!(username: 'user68', password: 'starwars')
-user69 = User.create!(username: 'user69', password: 'starwars')
-user70 = User.create!(username: 'user70', password: 'starwars')
-user71 = User.create!(username: 'user71', password: 'starwars')
-user72 = User.create!(username: 'user72', password: 'starwars')
-user73 = User.create!(username: 'user73', password: 'starwars')
-user74 = User.create!(username: 'user74', password: 'starwars')
-user75 = User.create!(username: 'user75', password: 'starwars')
-user76 = User.create!(username: 'user76', password: 'starwars')
-user77 = User.create!(username: 'user77', password: 'starwars')
-user78 = User.create!(username: 'user78', password: 'starwars')
-user79 = User.create!(username: 'user79', password: 'starwars')
-user80 = User.create!(username: 'user80', password: 'starwars')
-user81 = User.create!(username: 'user81', password: 'starwars')
-user82 = User.create!(username: 'user82', password: 'starwars')
-user83 = User.create!(username: 'user83', password: 'starwars')
-user84 = User.create!(username: 'user84', password: 'starwars')
-user85 = User.create!(username: 'user85', password: 'starwars')
-user86 = User.create!(username: 'user86', password: 'starwars')
-user87 = User.create!(username: 'user87', password: 'starwars')
-user88 = User.create!(username: 'user88', password: 'starwars')
-user89 = User.create!(username: 'user89', password: 'starwars')
-user90 = User.create!(username: 'user90', password: 'starwars')
-user91 = User.create!(username: 'user91', password: 'starwars')
-user92 = User.create!(username: 'user92', password: 'starwars')
-user93 = User.create!(username: 'user93', password: 'starwars')
-user94 = User.create!(username: 'user94', password: 'starwars')
-user95 = User.create!(username: 'user95', password: 'starwars')
-user96 = User.create!(username: 'user96', password: 'starwars')
-user97 = User.create!(username: 'user97', password: 'starwars')
-user98 = User.create!(username: 'user98', password: 'starwars')
-user99 = User.create!(username: 'user99', password: 'starwars')
-user100 = User.create!(username: 'user100', password: 'starwars')
 
 
+user1 = User.find_by(username: 'user1',)
+user2 = User.find_by(username: 'user2',)
+user3 = User.find_by(username: 'user3',)
+user4 = User.find_by(username: 'user4',)
+user5 = User.find_by(username: 'user5',)
+user6 = User.find_by(username: 'user6',)
+user7 = User.find_by(username: 'user7',)
+user8 = User.find_by(username: 'user8',)
+user9 = User.find_by(username: 'user9',)
+user10 = User.find_by(username: 'user10')
+user11 = User.find_by(username: 'user11')
+user12 = User.find_by(username: 'user12')
+user13 = User.find_by(username: 'user13')
+user14 = User.find_by(username: 'user14')
+user15 = User.find_by(username: 'user15')
+user16 = User.find_by(username: 'user16')
+user17 = User.find_by(username: 'user17')
+user18 = User.find_by(username: 'user18')
+user19 = User.find_by(username: 'user19')
+user20 = User.find_by(username: 'user20')
+user21 = User.find_by(username: 'user21')
+user22 = User.find_by(username: 'user22')
+user23 = User.find_by(username: 'user23')
+user24 = User.find_by(username: 'user24')
+user25 = User.find_by(username: 'user25')
+user26 = User.find_by(username: 'user26')
+user27 = User.find_by(username: 'user27')
+user28 = User.find_by(username: 'user28')
+user29 = User.find_by(username: 'user29')
+user30 = User.find_by(username: 'user30')
+user31 = User.find_by(username: 'user31')
+user32 = User.find_by(username: 'user32')
+user33 = User.find_by(username: 'user33')
+user34 = User.find_by(username: 'user34')
+user35 = User.find_by(username: 'user35')
+user36 = User.find_by(username: 'user36')
+user37 = User.find_by(username: 'user37')
+user38 = User.find_by(username: 'user38')
+user39 = User.find_by(username: 'user39')
+user40 = User.find_by(username: 'user40')
+user41 = User.find_by(username: 'user41')
+user42 = User.find_by(username: 'user42')
+user43 = User.find_by(username: 'user43')
+user44 = User.find_by(username: 'user44')
+user45 = User.find_by(username: 'user45')
+user46 = User.find_by(username: 'user46')
+user47 = User.find_by(username: 'user47')
+user48 = User.find_by(username: 'user48')
+user49 = User.find_by(username: 'user49')
+user50 = User.find_by(username: 'user50')
+user51 = User.find_by(username: 'user51')
+user52 = User.find_by(username: 'user52')
+user53 = User.find_by(username: 'user53')
+user54 = User.find_by(username: 'user54')
+user55 = User.find_by(username: 'user55')
+user56 = User.find_by(username: 'user56')
+user57 = User.find_by(username: 'user57')
+user58 = User.find_by(username: 'user58')
+user59 = User.find_by(username: 'user59')
+user60 = User.find_by(username: 'user60')
+user61 = User.find_by(username: 'user61')
+user62 = User.find_by(username: 'user62')
+user63 = User.find_by(username: 'user63')
+user64 = User.find_by(username: 'user64')
+user65 = User.find_by(username: 'user65')
+user66 = User.find_by(username: 'user66')
+user67 = User.find_by(username: 'user67')
+user68 = User.find_by(username: 'user68')
+user69 = User.find_by(username: 'user69')
+user70 = User.find_by(username: 'user70')
+user71 = User.find_by(username: 'user71')
+user72 = User.find_by(username: 'user72')
+user73 = User.find_by(username: 'user73')
+user74 = User.find_by(username: 'user74')
+user75 = User.find_by(username: 'user75')
+user76 = User.find_by(username: 'user76')
+user77 = User.find_by(username: 'user77')
+user78 = User.find_by(username: 'user78')
+user79 = User.find_by(username: 'user79')
+user80 = User.find_by(username: 'user80')
+user81 = User.find_by(username: 'user81')
+user82 = User.find_by(username: 'user82')
+user83 = User.find_by(username: 'user83')
+user84 = User.find_by(username: 'user84')
+user85 = User.find_by(username: 'user85')
+user86 = User.find_by(username: 'user86')
+user87 = User.find_by(username: 'user87')
+user88 = User.find_by(username: 'user88')
+user89 = User.find_by(username: 'user89')
+user90 = User.find_by(username: 'user90')
+user91 = User.find_by(username: 'user91')
+user92 = User.find_by(username: 'user92')
+user93 = User.find_by(username: 'user93')
+user94 = User.find_by(username: 'user94')
+user95 = User.find_by(username: 'user95')
+user96 = User.find_by(username: 'user96')
+user97 = User.find_by(username: 'user97')
+user98 = User.find_by(username: 'user98')
+user99 = User.find_by(username: 'user99')
+user100 = User.find_by(username: 'user100')
 
 
 
@@ -131,107 +129,325 @@ user100 = User.create!(username: 'user100', password: 'starwars')
 
 
 
-Video.destroy_all
+
+
+# Video.destroy_all
 
 # video = Video.create!(title: , description: , author_id: , video: )
 
-video1 = Video.create!(title: "Sortalot app demo", description: "This game isn't complete yet, this is just a demo version", video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Sortalot.mov"), author_id: homevideos.id)
+video1 = Video.find_by(title: "Sortalot app demo")
 
-video2 = Video.create!(title: 'Paul McBeth Disc Golf Hole In One - Texas States 2017 Round Two
-', description: "Paul McBeth Disc Golf Hole In One Ace\r\nTexas States Disc Golf Championship 2017 Round Two\r\nHole 15 Milby Disc Golf Course Houston, Texas\r\nJomez Productions\r\n\rCamera: Chase Hayden\r\n\rGraphics by Overstable Studios",
-video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Paul+McBeth+Disc+Golf+Hole+In+One+-+Texas+States+2017+Round+Two.mp4"), author_id: jomez.id, view_count: 64014)
+video2 = Video.find_by(title: 'Paul McBeth Disc Golf Hole In One - Texas States 2017 Round Two') jomez.id, view_count: 64014)
 
-video3 = Video.create!(title: "Now THIS is as close to an ACE as you can get! | Paul McBeth", description: "Paul McBeth nearly aces Hole 5 at the Eureka Temp course in Round 3 of the 2017 Ledgestone Insurance Open.\r\n\rGraphics by Overstable Studios\r\n\rMusic by Starframe Audio", video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Now+THIS+is+as+close+to+an+ACE+as+you+can+get!+-+Paul+McBeth.mp4"), author_id: jomez.id, view_count: 82492)
+video3 = Video.find_by(title: "Now THIS is as close to an ACE as you can get! | Paul McBeth")
 
-video5 = Video.create!(title: "Some llamas are in town", description: "All the animals are just hanging around\r\n\rWould you like to join them?\r\nWell come on down to farmer bob's farms and we will seat ya and have ya a real good dinner!", author_id: animalkingdom.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/SeveralAnimals.mp4") )
+video5 = Video.find_by(title: "Some llamas are in town")
 
-video6 = Video.create!(title: "Sneak on the squirrel in the rubbish", description: "Well this little guy never knew what was coming did he!!!! LOLOL", author_id: animalkingdom.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20170422_191430.mp4"))
+video6 = Video.find_by(title: "Sneak on the squirrel in the rubbish")
 
-video7 = Video.create!(title: "My little cousin throwing a disc golf disc", description: "He pretty gud aye", author_id: homevideos.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20170622_123039.mp4"))
+video7 = Video.find_by(title: "My little cousin throwing a disc golf disc")
 
-video8 = Video.create!(title: "Stare off with some cows", description: "Bondurant, WY (outside of Jackson Hole)", author_id: animalkingdom.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20170626_205230.mp4"))
+video8 = Video.find_by(title: "Stare off with some cows")
 
-video9 = Video.create!(title: "Little ferret too tired to move", description: "ain't she adorable", author_id: animalkingdom.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20170703_000056.mp4"))
+video9 = Video.find_by(title: "Little ferret too tired to move")
 
-video10 = Video.create!(title: "Little ferret digging in the rice bucket", description: "Don't worry, it's exercise rice", author_id: animalkingdom.id , video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20170724_220516.mp4"))
+video10 = Video.find_by(title: "Little ferret digging in the rice bucket")
 
-video11 = Video.create!(title: "Little ferret roams the wilds of the grass", description: "Don't worry little ferret, you'll always make your way back home", author_id: animalkingdom.id , video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20171007_171131.mp4"))
+video11 = Video.find_by(title: "Little ferret roams the wilds of the grass")
 
-video12 = Video.create!(title: "Little ferret digging in the rocks", description: "Little ferret found a nice spot", author_id: animalkingdom.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20171007_171540.mp4"))
+video12 = Video.find_by(title: "Little ferret digging in the rocks")
 
-video13 = Video.create!(title: "Little ferret trying to make a hole", description: "Little ferret at it again I guess...Always with the digger", author_id: animalkingdom.id , video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20171007_171712.mp4"))
+video13 = Video.find_by(title: "Little ferret trying to make a hole")
 
-video14 = Video.create!(title: "2017 Memorial Championship | Final Round, Pt1 | Wysocki, McBeth, Lizotte, Sexton
-" , description: "Jomez Productions in association with Disc Golf Pro Tour, Discraft, and Overstable Studios presents coverage of the 2017 Memorial Championship MPO.\r\n\rCommentary by Nate Sexton and Paul McBeth\r\n\rFeaturing:\r\nRicky Wysocki\r\nPaul McBeth\r\nSimon Lizotte\r\nNate Sexton", author_id: jomez.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/2017+Memorial+Championship+-+Final+Round%2C+Pt1+-+Wysocki%2C+McBeth%2C+Lizotte%2C+Sexton.mp4"), view_count: 199797)
+video14 = Video.find_by(title: "2017 Memorial Championship | Final Round, Pt1 | Wysocki, McBeth, Lizotte, Sexton" )
 
 
-video15 = Video.create!(title: "2017 PDGA Pro Worlds | Final Round, Front 9 | Wysocki, Lizotte, McCray, Hammes", description: "Jomez Productions in association with Innova Champion Discs, the Professional Disc Golf Association, and Overstable Studios presents Final Round MPO Lead Card coverage of the 2017 PDGA Professional Disc Golf World Championships.\r\n\rCommentary by Jeremy Koling and Steve Hill\r\n\rFeaturing:\r\nRicky Wysocki\r\nSimon Lizotte\r\nJohnE McCray\r\nAdam Hammes", author_id: jomez.id, view_count: 110668, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/2017+PDGA+Pro+Worlds+-+Final+Round%2C+Front+9+-+Wysocki%2C+Lizotte%2C+McCray%2C+Hammes.mp4"))
+video15 = Video.find_by(title: "2017 PDGA Pro Worlds | Final Round, Front 9 | Wysocki, Lizotte, McCray, Hammes")
 
-video16 = Video.create!(title: "2017 PDGA Pro Worlds | Final 9 | Wysocki, Lizotte, McCray, Hammes", description: "Jomez Productions in association with Innova Champion Discs, the Professional Disc Golf Association, and Overstable Studios presents Final Round MPO Lead Card coverage of the 2017 PDGA Professional Disc Golf World Championships.\r\n\rCommentary by Jeremy Koling and Steve Hill\r\n\rFeaturing:\r\nRicky Wysocki\r\nSimon Lizotte\r\nJohnE McCray\r\nAdam Hammes", author_id: jomez.id, view_count: 110514, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/2017+PDGA+Pro+Worlds+-+Final+9+-+Wysocki%2C+Lizotte%2C+McCray%2C+Hammes.mp4"))
+video16 = Video.find_by(title: "2017 PDGA Pro Worlds | Final 9 | Wysocki, Lizotte, McCray, Hammes")
 
-video17 = Video.create!(title: "Little ferret big rocks", description: "Little ferret goes to town on the big rocks\r\n\rThis is the next installment in the Little ferret series\r\n\rIf you'd like to see more then please subscribe!!", author_id: animalkingdom.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20171007_173202.mp4"))
+video17 = Video.find_by(title: "Little ferret big rocks")
 
-video18 = Video.create!(title: "Little ferret big NatGeo?", description: "Little ferret performs an exhilierating search of the forest.\r\n\r", author_id: animalkingdom.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20171007_173801.mp4"))
-
-
-video19 = Video.create!(title: "ACE! Philo Brathwaite #SCTOP10", description: "Philo Brathwaite hits an ACE that landed him on SportsCenter Top10 at #8! Hole 12 (177ft) at R.L. Smith in Charlotte, NC at the 4th Annual 21 Hole Salute Presented By Dynamic Discs. Coverage also made possible by Final Round Radio.\r\n\rFor permission to use this video please contact us at: jomezprod(at)gmail.com", author_id: jomez.id, view_count: 39884, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/ACE!+Philo+Brathwaite+%23SCTOP10.mp4"))
-
-video20 = Video.create!(title: "Basket Dash - Series Premiere | Ep1 | Discmania / Innova / Dynamic", description: "We are proud to present the series premiere of the Jomez Pro Basket Dash in association with BlackInkDiscs.com!\r\n\rWe’ve brought together your favorite Disc Golf Pros to test their skills in a unique way never seen before. \r\n\rTeam Dynamic:\r\nEric Oakley\r\nDrew Gibson\r\nPaige Pierce\r\n\rTeam Discmania:\r\nSimon Lizotte\r\nNate Perkins\r\nEagle McMahon\r\n\rTeam Innova:\r\nPaul McBeth\r\nNate Sexton\r\nJeremy Koling\r\n\rOur first episode brings us to Moraine State Park in Pittsburgh, Pennsylvania. Home of the Pittsburgh Flying Disc Open and the 2015 PDGA Pro World Championships. \r\n\rStay Tuned for our next episode, coming soon, from Smuggs DGC in Smuggler’s Notch, Vermont. Home of the Green Mountain Championship!", author_id: jomez.id, view_count: 39067, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Basket+Dash+-+Series+Premiere+-+Ep1+-+Discmania+-+Innova+-+Dynamic.mp4"))
-
-video21 = Video.create!(title: "Eagle vs Simon Trick Shot | Top of the Tower Disc Golf", description: "Eagle McMahon and Simon Lizotte battle to see who can hit the top of the water tower at Lake Eureka after the 2015 Ledgestone Open. After many unsuccessful attempts they end up both hitting it back to back!", author_id: jomez.id , view_count: 18960, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Eagle+vs+Simon+Trick+Shot+-+Top+of+the+Tower+Disc+Golf.mp4"))
+video18 = Video.find_by(title: "Little ferret big NatGeo?")
 
 
-video22 = Video.create!(title: "GBO 2015 Final Round | McBeth,McMahon,Schusterick,Feldberg", description: "Full Coverage of the Final Round MPO Lead Card at the 2015 Glass Blown Open by Dynamic Discs in Emporia, Kansas. Played at the Emporia Country Club Course. Featuring Paul McBeth, Eagle McMahon, Will Schusterick, and David Feldberg. 2015 Jomez Productions Disc Golf", author_id: jomez.id, view_count: 277869, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/GBO+2015+Final+Round+-+McBeth%2CMcMahon%2CSchusterick%2CFeldberg.mp4") )
+video19 = Video.find_by(title: "ACE! Philo Brathwaite #SCTOP10")
+
+video20 = Video.find_by(title: "Basket Dash - Series Premiere | Ep1 | Discmania / Innova / Dynamic")
+
+video21 = Video.find_by(title: "Eagle vs Simon Trick Shot | Top of the Tower Disc Golf")
 
 
-video23 = Video.create!(title: "GBO 2016 Final Round | McBeth,Todd,Wysocki,Wegryn", description: "Jomez Productions presents MPO coverage of the 2016 Glass Blown Open. This final round lead card includes Paul McBeth, Cameron Todd, Ricky Wysocki, and Nate Wegryn. Played at Emporia Country Club in Emporia, Kansas. Commentary provided by Jomez & Ian of Central Coast Disc Golf. Jomez Productions Disc Golf 2016", author_id: jomez.id, view_count: 205586, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/GBO+2016+Final+Round+-+McBeth%2CTodd%2CWysocki%2CWegryn.mp4"))
-
-video24 = Video.create!(title: "Check out this wild looking duck!", description: "We have all of the greatest in crazy animals.\r\nWe upload at least once at some time or another.", author_id: animalkingdom.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Multicolor_Duck.mpeg"))
-
-video25 = Video.create!(title: "Never Been Hit: Catch Cam Chronicles", description: "The life of a Disc Golf coverage catch cam operator isn't easy. One must always been in the line of fire in order to catch the perfect angle as the world's top professionals hurl chunks of plastic toward the chains in their quest for birdies.\r\n\r\nOver the past few years, Michael has had some VERY close calls, but to this day has NEVER been hit! He has an incredible sixth sense about him that allows him to avoid contact with the discs while maintaining his composure and getting some great shots.\r\n\r\nThis is a small glimpse into the life of a catch cam operator.\r\n\r\nJomez Productions Disc Golf 2017\r\n\r\nPlastic Hurlers:\r\nPaul McBeth\r\nRicky Wysocki\r\nNate Sexton\r\nSimon Lizotte\r\nEagle McMahon\r\nJeremy Koling\r\nJohne McCray\r\nWill Schusterick\r\nPhilo Brathwaite\r\nNikko Locastro" , author_id: jomez.id, view_count: 25616, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Never+Been+Hit-+Catch+Cam+Chronicles.mp4"))
-
-# video = Video.create!(title: , description: , author_id: , view_count: , video: )
-
-video26 = Video.create!(title: "Night Of The Living Dead - 1968", description: "There is panic throughout the nation as the dead suddenly come back to life. The film follows a group of characters who barricade themselves in an old farmhouse in an attempt to remain safe from these bloodthirsty, flesh-eating monsters.", author_id: movies.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Night-Of-The-Living-Dead-1968.mp4"))
-
-video27 = Video.create!(title: "Paul McBeth 1st World Title | 2012 Worlds Final 9 | Schusterick,Wysocki,Johansen", description: "2012 PDGA World Championships - MPO Final 9 featuring Paul McBeth, Ricky Wysocki, Will Schusterick and Michael Johansen. Held in Charlotte, NC. Jomez Productions Disc Golf\r\n\rCamera and Editing by Jonathan Gomez\r\nMusic by Michael Fouche", author_id: jomez.id, view_count: 249920, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Paul+McBeth+1st+World+Title+-+2012+Worlds+Final+9+-+Schusterick%2CWysocki%2CJohansen.mp4"))
-
-video28 = Video.create!(title: "Superman Episode 1 The Mad Scientist", description: "The Man of Steel fights a mad scientist who is destroying Metropolis with an energy cannon.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+1+The+Mad+Scientist.ogv"))
-
-video29 = Video.create!(title: "Superman Episode 10 Japoteurs", description: "Superman vs. Japanese spies hijacking a new super-bomber.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+10+Japoteurs.ogv"))
-
-video30 = Video.create!(title: "Superman Episode 11 Showdown", description: "Oh no! A crook dressed as Superman commits a series of robberies. The real Superman must work fast to counter the bad publicity.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+11+Showdown.ogv"))
-
-video31 = Video.create!(title: "Superman Episode 12 Eleventh Hour", description: "While Clark Kent is in wartime Japan, Superman becomes a saboteur.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+12++Eleventh+Hour.ogv"))
-
-video32 = Video.create!(title: "Superman Episode 13 Destruction Inc.", description: "Superman versus saboteurs at the Metropolis Munitions Plant.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+13+Destruction+Inc..ogv"))
-
-video33 = Video.create!(title: "Superman Episode 14 The Mummy Strikes", description: "While investigating an egyptologist's mysterious death, Superman must battle dangerous mummies.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+14+The+Mummy+Strikes.ogv"))
-
-video34 = Video.create!(title: "Superman Episode 15 Jungle Drums", description: "Superman vs. a secret Nazi outpost disguised as a jungle temple.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+15+Jungle+Drums.ogv"))
-
-video35 = Video.create!(title: "Superman Episode 16 The Underground World", description: "Lois Lane and an explorer set out on an expedition through an underground cavern and discover a race of hawk-men. When these creatures prepare a ritual sacrifice for the adventurous pair, Superman comes to the rescue.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+16+The+Underground+World.ogv"))
-
-video36 = Video.create!(title: "Superman Episode 17 Secret Agent", description: "Superman battles saboteurs determined to stop a lady double agent from getting important documents to Washington D.C.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+17+Secret+Agent.ogv"))
-
-video37 = Video.create!(title: "Superman Episode 2 The Mechanical Monsters", description: "Superman battles a criminal mastermind and his robot army.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+2+The+Mechanical+Monsters.ogv"))
+video22 = Video.find_by(title: "GBO 2015 Final Round | McBeth,McMahon,Schusterick,Feldberg")
 
 
-video38 = Video.create!(title: "Superman Episode 3 Billion Dollar Limited", description: "Superman battles train robbers seeking to steal a billion dollars worth of gold.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+3+Billion+Dollar+Limited.ogv"))
+video23 = Video.find_by(title: "GBO 2016 Final Round | McBeth,Todd,Wysocki,Wegryn")
 
-video39 = Video.create!(title: "Superman Episode 4 The Artic Giant", description: "Superman versus a thawed-out Tyrannosaurus.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+4+The+Artic+Giant.ogv"))
+video24 = Video.find_by(title: "Check out this wild looking duck!")
 
-video40 = Video.create!(title: "Superman Episode 5 The Bulleteers", description: "Superman versus extortionists with a super-powerful rocket car. ", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+5+The+Bulleteers.ogv"))
+video25 = Video.find_by(title: "Never Been Hit: Catch Cam Chronicles")
 
-video41 = Video.create!(title: "Superman Episode 6 The Magnetic Telescope", description: "When police interfere with a reckless scientist's experiment, it creates a deadly meteor shower only Superman can stop.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+6+The+Magnetic+Telescope.ogv"))
+video26 = Video.find_by(title: "Night Of The Living Dead - 1968")
 
-video42 = Video.create!(title: "Superman Episode 7 Electric Earthquake", description: "Superman versus a fanatical extortionist with an earthquake machine.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+7+Electric+Earthquake.ogv"))
+video27 = Video.find_by(title: "Paul McBeth 1st World Title | 2012 Worlds Final 9 | Schusterick,Wysocki,Johansen")
 
-video43 = Video.create!(title: "Superman Episode 8 Volcano", description: "Superman must face the threat of an erupting volcano.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+8+Volcano.ogv"))
+video28 = Video.find_by(title: "Superman Episode 1 The Mad Scientist")
 
-video44 = Video.create!(title: "Superman Episode 9 Terror On The Midway", description: "When the circus' animals escape and threaten disaster, Superman must take action.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+9+Terror+On+The+Midway.ogv"))
+video29 = Video.find_by(title: "Superman Episode 10 Japoteurs")
 
-video45 = Video.create!(title: "The Shootist (1976) Trailer", description: "The Shootist (1976) Trailer\r\nDirector: Don Siegel\r\nJohn Wayne, Lauren Bacall, Ron Howard, James Stewart", author_id: movies.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/The+Shootist+(1976)+Trailer.mp3"))
+video30 = Video.find_by(title: "Superman Episode 11 Showdown")
+
+video31 = Video.find_by(title: "Superman Episode 12 Eleventh Hour")
+
+video32 = Video.find_by(title: "Superman Episode 13 Destruction Inc.")
+
+video33 = Video.find_by(title: "Superman Episode 14 The Mummy Strikes")
+
+video34 = Video.find_by(title: "Superman Episode 15 Jungle Drums")
+
+video35 = Video.find_by(title: "Superman Episode 16 The Underground World")
+
+video36 = Video.find_by(title: "Superman Episode 17 Secret Agent")
+
+video37 = Video.find_by(title: "Superman Episode 2 The Mechanical Monsters")
+
+
+video38 = Video.find_by(title: "Superman Episode 3 Billion Dollar Limited")
+
+video39 = Video.find_by(title: "Superman Episode 4 The Artic Giant")
+
+video40 = Video.find_by(title: "Superman Episode 5 The Bulleteers")
+
+video41 = Video.find_by(title: "Superman Episode 6 The Magnetic Telescope")
+
+video42 = Video.find_by(title: "Superman Episode 7 Electric Earthquake")
+
+video43 = Video.find_by(title: "Superman Episode 8 Volcano")
+
+video44 = Video.find_by(title: "Superman Episode 9 Terror On The Midway")
+
+
+# demo = User.create!(username: 'demo', password: 'password')
+#
+# jomez = User.create!(username: 'JomezPro', password: 'discgolf')
+# superman = User.create!(username: 'Superman', password: 'loislane')
+# animalkingdom = User.create!(username: 'AnimalKingdom', password: 'skatpoop')
+# homevideos = User.create!(username: 'HomeVideos', password: 'americasfuniest')
+# movies = User.create!(username: 'movies', password: 'password')
+#
+#
+#
+#
+# user1 = User.create!(username: 'user1', password: 'starwars')
+# user2 = User.create!(username: 'user2', password: 'starwars')
+# user3 = User.create!(username: 'user3', password: 'starwars')
+# user4 = User.create!(username: 'user4', password: 'starwars')
+# user5 = User.create!(username: 'user5', password: 'starwars')
+# user6 = User.create!(username: 'user6', password: 'starwars')
+# user7 = User.create!(username: 'user7', password: 'starwars')
+# user8 = User.create!(username: 'user8', password: 'starwars')
+# user9 = User.create!(username: 'user9', password: 'starwars')
+# user10 = User.create!(username: 'user10', password: 'starwars')
+# user11 = User.create!(username: 'user11', password: 'starwars')
+# user12 = User.create!(username: 'user12', password: 'starwars')
+# user13 = User.create!(username: 'user13', password: 'starwars')
+# user14 = User.create!(username: 'user14', password: 'starwars')
+# user15 = User.create!(username: 'user15', password: 'starwars')
+# user16 = User.create!(username: 'user16', password: 'starwars')
+# user17 = User.create!(username: 'user17', password: 'starwars')
+# user18 = User.create!(username: 'user18', password: 'starwars')
+# user19 = User.create!(username: 'user19', password: 'starwars')
+# user20 = User.create!(username: 'user20', password: 'starwars')
+# user21 = User.create!(username: 'user21', password: 'starwars')
+# user22 = User.create!(username: 'user22', password: 'starwars')
+# user23 = User.create!(username: 'user23', password: 'starwars')
+# user24 = User.create!(username: 'user24', password: 'starwars')
+# user25 = User.create!(username: 'user25', password: 'starwars')
+# user26 = User.create!(username: 'user26', password: 'starwars')
+# user27 = User.create!(username: 'user27', password: 'starwars')
+# user28 = User.create!(username: 'user28', password: 'starwars')
+# user29 = User.create!(username: 'user29', password: 'starwars')
+# user30 = User.create!(username: 'user30', password: 'starwars')
+# user31 = User.create!(username: 'user31', password: 'starwars')
+# user32 = User.create!(username: 'user32', password: 'starwars')
+# user33 = User.create!(username: 'user33', password: 'starwars')
+# user34 = User.create!(username: 'user34', password: 'starwars')
+# user35 = User.create!(username: 'user35', password: 'starwars')
+# user36 = User.create!(username: 'user36', password: 'starwars')
+# user37 = User.create!(username: 'user37', password: 'starwars')
+# user38 = User.create!(username: 'user38', password: 'starwars')
+# user39 = User.create!(username: 'user39', password: 'starwars')
+# user40 = User.create!(username: 'user40', password: 'starwars')
+# user41 = User.create!(username: 'user41', password: 'starwars')
+# user42 = User.create!(username: 'user42', password: 'starwars')
+# user43 = User.create!(username: 'user43', password: 'starwars')
+# user44 = User.create!(username: 'user44', password: 'starwars')
+# user45 = User.create!(username: 'user45', password: 'starwars')
+# user46 = User.create!(username: 'user46', password: 'starwars')
+# user47 = User.create!(username: 'user47', password: 'starwars')
+# user48 = User.create!(username: 'user48', password: 'starwars')
+# user49 = User.create!(username: 'user49', password: 'starwars')
+# user50 = User.create!(username: 'user50', password: 'starwars')
+# user51 = User.create!(username: 'user51', password: 'starwars')
+# user52 = User.create!(username: 'user52', password: 'starwars')
+# user53 = User.create!(username: 'user53', password: 'starwars')
+# user54 = User.create!(username: 'user54', password: 'starwars')
+# user55 = User.create!(username: 'user55', password: 'starwars')
+# user56 = User.create!(username: 'user56', password: 'starwars')
+# user57 = User.create!(username: 'user57', password: 'starwars')
+# user58 = User.create!(username: 'user58', password: 'starwars')
+# user59 = User.create!(username: 'user59', password: 'starwars')
+# user60 = User.create!(username: 'user60', password: 'starwars')
+# user61 = User.create!(username: 'user61', password: 'starwars')
+# user62 = User.create!(username: 'user62', password: 'starwars')
+# user63 = User.create!(username: 'user63', password: 'starwars')
+# user64 = User.create!(username: 'user64', password: 'starwars')
+# user65 = User.create!(username: 'user65', password: 'starwars')
+# user66 = User.create!(username: 'user66', password: 'starwars')
+# user67 = User.create!(username: 'user67', password: 'starwars')
+# user68 = User.create!(username: 'user68', password: 'starwars')
+# user69 = User.create!(username: 'user69', password: 'starwars')
+# user70 = User.create!(username: 'user70', password: 'starwars')
+# user71 = User.create!(username: 'user71', password: 'starwars')
+# user72 = User.create!(username: 'user72', password: 'starwars')
+# user73 = User.create!(username: 'user73', password: 'starwars')
+# user74 = User.create!(username: 'user74', password: 'starwars')
+# user75 = User.create!(username: 'user75', password: 'starwars')
+# user76 = User.create!(username: 'user76', password: 'starwars')
+# user77 = User.create!(username: 'user77', password: 'starwars')
+# user78 = User.create!(username: 'user78', password: 'starwars')
+# user79 = User.create!(username: 'user79', password: 'starwars')
+# user80 = User.create!(username: 'user80', password: 'starwars')
+# user81 = User.create!(username: 'user81', password: 'starwars')
+# user82 = User.create!(username: 'user82', password: 'starwars')
+# user83 = User.create!(username: 'user83', password: 'starwars')
+# user84 = User.create!(username: 'user84', password: 'starwars')
+# user85 = User.create!(username: 'user85', password: 'starwars')
+# user86 = User.create!(username: 'user86', password: 'starwars')
+# user87 = User.create!(username: 'user87', password: 'starwars')
+# user88 = User.create!(username: 'user88', password: 'starwars')
+# user89 = User.create!(username: 'user89', password: 'starwars')
+# user90 = User.create!(username: 'user90', password: 'starwars')
+# user91 = User.create!(username: 'user91', password: 'starwars')
+# user92 = User.create!(username: 'user92', password: 'starwars')
+# user93 = User.create!(username: 'user93', password: 'starwars')
+# user94 = User.create!(username: 'user94', password: 'starwars')
+# user95 = User.create!(username: 'user95', password: 'starwars')
+# user96 = User.create!(username: 'user96', password: 'starwars')
+# user97 = User.create!(username: 'user97', password: 'starwars')
+# user98 = User.create!(username: 'user98', password: 'starwars')
+# user99 = User.create!(username: 'user99', password: 'starwars')
+# user100 = User.create!(username: 'user100', password: 'starwars')
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+# # Video.destroy_all
+#
+# # video = Video.create!(title: , description: , author_id: , video: )
+#
+# video1 = Video.create!(title: "Sortalot app demo", description: "This game isn't complete yet, this is just a demo version", video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Sortalot.mov"), author_id: homevideos.id)
+#
+# video2 = Video.create!(title: 'Paul McBeth Disc Golf Hole In One - Texas States 2017 Round Two
+# ', description: "Paul McBeth Disc Golf Hole In One Ace\r\nTexas States Disc Golf Championship 2017 Round Two\r\nHole 15 Milby Disc Golf Course Houston, Texas\r\nJomez Productions\r\n\rCamera: Chase Hayden\r\n\rGraphics by Overstable Studios",
+# video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Paul+McBeth+Disc+Golf+Hole+In+One+-+Texas+States+2017+Round+Two.mp4"), author_id: jomez.id, view_count: 64014)
+#
+# video3 = Video.create!(title: "Now THIS is as close to an ACE as you can get! | Paul McBeth", description: "Paul McBeth nearly aces Hole 5 at the Eureka Temp course in Round 3 of the 2017 Ledgestone Insurance Open.\r\n\rGraphics by Overstable Studios\r\n\rMusic by Starframe Audio", video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Now+THIS+is+as+close+to+an+ACE+as+you+can+get!+-+Paul+McBeth.mp4"), author_id: jomez.id, view_count: 82492)
+#
+# video5 = Video.create!(title: "Some llamas are in town", description: "All the animals are just hanging around\r\n\rWould you like to join them?\r\nWell come on down to farmer bob's farms and we will seat ya and have ya a real good dinner!", author_id: animalkingdom.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/SeveralAnimals.mp4") )
+#
+# video6 = Video.create!(title: "Sneak on the squirrel in the rubbish", description: "Well this little guy never knew what was coming did he!!!! LOLOL", author_id: animalkingdom.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20170422_191430.mp4"))
+#
+# video7 = Video.create!(title: "My little cousin throwing a disc golf disc", description: "He pretty gud aye", author_id: homevideos.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20170622_123039.mp4"))
+#
+# video8 = Video.create!(title: "Stare off with some cows", description: "Bondurant, WY (outside of Jackson Hole)", author_id: animalkingdom.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20170626_205230.mp4"))
+#
+# video9 = Video.create!(title: "Little ferret too tired to move", description: "ain't she adorable", author_id: animalkingdom.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20170703_000056.mp4"))
+#
+# video10 = Video.create!(title: "Little ferret digging in the rice bucket", description: "Don't worry, it's exercise rice", author_id: animalkingdom.id , video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20170724_220516.mp4"))
+#
+# video11 = Video.create!(title: "Little ferret roams the wilds of the grass", description: "Don't worry little ferret, you'll always make your way back home", author_id: animalkingdom.id , video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20171007_171131.mp4"))
+#
+# video12 = Video.create!(title: "Little ferret digging in the rocks", description: "Little ferret found a nice spot", author_id: animalkingdom.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20171007_171540.mp4"))
+#
+# video13 = Video.create!(title: "Little ferret trying to make a hole", description: "Little ferret at it again I guess...Always with the digger", author_id: animalkingdom.id , video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20171007_171712.mp4"))
+#
+# video14 = Video.create!(title: "2017 Memorial Championship | Final Round, Pt1 | Wysocki, McBeth, Lizotte, Sexton
+# " , description: "Jomez Productions in association with Disc Golf Pro Tour, Discraft, and Overstable Studios presents coverage of the 2017 Memorial Championship MPO.\r\n\rCommentary by Nate Sexton and Paul McBeth\r\n\rFeaturing:\r\nRicky Wysocki\r\nPaul McBeth\r\nSimon Lizotte\r\nNate Sexton", author_id: jomez.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/2017+Memorial+Championship+-+Final+Round%2C+Pt1+-+Wysocki%2C+McBeth%2C+Lizotte%2C+Sexton.mp4"), view_count: 199797)
+#
+#
+# video15 = Video.create!(title: "2017 PDGA Pro Worlds | Final Round, Front 9 | Wysocki, Lizotte, McCray, Hammes", description: "Jomez Productions in association with Innova Champion Discs, the Professional Disc Golf Association, and Overstable Studios presents Final Round MPO Lead Card coverage of the 2017 PDGA Professional Disc Golf World Championships.\r\n\rCommentary by Jeremy Koling and Steve Hill\r\n\rFeaturing:\r\nRicky Wysocki\r\nSimon Lizotte\r\nJohnE McCray\r\nAdam Hammes", author_id: jomez.id, view_count: 110668, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/2017+PDGA+Pro+Worlds+-+Final+Round%2C+Front+9+-+Wysocki%2C+Lizotte%2C+McCray%2C+Hammes.mp4"))
+#
+# video16 = Video.create!(title: "2017 PDGA Pro Worlds | Final 9 | Wysocki, Lizotte, McCray, Hammes", description: "Jomez Productions in association with Innova Champion Discs, the Professional Disc Golf Association, and Overstable Studios presents Final Round MPO Lead Card coverage of the 2017 PDGA Professional Disc Golf World Championships.\r\n\rCommentary by Jeremy Koling and Steve Hill\r\n\rFeaturing:\r\nRicky Wysocki\r\nSimon Lizotte\r\nJohnE McCray\r\nAdam Hammes", author_id: jomez.id, view_count: 110514, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/2017+PDGA+Pro+Worlds+-+Final+9+-+Wysocki%2C+Lizotte%2C+McCray%2C+Hammes.mp4"))
+#
+# video17 = Video.create!(title: "Little ferret big rocks", description: "Little ferret goes to town on the big rocks\r\n\rThis is the next installment in the Little ferret series\r\n\rIf you'd like to see more then please subscribe!!", author_id: animalkingdom.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20171007_173202.mp4"))
+#
+# video18 = Video.create!(title: "Little ferret big NatGeo?", description: "Little ferret performs an exhilierating search of the forest.\r\n\r", author_id: animalkingdom.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/20171007_173801.mp4"))
+#
+#
+# video19 = Video.create!(title: "ACE! Philo Brathwaite #SCTOP10", description: "Philo Brathwaite hits an ACE that landed him on SportsCenter Top10 at #8! Hole 12 (177ft) at R.L. Smith in Charlotte, NC at the 4th Annual 21 Hole Salute Presented By Dynamic Discs. Coverage also made possible by Final Round Radio.\r\n\rFor permission to use this video please contact us at: jomezprod(at)gmail.com", author_id: jomez.id, view_count: 39884, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/ACE!+Philo+Brathwaite+%23SCTOP10.mp4"))
+#
+# video20 = Video.create!(title: "Basket Dash - Series Premiere | Ep1 | Discmania / Innova / Dynamic", description: "We are proud to present the series premiere of the Jomez Pro Basket Dash in association with BlackInkDiscs.com!\r\n\rWe’ve brought together your favorite Disc Golf Pros to test their skills in a unique way never seen before. \r\n\rTeam Dynamic:\r\nEric Oakley\r\nDrew Gibson\r\nPaige Pierce\r\n\rTeam Discmania:\r\nSimon Lizotte\r\nNate Perkins\r\nEagle McMahon\r\n\rTeam Innova:\r\nPaul McBeth\r\nNate Sexton\r\nJeremy Koling\r\n\rOur first episode brings us to Moraine State Park in Pittsburgh, Pennsylvania. Home of the Pittsburgh Flying Disc Open and the 2015 PDGA Pro World Championships. \r\n\rStay Tuned for our next episode, coming soon, from Smuggs DGC in Smuggler’s Notch, Vermont. Home of the Green Mountain Championship!", author_id: jomez.id, view_count: 39067, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Basket+Dash+-+Series+Premiere+-+Ep1+-+Discmania+-+Innova+-+Dynamic.mp4"))
+#
+# video21 = Video.create!(title: "Eagle vs Simon Trick Shot | Top of the Tower Disc Golf", description: "Eagle McMahon and Simon Lizotte battle to see who can hit the top of the water tower at Lake Eureka after the 2015 Ledgestone Open. After many unsuccessful attempts they end up both hitting it back to back!", author_id: jomez.id , view_count: 18960, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Eagle+vs+Simon+Trick+Shot+-+Top+of+the+Tower+Disc+Golf.mp4"))
+#
+#
+# video22 = Video.create!(title: "GBO 2015 Final Round | McBeth,McMahon,Schusterick,Feldberg", description: "Full Coverage of the Final Round MPO Lead Card at the 2015 Glass Blown Open by Dynamic Discs in Emporia, Kansas. Played at the Emporia Country Club Course. Featuring Paul McBeth, Eagle McMahon, Will Schusterick, and David Feldberg. 2015 Jomez Productions Disc Golf", author_id: jomez.id, view_count: 277869, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/GBO+2015+Final+Round+-+McBeth%2CMcMahon%2CSchusterick%2CFeldberg.mp4") )
+#
+#
+# video23 = Video.create!(title: "GBO 2016 Final Round | McBeth,Todd,Wysocki,Wegryn", description: "Jomez Productions presents MPO coverage of the 2016 Glass Blown Open. This final round lead card includes Paul McBeth, Cameron Todd, Ricky Wysocki, and Nate Wegryn. Played at Emporia Country Club in Emporia, Kansas. Commentary provided by Jomez & Ian of Central Coast Disc Golf. Jomez Productions Disc Golf 2016", author_id: jomez.id, view_count: 205586, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/GBO+2016+Final+Round+-+McBeth%2CTodd%2CWysocki%2CWegryn.mp4"))
+#
+# video24 = Video.create!(title: "Check out this wild looking duck!", description: "We have all of the greatest in crazy animals.\r\nWe upload at least once at some time or another.", author_id: animalkingdom.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Multicolor_Duck.mpeg"))
+#
+# video25 = Video.create!(title: "Never Been Hit: Catch Cam Chronicles", description: "The life of a Disc Golf coverage catch cam operator isn't easy. One must always been in the line of fire in order to catch the perfect angle as the world's top professionals hurl chunks of plastic toward the chains in their quest for birdies.\r\n\r\nOver the past few years, Michael has had some VERY close calls, but to this day has NEVER been hit! He has an incredible sixth sense about him that allows him to avoid contact with the discs while maintaining his composure and getting some great shots.\r\n\r\nThis is a small glimpse into the life of a catch cam operator.\r\n\r\nJomez Productions Disc Golf 2017\r\n\r\nPlastic Hurlers:\r\nPaul McBeth\r\nRicky Wysocki\r\nNate Sexton\r\nSimon Lizotte\r\nEagle McMahon\r\nJeremy Koling\r\nJohne McCray\r\nWill Schusterick\r\nPhilo Brathwaite\r\nNikko Locastro" , author_id: jomez.id, view_count: 25616, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Never+Been+Hit-+Catch+Cam+Chronicles.mp4"))
+#
+# # video = Video.create!(title: , description: , author_id: , view_count: , video: )
+#
+# video26 = Video.create!(title: "Night Of The Living Dead - 1968", description: "There is panic throughout the nation as the dead suddenly come back to life. The film follows a group of characters who barricade themselves in an old farmhouse in an attempt to remain safe from these bloodthirsty, flesh-eating monsters.", author_id: movies.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Night-Of-The-Living-Dead-1968.mp4"))
+#
+# video27 = Video.create!(title: "Paul McBeth 1st World Title | 2012 Worlds Final 9 | Schusterick,Wysocki,Johansen", description: "2012 PDGA World Championships - MPO Final 9 featuring Paul McBeth, Ricky Wysocki, Will Schusterick and Michael Johansen. Held in Charlotte, NC. Jomez Productions Disc Golf\r\n\rCamera and Editing by Jonathan Gomez\r\nMusic by Michael Fouche", author_id: jomez.id, view_count: 249920, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Paul+McBeth+1st+World+Title+-+2012+Worlds+Final+9+-+Schusterick%2CWysocki%2CJohansen.mp4"))
+#
+# video28 = Video.create!(title: "Superman Episode 1 The Mad Scientist", description: "The Man of Steel fights a mad scientist who is destroying Metropolis with an energy cannon.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+1+The+Mad+Scientist.ogv"))
+#
+# video29 = Video.create!(title: "Superman Episode 10 Japoteurs", description: "Superman vs. Japanese spies hijacking a new super-bomber.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+10+Japoteurs.ogv"))
+#
+# video30 = Video.create!(title: "Superman Episode 11 Showdown", description: "Oh no! A crook dressed as Superman commits a series of robberies. The real Superman must work fast to counter the bad publicity.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+11+Showdown.ogv"))
+#
+# video31 = Video.create!(title: "Superman Episode 12 Eleventh Hour", description: "While Clark Kent is in wartime Japan, Superman becomes a saboteur.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+12++Eleventh+Hour.ogv"))
+#
+# video32 = Video.create!(title: "Superman Episode 13 Destruction Inc.", description: "Superman versus saboteurs at the Metropolis Munitions Plant.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+13+Destruction+Inc..ogv"))
+#
+# video33 = Video.create!(title: "Superman Episode 14 The Mummy Strikes", description: "While investigating an egyptologist's mysterious death, Superman must battle dangerous mummies.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+14+The+Mummy+Strikes.ogv"))
+#
+# video34 = Video.create!(title: "Superman Episode 15 Jungle Drums", description: "Superman vs. a secret Nazi outpost disguised as a jungle temple.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+15+Jungle+Drums.ogv"))
+#
+# video35 = Video.create!(title: "Superman Episode 16 The Underground World", description: "Lois Lane and an explorer set out on an expedition through an underground cavern and discover a race of hawk-men. When these creatures prepare a ritual sacrifice for the adventurous pair, Superman comes to the rescue.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+16+The+Underground+World.ogv"))
+#
+# video36 = Video.create!(title: "Superman Episode 17 Secret Agent", description: "Superman battles saboteurs determined to stop a lady double agent from getting important documents to Washington D.C.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+17+Secret+Agent.ogv"))
+#
+# video37 = Video.create!(title: "Superman Episode 2 The Mechanical Monsters", description: "Superman battles a criminal mastermind and his robot army.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+2+The+Mechanical+Monsters.ogv"))
+#
+#
+# video38 = Video.create!(title: "Superman Episode 3 Billion Dollar Limited", description: "Superman battles train robbers seeking to steal a billion dollars worth of gold.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+3+Billion+Dollar+Limited.ogv"))
+#
+# video39 = Video.create!(title: "Superman Episode 4 The Artic Giant", description: "Superman versus a thawed-out Tyrannosaurus.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+4+The+Artic+Giant.ogv"))
+#
+# video40 = Video.create!(title: "Superman Episode 5 The Bulleteers", description: "Superman versus extortionists with a super-powerful rocket car. ", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+5+The+Bulleteers.ogv"))
+#
+# video41 = Video.create!(title: "Superman Episode 6 The Magnetic Telescope", description: "When police interfere with a reckless scientist's experiment, it creates a deadly meteor shower only Superman can stop.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+6+The+Magnetic+Telescope.ogv"))
+#
+# video42 = Video.create!(title: "Superman Episode 7 Electric Earthquake", description: "Superman versus a fanatical extortionist with an earthquake machine.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+7+Electric+Earthquake.ogv"))
+#
+# video43 = Video.create!(title: "Superman Episode 8 Volcano", description: "Superman must face the threat of an erupting volcano.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+8+Volcano.ogv"))
+#
+# video44 = Video.create!(title: "Superman Episode 9 Terror On The Midway", description: "When the circus' animals escape and threaten disaster, Superman must take action.", author_id: superman.id, video: URI.parse("https://s3.amazonaws.com/blutube-dev/videos/videos/000/000/Superman+Episode+9+Terror+On+The+Midway.ogv"))
 
 
 
