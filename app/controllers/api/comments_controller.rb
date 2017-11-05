@@ -4,7 +4,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def index
-    @comments = Comment.all
+    @comments = Comment.all.includes(:author)
   end
 
   def create
@@ -18,12 +18,17 @@ class Api::CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
-    @comment
+    @comment = current_user.comments.find(params[:id])
+    if @comment.destroy
+      render json: @comment.id
+    else
+      render json: ["something went wrong"]
+    end
+
   end
 
   def update
-    @comment = current_user.find(params[:id])
+    @comment = current_user.comments.find(params[:id])
 
     if @comment.update(comment: params[:comment][:body])
       render :show
