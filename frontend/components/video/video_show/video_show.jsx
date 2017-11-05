@@ -2,6 +2,10 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import shuffle from '../../../util/shuffle';
 
+const togglePlay = (video) => {
+  return video.paused ? video.play() : video.pause();
+};
+
 class VideoShow extends React.Component {
   constructor(props) {
     super(props);
@@ -14,6 +18,38 @@ class VideoShow extends React.Component {
     this.props.fetchVideos();
     $('html,body').scrollTop(0);
     this.props.addView(this.props.match.params.videoId);
+    $('html,body').keypress(e => e.preventDefault());
+    const video = document.querySelector('video');
+    this.setVideoListeners(video);
+  }
+
+  setVideoListeners(video) {
+    $('video').on('click', () => togglePlay(video));
+    $('.video-video-container').bind('keydown', e => {
+      switch(e.which) {
+        case 32:
+        case 75:
+        togglePlay(video);
+        break;
+        case 74:
+        video.currentTime = video.currentTime - 10;
+        break;
+        case 76:
+        video.currentTime = video.currentTime + 10;
+        break;
+        case 37:
+        video.currentTime = video.currentTime - 5;
+        break;
+        case 39:
+        video.currentTime = video.currentTime + 5;
+        break;
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    $('.video-video-container').off('keydown');
+    $('video').off('click');
   }
 
   componentWillReceiveProps(newProps) {
@@ -81,7 +117,7 @@ class VideoShow extends React.Component {
         <div className="video-show-container">
           <div className="video-show-content">
 
-            <div className="video-video-container">
+            <div className="video-video-container" tabindex="1">
               <video width="596" height="360" src={hasVideo ? vid.videoUrl : ""} autoPlay controls/>
             </div>
 
