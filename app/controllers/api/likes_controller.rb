@@ -24,10 +24,13 @@ class Api::LikesController < ApplicationController
   end
 
   def destroy
-    @like = Like.find(params[:id])
-    @like.destroy
-    @video = Video.find(@like.video_id)
-    render 'api/videos/show'
+    @like = current_user.likes.find(params[:id])
+    if @like.destroy
+      @video = Video.find(@like.video_id)
+      render 'api/videos/show'
+    else
+      render json: ["something went wrong"]
+    end
   end
 
 end

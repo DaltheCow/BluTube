@@ -6,8 +6,10 @@ Rails.application.routes.draw do
     resources :username_sessions, only: [:create]
     resources :videos, except: [:new, :edit] do
       resources :likes, only: [:create, :update]
+      resources :comments, except: [:edit, :new, :destroy]
     end
     resources :likes, only: [:destroy]
+    resources :comments, only: [:destroy]
   end
 
   namespace :api do
