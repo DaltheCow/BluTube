@@ -1,4 +1,4 @@
-import * as ApiUtil from '../util/video_api_util';
+import * as VideoApiUtil from '../util/video_api_util';
 import * as LikeApiUtil from '../util/like_api_util';
 import * as SearchApiUtil from '../util/search_api_util';
 
@@ -40,33 +40,33 @@ export const clearErrors = () => ({
 });
 
 export const fetchVideos = () => dispatch => {
-  return ApiUtil.fetchVideos().then(videos => dispatch(receiveVideos(videos)));
+  return VideoApiUtil.fetchVideos().then(videos => dispatch(receiveVideos(videos)));
 };
 
 export const fetchVideo = (id) => dispatch => {
-  return ApiUtil.fetchVideo(id).then(video => dispatch(receiveVideo(video)));
+  return VideoApiUtil.fetchVideo(id).then(video => dispatch(receiveVideo(video)));
 };
 
 export const uploadVideo = (video) => dispatch => {
-  return ApiUtil.uploadVideo(video).then(
+  return VideoApiUtil.uploadVideo(video).then(
     video => dispatch(receiveVideo(video)),
     errors => dispatch(receiveErrors(errors.responseJSON))
   );
 };
 
 export const updateVideo = (video, id) => dispatch => {
-  return ApiUtil.updateVideo(video, id).then(
+  return VideoApiUtil.updateVideo(video, id).then(
     video => dispatch(receiveVideo(video)),
     errors => dispatch(receiveErrors(errors.responseJSON))
   );
 };
 
 export const deleteVideo = (id) => dispatch => {
-  return ApiUtil.deleteVideo(id).then(id => dispatch(removeVideo(id)));
+  return VideoApiUtil.deleteVideo(id).then(id => dispatch(removeVideo(id)));
 };
 
 export const addView = (id) => dispatch => {
-  return ApiUtil.addView(id).then(video => dispatch(receiveVideo(video)));
+  return VideoApiUtil.addView(id).then(video => dispatch(receiveVideo(video)));
 };
 
 export const createLike = (videoId, like) => dispatch => {

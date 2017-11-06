@@ -18,6 +18,7 @@ class Video < ApplicationRecord
     class_name: 'User'
 
   has_many :likes
+  has_many :comments
 
   def get_video_duration
     result = `ffmpeg -i #{self.video.staged_path} 2>&1`

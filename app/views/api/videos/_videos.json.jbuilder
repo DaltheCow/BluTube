@@ -28,3 +28,11 @@ else
     json.like_value  "N/A"
   end
 end
+
+json.commentIds video.comments do |comment|
+  json.extract comment, :id
+end
+
+json.commentIds do
+  json.array! video.comments.map{|comment| comment.id}
+end

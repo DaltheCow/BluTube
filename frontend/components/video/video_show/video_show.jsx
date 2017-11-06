@@ -117,7 +117,7 @@ class VideoShow extends React.Component {
         <div className="video-show-container">
           <div className="video-show-content">
 
-            <div className="video-video-container" tabindex="1">
+            <div className="video-video-container" tabIndex="1">
               <video width="596" height="360" src={hasVideo ? vid.videoUrl : ""} autoPlay controls/>
             </div>
 

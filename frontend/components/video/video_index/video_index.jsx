@@ -10,6 +10,7 @@ class VideoIndex extends React.Component {
   }
 
   componentDidMount() {
+    $('html,body').scrollTop(0);
     this.props.fetchVideos();
   }
 
@@ -98,7 +99,7 @@ class VideoIndex extends React.Component {
 
                   <div className="index-title">{video.title}</div>
                   <div className="index-channel">{video.author.username}</div>
-                  
+
                   <div className="index-view-time">
                     <div className="index-viewcount">{this.views(video.viewCount)} views</div><span className="before-target"></span>
                     <div>{this.whenPosted(video.createdAtInt)}</div>

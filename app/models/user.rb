@@ -9,6 +9,8 @@ class User < ApplicationRecord
     foreign_key: :author_id
 
   has_many :likes
+  has_many :comments,
+    foreign_key: :author_id
 
 
 

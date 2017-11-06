@@ -11,6 +11,7 @@ class VideoForm extends React.Component {
   }
 
   componentDidMount() {
+    $('html,body').scrollTop(0);
     if (this.props.match.params.videoId) {
       this.props.fetchVideo(this.props.match.params.videoId);
     }
@@ -168,7 +169,7 @@ class VideoForm extends React.Component {
                     Try again
                   </button>
                 </div>
-                
+
               ) : null }
 
               <textarea className="video-upload-form-input-description" type="text" placeholder="description" onChange={(e) => this.setState({["description"]: e.target.value})} value={this.state.description}/>
