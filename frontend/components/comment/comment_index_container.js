@@ -1,21 +1,25 @@
 import { connect } from 'react-redux';
-import { fetchComment } from '../../../actions/comment_actions';
+import { withRouter } from 'react-router-dom';
+import { fetchComments } from '../../../actions/comment_actions';
 import CommentIndex from './comment_index';
 
 const mapStateToProps = (state, ownProps) => {
-  // videoId
+  const videoId = ownProps.match.params.videoId;
   return {
-
+    videoId,
+    comments: state.entities.videos[videoId].commentIds.map(commentId => (
+      state.entities.comments[commentId]
+    ))
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    fetchComment: (id) => dispatch(fetchComment(id))
+    fetchComments: (videoId) => dispatch(fetchComments(videoId))
   };
 };
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(CommentIndex);
+)(CommentIndex));
