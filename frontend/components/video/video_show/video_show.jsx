@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import shuffle from '../../../util/shuffle';
+import CommentIndexContainer from '../../comment/comment_index_container';
 
 const togglePlay = (video) => {
   return video.paused ? video.play() : video.pause();
@@ -188,7 +189,7 @@ class VideoShow extends React.Component {
             </div>) : (null)}
 
             <div className="comments">
-              Comments
+              < CommentIndexContainer />
             </div>
 
           </div>

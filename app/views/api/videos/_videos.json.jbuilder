@@ -9,14 +9,9 @@ json.author do
   json.extract! video.author, :username, :id
 end
 
-like_count = 0
-dislike_count = 0
-video.likes.each do |like|
-  like.like_value ? like_count += 1 : dislike_count += 1
-end
-
-json.likes like_count
-json.dislikes dislike_count
+likes_dislikes = video.likes_dislikes
+json.likes likes_dislikes[0]
+json.dislikes likes_dislikes[1]
 
 c_u_like = current_user.likes.find_by(video_id: video.id) if logged_in?
 if logged_in? && c_u_like

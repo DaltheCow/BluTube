@@ -28,6 +28,17 @@ class Video < ApplicationRecord
     end
   end
 
+  def likes_dislikes
+    like_count = 0
+    dislike_count = 0
+    self.likes.each do |like|
+      like.like_value ? like_count += 1 : dislike_count += 1
+    end
+    [like_count, dislike_count]
+  end
+
+
+
 
 
 end
