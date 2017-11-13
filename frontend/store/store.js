@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-logger';
-import logger from 'redux-thunk';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 import RootReducer from '../reducers/root_reducer'
 
 const middleware = (window.location.href.indexOf('http://localhost') === 0 ? [thunk, logger] : [thunk]);
