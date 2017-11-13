@@ -113,7 +113,7 @@ class SessionForm extends React.Component {
               <div className="session-buttons but-not-really">
                 <button className="session-demo" onClick={(e) => {
                   e.preventDefault();
-                  this.props.submitAction({username: 'demo', password: 'password'}).bind(this);
+                  this.props.submitAction({username: 'demo', password: 'password'});
                 }
                 }>DEMO</button>
               </div>
