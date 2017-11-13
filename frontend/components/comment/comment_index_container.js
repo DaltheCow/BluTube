@@ -4,7 +4,6 @@ import { fetchComments } from '../../actions/comment_actions';
 import CommentIndex from './comment_index';
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   const videoId = ownProps.match.params.videoId;
   if (!state.entities.videos[videoId] || !state.entities.videos[videoId].commentIds) {
     return { videoId , comments: [] };

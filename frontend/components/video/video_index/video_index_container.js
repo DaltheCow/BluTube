@@ -10,7 +10,6 @@ const mapStateToProps = (state, ownProps) => {
   let videos = shuffle(Object.values(state.entities.videos));
   if (filter.length > 0) {
     videos = Object.values(state.entities.videos).sort((b, a) => {
-      debugger
       if (parseInt(a[filter]) === parseInt(b[filter])) return 0;
       if (parseInt(a[filter]) < parseInt(b[filter])) return -1;
       return 1;

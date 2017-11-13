@@ -14,11 +14,11 @@ Videos can be dragged and dropped onto the screen or found using the file finder
 
 Likes can be created, updated, and deleted. The totals are displayed and used in the homepage filter.
 
-###Video Filter and Search
+### Video Filter and Search
 
 Videos can be sorted by most viewed, most liked, length, and newest. They can also be searched for using any content from the title or description.
 
-###Video Watching Page
+### Video Watching Page
 
 The video watching page is responsive to window width changes and even looks good on mobile. The player is responsive to some of the standard youtube player shortcut keys.
 
