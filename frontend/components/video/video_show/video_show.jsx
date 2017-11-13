@@ -138,12 +138,12 @@ class VideoShow extends React.Component {
 
                   <div className="likes">
                     <i onClick={() => this.handleLike(true)} className={`fa fa-thumbs-up ${vid && vid.currentUsersLike && vid.currentUsersLike.like_value === true ? 'selected-thumb' : ''}`}></i>
-                      <span>{this.views(vid.likes)}</span>
+                      <span>{this.views(vid.likes ? vid.likes : 0)}</span>
                   </div>
 
                   <div className="dislikes">
                     <i onClick={() => this.handleLike(false)} className={`fa fa-thumbs-down ${vid && vid.currentUsersLike && vid.currentUsersLike.like_value === false ? 'selected-thumb' : ''}`}></i>
-                    <span>{this.views(vid.dislikes)}</span>
+                    <span>{this.views(vid.dislikes ? vid.dislikes : 0)}</span>
                   </div>
 
                 </div>
