@@ -4,6 +4,7 @@ class Video < ApplicationRecord
   #add description
   multisearchable against: %i(title description)
 
+
   validates :title, :description, :author_id, presence: true
 
   has_attached_file :video,
