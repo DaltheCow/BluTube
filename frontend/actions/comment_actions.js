@@ -20,25 +20,25 @@ const removeComment = (commentId) => ({
   commentId
 });
 
-export const fetchComments = () => dispatch => {
-  return CommentApiUtil.fetchComments().then(comments => dispatch(receiveComments(comments)));
+export const fetchComments = (videoId) => dispatch => {
+  return CommentApiUtil.fetchComments(videoId).then(comments => dispatch(receiveComments(comments)));
 };
 
-export const fetchComment = (id) => dispatch => {
-  return CommentApiUtil.fetchComment(id).then(comment => dispatch(receiveComment(comment)));
+export const fetchComment = (videoId, id) => dispatch => {
+  return CommentApiUtil.fetchComment(videoId, id).then(comment => dispatch(receiveComment(comment)));
 };
 
-export const createComment = (comment) => dispatch => {
-  return CommentApiUtil.createComment(comment).then(
-    comment => dispatch(receiveComment(comment)),
-    errors => dispatch(receiveErrors(errors.responseJSON))
+export const createComment = (videoId, comment) => dispatch => {
+  return CommentApiUtil.createComment(videoId, comment).then(
+    comment => dispatch(receiveComment(comment))/*,
+    errors => dispatch(receiveErrors(errors.responseJSON))*/
   );
 };
 
-export const updateComment = (comment, id) => dispatch => {
-  return CommentApiUtil.updateComment(comment, id).then(
-    comment => dispatch(receiveComment(comment)),
-    errors => dispatch(receiveErrors(errors.responseJSON))
+export const updateComment = (videoId, comment) => dispatch => {
+  return CommentApiUtil.updateComment(videoId, comment).then(
+    comment => dispatch(receiveComment(comment))/*,
+    errors => dispatch(receiveErrors(errors.responseJSON))*/
   );
 };
 
