@@ -1,0 +1,25 @@
+.comments-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%
+}
+
+.comment-item {
+  display: flex;
+}
+
+
+.comment-item .profile-image {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  background: white;
+  display: flex;
+  justify-content: center;
+  margin-right: 14px;
+}
+
+.comment-item .profile-image img {
+  height: 40px;
+}
