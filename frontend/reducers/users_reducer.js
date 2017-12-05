@@ -7,9 +7,6 @@ const UsersReducer = (state = {}, action) => {
     case RECEIVE_COMMENTS: {
       return Object.assign({}, action.users, state);
     }
-    case RECEIVE_COMMENT: {
-      return Object.assign({}, state, {[action.user.id]: action.user});
-    }
     default: return state;
   }
 };
