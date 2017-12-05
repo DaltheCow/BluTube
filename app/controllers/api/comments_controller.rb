@@ -8,8 +8,8 @@ class Api::CommentsController < ApplicationController
   end
 
   def create
-    @comment = current_user.comments.new(comment: params[:comment][:body])
-
+    @comment = current_user.comments.new(body: params[:comment][:body])
+    @comment.video_id = params[:video_id]
     if @comment.save
       render :show
     else
