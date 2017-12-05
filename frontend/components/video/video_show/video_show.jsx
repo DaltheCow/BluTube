@@ -12,6 +12,7 @@ class VideoShow extends React.Component {
     super(props);
 
     this.videos = [];
+    this.state = { isColumnView: window.innerWidth <= 1000 };
   }
 
   componentDidMount() {
@@ -19,9 +20,13 @@ class VideoShow extends React.Component {
     this.props.fetchVideos();
     $('html,body').scrollTop(0);
     this.props.addView(this.props.match.params.videoId);
-    $('html,body').keypress(e => e.preventDefault());
     const video = document.querySelector('video');
     this.setVideoListeners(video);
+    window.addEventListener("resize", () => this.updateWindowSize());
+  }
+
+  updateWindowSize() {
+    this.setState({isColumnView: window.innerWidth <= 1000});
   }
 
   setVideoListeners(video) {
@@ -31,18 +36,23 @@ class VideoShow extends React.Component {
         case 32:
         case 75:
         togglePlay(video);
+        e.preventDefault();
         break;
         case 74:
         video.currentTime = video.currentTime - 10;
+        e.preventDefault();
         break;
         case 76:
         video.currentTime = video.currentTime + 10;
+        e.preventDefault();
         break;
         case 37:
         video.currentTime = video.currentTime - 5;
+        e.preventDefault();
         break;
         case 39:
         video.currentTime = video.currentTime + 5;
+        e.preventDefault();
         break;
       }
     });
@@ -51,6 +61,7 @@ class VideoShow extends React.Component {
   componentWillUnmount() {
     $('.video-video-container').off('keydown');
     $('video').off('click');
+    window.removeEventListener("resize", this.updateWindowSize);
   }
 
   componentWillReceiveProps(newProps) {
@@ -179,8 +190,8 @@ class VideoShow extends React.Component {
                 </div>
 
                 <div className="description">
-                  { vid.description && vid.description.split("\r").map(row => (
-                    <div style={{display: 'flex', flexDirection: 'column'}}>{ row }</div>
+                  { vid.description && vid.description.split("\r").map((row, i) => (
+                    <div key={i} style={{display: 'flex', flexDirection: 'column'}}>{ row }</div>
                   )) }
                 </div>
 
@@ -188,9 +199,9 @@ class VideoShow extends React.Component {
 
             </div>) : (null)}
 
-            <div className="comments">
+            {!this.state.isColumnView ? (<div className="comments">
               < CommentIndexContainer />
-            </div>
+            </div>) : null}
 
           </div>
           <div className="video-show-related-videos">
@@ -222,6 +233,11 @@ class VideoShow extends React.Component {
               }) : (null)}
             </ul>
           </div>
+
+          {this.state.isColumnView ? (<div className="comments">
+            < CommentIndexContainer />
+          </div>) : null}
+
         </div>
       </div>
     );
