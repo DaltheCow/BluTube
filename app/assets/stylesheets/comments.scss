@@ -8,8 +8,12 @@
   display: flex;
 }
 
+.comments-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
 
-.comment-item .profile-image {
+.comments-container .profile-image {
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -20,13 +24,60 @@
   margin-right: 14px;
 }
 
-.comment-item .profile-image img {
+.comments-container .profile-image img {
   height: 40px;
 }
 
-#comment {
+.comment-form {
+  display: flex;
+}
+.comment-form-container {
+  margin-top: 24px;
+  margin-bottom: 32px;
+}
+
+.comments-length {
+  margin-bottom: 24px;
+}
+
+.comment-line {
+  // display: flex;
+  width: 91%;;
+}
+
+#comment-input {
   border: none;
   resize: none;
+  font-size: 14px;
+  font-weight: 200;
+  height: 18px;
+  width: 100%;
+}
+
+#comment-input ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color:    rgb(112,112,112);
+}
+
+#comment-input :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color:    rgb(112,112,112);
+   opacity:  1;
+}
+
+#comment-input ::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color:    rgb(112,112,112);
+   opacity:  1;
+}
+
+#comment-input :-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color:    rgb(112,112,112);
+}
+
+#comment-input ::-ms-input-placeholder { /* Microsoft Edge */
+  color:    rgb(112,112,112);
+}
+
+#comment-input ::placeholder { /* Most modern browsers support this now. */
+   color:    rgb(112,112,112);
 }
 
 
@@ -53,4 +104,37 @@
 
 .comment-input-container {
   position:relative;
+  width: 100%;
+}
+
+.comment-submit {
+  background: rgb(46, 144, 230);
+  font-weight: 600;
+  color: white;
+}
+
+.comments-buttons {
+  margin-top: 6px;
+}
+
+.comments-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 2px;
+  font-size: 14px;
+
+}
+
+.comment-cancel {
+  color: rgb(112,112,112);
+  font-weight: 500;
+}
+
+.comments-btn:hover {
+  cursor: pointer;
+}
+
+.comment-cancel:hover {
+  color: rgb(65,65,65);
+
 }

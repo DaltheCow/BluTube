@@ -16,7 +16,8 @@ const mapStateToProps = (state, ownProps) => {
   return {
     videoId,
     comments,
-    loggedIn: Boolean(state.session.currentUser)
+    loggedIn: Boolean(state.session.currentUser),
+    currentUser: state.session.currentUser
   };
 };
 

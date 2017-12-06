@@ -1,5 +1,6 @@
 import React from 'react';
 import CommentIndexItemContainer from './comment_index_item_container';
+import { Link } from 'react-router-dom';
 
 class CommentIndex extends React.Component {
 
@@ -30,12 +31,16 @@ class CommentIndex extends React.Component {
     }
     this.setBtns(true);
     const underline = document.getElementById("comment-underline");
-    $("#comment").focusin(() => {
+    // $("#comment").focusin(() => {
       underline.classList.add("underline-transition");
-    });
-    $("#comment").focusout(() => {
-      underline.classList.remove("underline-transition");
-    });
+    // });
+    // $("#comment").focusout(() => {
+    // });
+  }
+
+  handleBlur() {
+    const underline = document.getElementById("comment-underline");
+    underline.classList.remove("underline-transition");
   }
 
   handleChange(e) {
@@ -48,6 +53,7 @@ class CommentIndex extends React.Component {
     const body = this.state.body;
     this.props.createComment(this.props.videoId, { body }).then(action => {
       this.setState({comments: [action.comment, ...this.state.comments]})
+      this.setState({body: ""})
     });
   }
 
@@ -65,21 +71,29 @@ class CommentIndex extends React.Component {
     });
 
     const comments = this.state.comments.concat(sortedComments);
+    const len = this.props.comments.length;
     return (
       <div className="comments-container">
-        {this.props.comments.length} Comments
-        <form onSubmit={(e) => this.handleSubmit(e)}>
-          <div className="comment-input-container">
-            <textarea id="comment" placeholder="Add a public comment..." onFocus={() => this.handleFocus()} value={this.state.body} onChange={(e) => this.handleChange(e)}/>
-            <div id="comment-underline"></div>
-          </div>
-          {this.state.btnsOn ?
-            <div>
-              <div className="comments-btn comment-cancel" onClick={() => this.setBtns(false)}>CANCEL</div>
-              <div className="comments-btn comment-submit">COMMENT</div>
-            </div> : null}
+        <div className="comment-form-container">
+          <div className="comments-length">{len} Comment{len === 1 ? "" : "s"}</div>
+          <form className="comment-form" onSubmit={(e) => this.handleSubmit(e)}>
+              <Link className="profile-image" to={`/channel/${this.props.currentUser.id}`}>
+                <img src="https://s3.amazonaws.com/blutube-dev/images/profile_image_300x200.png" />
+              </Link>
+              <div className="comment-line">
+                <div className="comment-input-container">
+                  <textarea id="comment-input" placeholder="Add a public comment..." onFocus={() => this.handleFocus()} onBlur={() => this.handleBlur()} value={this.state.body} onChange={(e) => this.handleChange(e)}/>
+                  <div id="comment-underline"></div>
+                </div>
+                {this.state.btnsOn ?
+                <div className="comments-buttons">
+                  <div className="comments-btn comment-cancel" onClick={() => this.setBtns(false)}>CANCEL</div>
+                  <div onClick={(e) => this.handleSubmit(e)}className="comments-btn comment-submit">COMMENT</div>
+                </div> : null}
+            </div>
 
-        </form>
+          </form>
+        </div>
         {comments.map((comment, i) => (
             <CommentIndexItemContainer commentId={comment.id} />
         ))}
