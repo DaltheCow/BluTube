@@ -23,3 +23,34 @@
 .comment-item .profile-image img {
   height: 40px;
 }
+
+#comment {
+  border: none;
+  resize: none;
+}
+
+
+#comment-underline {
+  position:absolute;
+  left: 50%;
+  height: 2px;
+  width: 0;
+  background: black;
+  -webkit-transition: width 0.5s, left 0.5s;
+  -moz-transition: width 0.5s, left 0.5s;
+  transition: width 0.5s, left 0.5s;
+  // -webkit-transition: left 1s;
+  // -moz-transition: left 1s;
+  // transition: left 1s;
+}
+
+.underline-transition {
+  height: 2px;
+  width: 100% !important;
+  background: black;
+  left: 0 !important;
+}
+
+.comment-input-container {
+  position:relative;
+}

@@ -6,7 +6,7 @@ class CommentIndex extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {body: "", comments: []};
+    this.state = {body: "", comments: [], btnsOn: false};
   }
 
   componentDidMount() {
@@ -19,16 +19,23 @@ class CommentIndex extends React.Component {
     }
   }
 
-  componentDidUpdate() {
-    const props = this.props;
-    if (props.comments !== null) {
-      $("#comment").focus((e) => {
+  setBtns(value) {
+    this.setState({btnsOn : value});
+  }
 
-        if (!props.loggedIn) {
-          props.history.push("/login");
-        }
-      });
+  handleFocus() {
+    const props = this.props;
+    if (!props.loggedIn) {
+      props.history.push("/login");
     }
+    this.setBtns(true);
+    const underline = document.getElementById("comment-underline");
+    $("#comment").focusin(() => {
+      underline.classList.add("underline-transition");
+    });
+    $("#comment").focusout(() => {
+      underline.classList.remove("underline-transition");
+    });
   }
 
   handleChange(e) {
@@ -52,23 +59,30 @@ class CommentIndex extends React.Component {
     }
 
     const sortedComments = this.props.comments.sort((a, b) => {
-        if (a.createdAtInt === b.createdAtInt) return 0;
-        if (a.createdAtInt < b.createdAtInt) return 1;
-        return -1;
+      if (a.createdAtInt === b.createdAtInt) return 0;
+      if (a.createdAtInt < b.createdAtInt) return 1;
+      return -1;
     });
+
     const comments = this.state.comments.concat(sortedComments);
     return (
       <div className="comments-container">
         {this.props.comments.length} Comments
         <form onSubmit={(e) => this.handleSubmit(e)}>
-          <input id="comment" type="text" placeholder="Add a public comment..." value={this.state.body} onChange={(e) => this.handleChange(e)}/>
-          <div className="comments-btn comment-cancel">CANCEL</div>
-          <div className="comments-btn comment-submit">COMMENT</div>
+          <div className="comment-input-container">
+            <textarea id="comment" placeholder="Add a public comment..." onFocus={() => this.handleFocus()} value={this.state.body} onChange={(e) => this.handleChange(e)}/>
+            <div id="comment-underline"></div>
+          </div>
+          {this.state.btnsOn ?
+            <div>
+              <div className="comments-btn comment-cancel" onClick={() => this.setBtns(false)}>CANCEL</div>
+              <div className="comments-btn comment-submit">COMMENT</div>
+            </div> : null}
+
         </form>
-        {comments.map((comment, i) => {
-          // return <div key={i}>{comment.body}</div>;
-            return <CommentIndexItemContainer commentId={comment.id} />
-        })}
+        {comments.map((comment, i) => (
+            <CommentIndexItemContainer commentId={comment.id} />
+        ))}
       </div>
     );
   }
