@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 class CommentIndexItem extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {edit: false};
   }
 
   whenPosted(time) {
@@ -36,13 +38,30 @@ class CommentIndexItem extends React.Component {
         <Link className="profile-image" to={`/channel/${this.props.comment.author_id}`}>
           <img src="https://s3.amazonaws.com/blutube-dev/images/profile_image_300x200.png" />
         </Link>
-        <div>
-          <div>
-            <div>{this.props.comment.username}</div>
-            <div>{this.whenPosted(this.props.comment.createdAtInt)}</div>
-          </div>
-          <div>{this.props.comment.body}</div>
-        </div>
+        {this.state.edit ?
+          (
+            <div>
+
+            </div>
+          ) :
+          (
+            <div className="comment-info-and-menu">
+              <div className="comment-info">
+                <div className="comment-username-line">
+                  <div className="comment-username">{this.props.comment.username}</div>
+                  <div className="comment-post-time">{this.whenPosted(this.props.comment.createdAtInt)}</div>
+                </div>
+                <div className="comment-body">{this.props.comment.body}</div>
+              </div>
+              <div className="comment-menu">
+                <div onClick={() => document.querySelector('body').setAttribute('style','overflow: hidden;')} className="comment-menu-button">
+                  <i className="fa fa-ellipsis-v"></i>
+                </div>
+              </div>
+            </div>
+          )
+        }
+        <div></div>
       </div>
     );
   }

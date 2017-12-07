@@ -45,7 +45,7 @@ class NavBar extends React.Component {
             </Link>
           </li>
           <form className="nav-search" onSubmit={(e) => this.handleSubmit(e)}>
-            <input type="text" placeholder="Search" onChange={(e) => this.handleInput(e)} className="nav-search-input" value={this.state.search}/><i className="fa fa-search"></i>
+            <input type="text" placeholder="Search" onChange={(e) => this.handleInput(e)} className="nav-search-input" value={this.state.search}/><i onClick={(e) => this.handleSubmit(e)} className="fa fa-search"></i>
           </form>
           <li className="nav-upload" >
             <Link to="/upload"><i className="fa fa-upload"></i></Link>

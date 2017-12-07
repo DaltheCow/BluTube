@@ -81,7 +81,7 @@
   max-height: 3rem;
   overflow: hidden;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 500;
   line-height: 1.4rem;
   color: #111111;
 }
@@ -89,13 +89,13 @@
 .index-channel {
   color: #707070;
   font-size: 14px;
-  font-weight: lighter;
+  font-weight: 300;
 }
 
 .index-view-time {
   color: #707070;
   font-size: 14px;
-  font-weight: lighter;
+  font-weight: 300;
   display: flex;
 }
 
@@ -153,7 +153,7 @@
 }
 
 .video-filter button {
-  font-family: Arial, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
   color: darkblue;
   margin-left: 4px;
   margin-right: 4px;
@@ -166,6 +166,7 @@
 
 .video-filter button:hover {
   color: blue;
+  cursor: pointer;
 }
 
 .video-and-filter {

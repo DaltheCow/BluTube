@@ -1,7 +1,8 @@
 .comments-container {
   display: flex;
   flex-direction: column;
-  width: 100%
+  width: 100%;
+  font-family: 'Roboto', Arial, sans-serif;
 }
 
 .comment-item {
@@ -81,25 +82,24 @@
 }
 
 
-#comment-underline {
+.comment-underline {
   position:absolute;
   left: 50%;
   height: 2px;
   width: 0;
+  opacity: 0;
   background: black;
-  -webkit-transition: width 0.5s, left 0.5s;
-  -moz-transition: width 0.5s, left 0.5s;
-  transition: width 0.5s, left 0.5s;
-  // -webkit-transition: left 1s;
-  // -moz-transition: left 1s;
-  // transition: left 1s;
+  -webkit-transition: width 0.25s, left 0.25s;
+  -moz-transition: width 0.25s, left 0.25s;
+  transition: width 0.25s, left 0.25s;
 }
 
 .underline-transition {
+  opacity: 1;
   height: 2px;
-  width: 100% !important;
+  width: 100%;
   background: black;
-  left: 0 !important;
+  left: 0;
 }
 
 .comment-input-container {
@@ -108,9 +108,22 @@
 }
 
 .comment-submit {
-  background: rgb(46, 144, 230);
+  background: rgb(213, 233, 250);
   font-weight: 600;
   color: white;
+  -webkit-transition-delay: 0.25s;
+  -moz-transition-delay: 0.25s;
+  transition-delay: 0.25s;
+  -webkit-transition-duration: 0s;
+  -moz-transition-duration: 0s;
+  transition-duration: 0s;
+  -webkit-transition-property: background;
+  -moz-transition-property: background;
+  transition-property: background;
+}
+
+.comment-revealed {
+  background: rgb(46, 144, 230);
 }
 
 .comments-buttons {
@@ -137,4 +150,69 @@
 .comment-cancel:hover {
   color: rgb(65,65,65);
 
+}
+
+.comment-item {
+  margin-bottom: 16px;
+}
+
+.comment-username {
+  // font-size: 13px;
+  // font-weight: 600;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+.comment-post-time {
+  color: rgb(136,136,136);
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+.comment-body {
+  font-size: 0.90rem;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+.comment-username-line {
+  display: flex;
+}
+
+.comment-menu {
+  display: flex;
+  align-items: center;
+  width: 40px;
+}
+
+.comment-info-and-menu {
+  display: flex;
+  width: 100%;
+}
+
+.comment-info {
+  width: 100%;
+}
+
+.comment-menu-button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment-info-and-menu:hover i {
+  display: block;
+}
+
+.comment-menu-button i {
+  display: none;
+  color: gray;
+  font-size: 18px;
+}
+
+.comment-menu-button:hover i {
+  color: black;
 }

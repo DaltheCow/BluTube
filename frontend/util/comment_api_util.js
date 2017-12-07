@@ -15,7 +15,7 @@ export const createComment = (video_id, comment) => ($.ajax({
 }));
 
 export const updateComment = (video_id, comment) => ($.ajax({
-  url: `api/videos/${video_id}/comments`,
+  url: `api/videos/${video_id}/comments/${comment.id}`,
   method: 'post',
   data: { comment }
 }));

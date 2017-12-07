@@ -16,12 +16,17 @@ class CommentIndex extends React.Component {
 
   componentWillReceiveProps(newProps) {
     if (this.props.videoId !== newProps.match.params.videoId) {
+      this.setState({comments: [], btsnOn: false, body: ""});
       this.props.fetchComments(this.props.videoId);
     }
   }
 
   setBtns(value) {
-    this.setState({btnsOn : value});
+    const update = { btnsOn: value };
+    if (!value) {
+      update.body = "";
+    }
+    this.setState(update);
   }
 
   handleFocus() {
@@ -30,7 +35,8 @@ class CommentIndex extends React.Component {
       props.history.push("/login");
     }
     this.setBtns(true);
-    const underline = document.getElementById("comment-underline");
+    const underline = document.querySelector(".comment-underline");
+
     // $("#comment").focusin(() => {
       underline.classList.add("underline-transition");
     // });
@@ -39,7 +45,7 @@ class CommentIndex extends React.Component {
   }
 
   handleBlur() {
-    const underline = document.getElementById("comment-underline");
+    const underline = document.querySelector(".comment-underline");
     underline.classList.remove("underline-transition");
   }
 
@@ -83,12 +89,12 @@ class CommentIndex extends React.Component {
               <div className="comment-line">
                 <div className="comment-input-container">
                   <textarea id="comment-input" placeholder="Add a public comment..." onFocus={() => this.handleFocus()} onBlur={() => this.handleBlur()} value={this.state.body} onChange={(e) => this.handleChange(e)}/>
-                  <div id="comment-underline"></div>
+                  <div className="comment-underline"></div>
                 </div>
                 {this.state.btnsOn ?
                 <div className="comments-buttons">
                   <div className="comments-btn comment-cancel" onClick={() => this.setBtns(false)}>CANCEL</div>
-                  <div onClick={(e) => this.handleSubmit(e)}className="comments-btn comment-submit">COMMENT</div>
+                  <div onClick={(e) => this.handleSubmit(e)} className={ "comments-btn comment-submit " + (this.state.body.length > 0 ? "comment-revealed" : "")}>COMMENT</div>
                 </div> : null}
             </div>
 
