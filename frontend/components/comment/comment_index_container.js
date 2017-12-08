@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { fetchComments, createComment, deleteComment, updateComment } from '../../actions/comment_actions';
+import { fetchComments, createComment } from '../../actions/comment_actions';
 import CommentIndex from './comment_index';
 
 const mapStateToProps = (state, ownProps) => {
@@ -25,8 +25,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     fetchComments: (videoId) => dispatch(fetchComments(videoId)),
     createComment: (videoId, comment) => dispatch(createComment(videoId, comment)),
-    deleteComment: (commentId) => dispatch(deleteComment(commentId)),
-    updateComment: (videoId, comment) => dispatch(updateComment(videoId, comment)),
   };
 };
 

@@ -1,23 +1,62 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 class CommentForm extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = { body: props.comment.body, btnsOn: false };
+  }
 
-    const body = props.body ? props.body : "";
-    this.state = { body };
+  handleSubmit(e) {
+    e.preventDefault();
+    const body = this.state.body;
+    this.props.updateComment(this.props.videoId, { body }).then(action => {
+      this.setState({comments: [action.comment, ...this.state.comments]});
+      this.setState({body: ""});
+    });
+  }
+
+  setBtns(value) {
+    const update = { btnsOn: value };
+    if (!value) {
+      update.body = this.props.comment.body;
+    }
+    this.setState(update);
+  }
+
+  handleFocus() {
+    const props = this.props;
+    if (!props.loggedIn) {
+      props.history.push("/login");
+    }
+    this.setBtns(true);
+    const comment = this.props.comment
+    const underline = document.getElementById(".comment-underline-" + comment.id);
+      underline.classList.add("underline-transition");
+  }
+
+  handleBlur() {
+    const underline = document.getElementById(".comment-underline-" + comment.id);
+    underline.classList.remove("underline-transition");
+  }
+
+  handleChange(e) {
+
+    this.setState({body: e.target.value});
   }
 
   render() {
-    (
+
+    const comment = this.props.comment;
+
+    return (
       <form className="comment-form" onSubmit={(e) => this.handleSubmit(e)}>
-        <Link className="profile-image" to={`/channel/${this.props.currentUser.id}`}>
-          <img src="https://s3.amazonaws.com/blutube-dev/images/profile_image_300x200.png" />
-        </Link>
         <div className="comment-line">
           <div className="comment-input-container">
             <textarea id="comment-input" placeholder="Add a public comment..." onFocus={() => this.handleFocus()} onBlur={() => this.handleBlur()} value={this.state.body} onChange={(e) => this.handleChange(e)}/>
-            <div className="comment-underline"></div>
+            <div id={"comment-underline-" + comment.id} className="comment-underline-edit"></div>
           </div>
           {this.state.btnsOn ?
           <div className="comments-buttons">
@@ -30,3 +69,5 @@ class CommentForm extends React.Component {
   }
 
 }
+
+export default CommentForm;

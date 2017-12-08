@@ -7,7 +7,7 @@ class CommentIndex extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {body: "", comments: [], btnsOn: false};
+    this.state = {body: "", btnsOn: false};
   }
 
   componentDidMount() {
@@ -16,7 +16,7 @@ class CommentIndex extends React.Component {
 
   componentWillReceiveProps(newProps) {
     if (this.props.videoId !== newProps.match.params.videoId) {
-      this.setState({comments: [], btsnOn: false, body: ""});
+      this.setState({btsnOn: false, body: ""});
       this.props.fetchComments(this.props.videoId);
     }
   }
@@ -58,8 +58,8 @@ class CommentIndex extends React.Component {
     e.preventDefault();
     const body = this.state.body;
     this.props.createComment(this.props.videoId, { body }).then(action => {
-      this.setState({comments: [action.comment, ...this.state.comments]})
-      this.setState({body: ""})
+      // this.setState({comments: [action.comment, ...this.state.comments]});
+      this.setState({body: ""});
     });
   }
 
@@ -70,13 +70,15 @@ class CommentIndex extends React.Component {
       );
     }
 
-    const sortedComments = this.props.comments.sort((a, b) => {
+    const comments = this.props.comments.slice().sort((a, b) => {
       if (a.createdAtInt === b.createdAtInt) return 0;
       if (a.createdAtInt < b.createdAtInt) return 1;
       return -1;
     });
 
-    const comments = this.state.comments.concat(sortedComments);
+    //
+
+    // const comments = this.state.comments.concat(sortedComments);
     const len = this.props.comments.length;
     return (
       <div className="comments-container">

@@ -181,6 +181,7 @@
 }
 
 .comment-menu {
+  position: relative;
   display: flex;
   align-items: center;
   width: 40px;
@@ -215,4 +216,44 @@
 
 .comment-menu-button:hover i {
   color: black;
+}
+
+.comment-menu-options {
+  position: absolute;
+  width: 68px;
+  height: 100px;
+  background: white;
+  box-shadow: 0 0.10em 0.1em #CCCCCC;
+  border-left: 0.5px solid rgba(190, 190, 190, 0.9);
+  top: 40px;
+  z-index: 5;
+  font-size: 0.9rem;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-menu-option-btn:hover {
+  cursor: pointer;
+  font-size: 0.905rem;
+}
+
+.comment-menu-option-btn {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.block-scroll {
+  overflow: hidden;
+}
+
+.reveal-menu {
+  display: block;
+}
+
+.reveal-menu2 {
+  display: block !important;
 }
