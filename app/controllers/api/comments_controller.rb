@@ -20,7 +20,7 @@ class Api::CommentsController < ApplicationController
   def destroy
     @comment = current_user.comments.find(params[:id])
     if @comment.destroy
-      render json: @comment.id
+      render :show
     else
       render json: ["something went wrong"]
     end
