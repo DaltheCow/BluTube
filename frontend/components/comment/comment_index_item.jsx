@@ -16,6 +16,8 @@ class CommentIndexItem extends React.Component {
   modalClick() {
     if (this.state.menu && this.state.listenerReady) {
       this.setState({menu: false});
+      $('body').removeClass("block-scroll");
+
     }
     this.setState({listenerReady: true});
   }
@@ -29,7 +31,7 @@ class CommentIndexItem extends React.Component {
   }
 
   handleMenuClick() {
-    // $('body').toggleClass("block-scroll");
+    $('body').toggleClass("block-scroll");
     this.setState({ menu: !this.state.menu });
     this.setState({ listenerReady: false });
   }
@@ -60,6 +62,10 @@ class CommentIndexItem extends React.Component {
     return "less than 1 minute ago";
   }
 
+  cancelEdit() {
+    this.setState({edit: false});
+  }
+
   render() {
 
     const comment = this.props.comment;
@@ -71,9 +77,7 @@ class CommentIndexItem extends React.Component {
         </Link>
         {this.state.edit ?
           (
-            <div>
-              <CommentForm comment={comment} updateComment={this.props.updateComment} loggedIn={this.props.loggedIn} />
-            </div>
+            <CommentForm comment={comment} updateComment={this.props.updateComment} loggedIn={this.props.loggedIn} cancelEdit={() => this.cancelEdit()}/>
           ) :
           (
             <div className="comment-info-and-menu">

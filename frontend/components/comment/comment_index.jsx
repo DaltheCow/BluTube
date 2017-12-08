@@ -84,23 +84,25 @@ class CommentIndex extends React.Component {
       <div className="comments-container">
         <div className="comment-form-container">
           <div className="comments-length">{len} Comment{len === 1 ? "" : "s"}</div>
-          <form className="comment-form" onSubmit={(e) => this.handleSubmit(e)}>
-              <Link className="profile-image" to={`/channel/${this.props.currentUser.id}`}>
-                <img src="https://s3.amazonaws.com/blutube-dev/images/profile_image_300x200.png" />
-              </Link>
-              <div className="comment-line">
-                <div className="comment-input-container">
-                  <textarea id="comment-input" placeholder="Add a public comment..." onFocus={() => this.handleFocus()} onBlur={() => this.handleBlur()} value={this.state.body} onChange={(e) => this.handleChange(e)}/>
-                  <div className="comment-underline"></div>
-                </div>
-                {this.state.btnsOn ?
-                <div className="comments-buttons">
-                  <div className="comments-btn comment-cancel" onClick={() => this.setBtns(false)}>CANCEL</div>
-                  <div onClick={(e) => this.handleSubmit(e)} className={ "comments-btn comment-submit " + (this.state.body.length > 0 ? "comment-revealed" : "")}>COMMENT</div>
-                </div> : null}
-            </div>
+          <div className="comment-form-image-and-form">
+            <Link className="profile-image" to={this.props.currentUser ? `/channel/${this.props.currentUser.id}` : '/login'}>
+              <img src="https://s3.amazonaws.com/blutube-dev/images/profile_image_300x200.png" />
+            </Link>
+            <form className="comment-form" onSubmit={(e) => this.handleSubmit(e)}>
+                <div className="comment-line">
+                  <div className="comment-input-container">
+                    <textarea className="comment-input" placeholder="Add a public comment..." onFocus={() => this.handleFocus()} onBlur={() => this.handleBlur()} value={this.state.body} onChange={(e) => this.handleChange(e)}/>
+                    <div className="comment-underline"></div>
+                  </div>
+                  {this.state.btnsOn ?
+                  <div className="comments-buttons">
+                    <div className="comments-btn comment-cancel" onClick={() => this.setBtns(false)}>CANCEL</div>
+                    <div onClick={(e) => this.handleSubmit(e)} className={ "comments-btn comment-submit " + (this.state.body.length > 0 ? "comment-revealed" : "")}>COMMENT</div>
+                  </div> : null}
+              </div>
 
-          </form>
+            </form>
+          </div>
         </div>
         {comments.map((comment, i) => (
             <CommentIndexItemContainer commentId={comment.id} />

@@ -30,8 +30,16 @@
 }
 
 .comment-form {
+  // display: flex;
+  width: 100%;
+}
+
+.comment-form-image-and-form {
   display: flex;
 }
+
+
+
 .comment-form-container {
   margin-top: 24px;
   margin-bottom: 32px;
@@ -42,11 +50,10 @@
 }
 
 .comment-line {
-  // display: flex;
-  width: 91%;;
+  width: 100%;
 }
 
-#comment-input {
+.comment-input {
   border: none;
   resize: none;
   font-size: 14px;
@@ -55,34 +62,34 @@
   width: 100%;
 }
 
-#comment-input ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-  color:    rgb(112,112,112);
+.comment-input ::-webkit-input-placeholder {
+  color: rgb(112,112,112);
 }
 
-#comment-input :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-  color:    rgb(112,112,112);
-   opacity:  1;
+.comment-input :-moz-placeholder {
+  color: rgb(112,112,112);
+  opacity:  1;
 }
 
-#comment-input ::-moz-placeholder { /* Mozilla Firefox 19+ */
-  color:    rgb(112,112,112);
-   opacity:  1;
+.comment-input ::-moz-placeholder {
+  color: rgb(112,112,112);
+  opacity:  1;
 }
 
-#comment-input :-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color:    rgb(112,112,112);
+.comment-input :-ms-input-placeholder {
+  color: rgb(112,112,112);
 }
 
-#comment-input ::-ms-input-placeholder { /* Microsoft Edge */
-  color:    rgb(112,112,112);
+.comment-input ::-ms-input-placeholder {
+  color: rgb(112,112,112);
 }
 
-#comment-input ::placeholder { /* Most modern browsers support this now. */
-   color:    rgb(112,112,112);
+.comment-input ::placeholder {
+  color: rgb(112,112,112);
 }
 
 
-.comment-underline {
+.comment-underline, .comment-underline-edit {
   position:absolute;
   left: 50%;
   height: 2px;
@@ -126,6 +133,31 @@
   background: rgb(46, 144, 230);
 }
 
+.comment-save {
+  font-weight: 600;
+  color: rgb(184,184,184);
+}
+
+.comment-save:hover {
+  // transition: none;
+  // -webkit-transition: none;
+  // -moz-transition-property: none;
+  color: rgb(65,65,65);
+}
+
+.comment-save-revealed {
+  -webkit-transition-delay: 0.25s;
+  -moz-transition-delay: 0.25s;
+  transition-delay: 0.25s;
+  -webkit-transition-duration: 0s;
+  -moz-transition-duration: 0s;
+  transition-duration: 0s;
+  -webkit-transition-property: color;
+  -moz-transition-property: color;
+  transition-property: color;
+  color: rgb(112,112,112);
+}
+
 .comments-buttons {
   margin-top: 6px;
 }
@@ -157,8 +189,6 @@
 }
 
 .comment-username {
-  // font-size: 13px;
-  // font-weight: 600;
   font-size: 0.85rem;
   font-weight: 500;
   margin-right: 8px;
