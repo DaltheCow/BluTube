@@ -10,18 +10,19 @@ const mapStateToProps = (state, ownProps) => {
   let comment = state.entities.comments[commentId];
   // debugger
   comment = Object.assign({}, comment, {username: state.entities.users[comment.authorId].username});
+  const videoId = ownProps.match.params.videoId;
   return {
     comment,
     isCurrentUsers: state.session.currentUser.id === comment.authorId,
     loggedIn: Boolean(state.session.currentUser),
-    
+    videoId
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     deleteComment: (commentId) => dispatch(deleteComment(commentId)),
-    updateComment: (videoId, comment) => dispatch(updateComment(videoId, comment)),
+    updateComment: (videoId, comment, id) => dispatch(updateComment(videoId, comment, id)),
   };
 };
 

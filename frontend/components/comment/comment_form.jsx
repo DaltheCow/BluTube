@@ -16,9 +16,10 @@ class CommentForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const body = this.state.body;
-    this.props.updateComment(this.props.videoId, { body }).then(action => {
-      this.setState({comments: [action.comment, ...this.state.comments]});
-      this.setState({body: ""});
+    this.props.updateComment(this.props.videoId, { body }, this.props.comment.id).then(action => {
+      this.setState({ body: ""});
+      // this.setState({body: ""});
+      this.props.cancelEdit();
     });
   }
 
@@ -43,6 +44,7 @@ class CommentForm extends React.Component {
   }
 
   handleBlur() {
+    const comment = this.props.comment;
     const underline = document.getElementById("comment-underline-" + comment.id);
     underline.classList.remove("underline-transition");
   }

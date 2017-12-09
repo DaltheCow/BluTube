@@ -35,8 +35,8 @@ export const createComment = (videoId, comment) => dispatch => {
   );
 };
 
-export const updateComment = (videoId, comment) => dispatch => {
-  return CommentApiUtil.updateComment(videoId, comment).then(
+export const updateComment = (videoId, comment, id) => dispatch => {
+  return CommentApiUtil.updateComment(videoId, comment, id).then(
     comment => dispatch(receiveComment(comment))/*,
     errors => dispatch(receiveErrors(errors.responseJSON))*/
   );

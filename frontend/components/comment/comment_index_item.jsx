@@ -77,7 +77,7 @@ class CommentIndexItem extends React.Component {
         </Link>
         {this.state.edit ?
           (
-            <CommentForm comment={comment} updateComment={this.props.updateComment} loggedIn={this.props.loggedIn} cancelEdit={() => this.cancelEdit()}/>
+            <CommentForm comment={comment} updateComment={this.props.updateComment} loggedIn={this.props.loggedIn} cancelEdit={() => this.cancelEdit()} videoId={this.props.videoId}/>
           ) :
           (
             <div className="comment-info-and-menu">
