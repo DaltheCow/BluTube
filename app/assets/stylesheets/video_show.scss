@@ -45,7 +45,6 @@
 
 @media (max-width: 857px) {
   .video-show-container {
-    // flex-direction: column;
     max-width: 640px;
   }
   .video-show video {
@@ -81,7 +80,7 @@
 
 .video-show-related-videos {
   margin-left: 24px;
-  font-family: Roboto, Arial, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
   width: 100%;
 }
 
@@ -276,10 +275,6 @@
 .subscribe .subcount {
   color: rgb(254, 195, 198);
 }
-
-.comments {
-}
-
 .channel-info {
   display: flex;
   flex-direction: column;

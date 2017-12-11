@@ -18,7 +18,6 @@ class CommentForm extends React.Component {
     const body = this.state.body;
     this.props.updateComment(this.props.videoId, { body }, this.props.comment.id).then(action => {
       this.setState({ body: ""});
-      // this.setState({body: ""});
       this.props.cancelEdit();
     });
   }
