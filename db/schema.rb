@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171105024120) do
+ActiveRecord::Schema.define(version: 20171216204256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(version: 20171105024120) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.string "subscriber_id", null: false
+    t.string "subscribee_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subscriber_id", "subscribee_id"], name: "index_subscriptions_on_subscriber_id_and_subscribee_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
