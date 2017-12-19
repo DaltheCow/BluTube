@@ -1,9 +1,7 @@
 class Video < ApplicationRecord
   include PgSearch
 
-  #add description
   multisearchable against: %i(title description)
-
 
   validates :title, :description, :author_id, presence: true
 
@@ -37,9 +35,5 @@ class Video < ApplicationRecord
     end
     [like_count, dislike_count]
   end
-
-
-
-
-
+  
 end

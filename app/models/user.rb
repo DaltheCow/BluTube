@@ -12,6 +12,12 @@ class User < ApplicationRecord
   has_many :comments,
     foreign_key: :author_id
 
+  has_many :subscriptions,
+    foreign_key: :subscriber_id
+
+  has_many :subscribers,
+    foreign_key: :subscribee_id
+
 
 
   def password=(password)
