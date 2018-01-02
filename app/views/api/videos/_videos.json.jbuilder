@@ -27,3 +27,14 @@ end
 json.commentIds do
   json.array! video.comments.map{|comment| comment.id}
 end
+
+json.sub do
+  sub = current_user.subscriptions.find_by(subscribee_id: video.author.id)
+  if sub
+    json.id sub.id
+    json.subscriberId sub.subscriber_id
+    json.subscribeeId sub.subscribee_id
+  end
+end
+
+json.subCount video.author.subscribers.count
