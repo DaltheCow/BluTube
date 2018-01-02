@@ -16,7 +16,8 @@ class User < ApplicationRecord
     foreign_key: :subscriber_id
 
   has_many :subscribers,
-    foreign_key: :subscribee_id
+    foreign_key: :subscribee_id,
+    class_name: 'Subscription'
 
 
 
