@@ -14,9 +14,9 @@ const receiveSub = (sub) => ({
   sub
 });
 
-const removeSub = (subId) => ({
+const removeSub = (sub) => ({
   type: REMOVE_SUB,
-  subId
+  sub
 });
 
 export const createSub = (sub) => dispatch => {
