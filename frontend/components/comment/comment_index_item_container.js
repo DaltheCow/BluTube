@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
   const videoId = ownProps.match.params.videoId;
   return {
     comment,
-    isCurrentUsers: state.session.currentUser.id === comment.authorId,
+    isCurrentUsers: state.session.currentUser && (state.session.currentUser.id === comment.authorId),
     loggedIn: Boolean(state.session.currentUser),
     videoId
   };

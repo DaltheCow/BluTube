@@ -36,12 +36,7 @@ class CommentIndex extends React.Component {
     }
     this.setBtns(true);
     const underline = document.querySelector(".comment-underline");
-
-    // $("#comment").focusin(() => {
-      underline.classList.add("underline-transition");
-    // });
-    // $("#comment").focusout(() => {
-    // });
+    underline.classList.add("underline-transition");
   }
 
   handleBlur() {
@@ -50,7 +45,6 @@ class CommentIndex extends React.Component {
   }
 
   handleChange(e) {
-
     this.setState({body: e.target.value});
   }
 
@@ -75,8 +69,6 @@ class CommentIndex extends React.Component {
       if (a.createdAtInt < b.createdAtInt) return 1;
       return -1;
     });
-
-    //
 
     // const comments = this.state.comments.concat(sortedComments);
     const len = this.props.comments.length;
@@ -105,7 +97,7 @@ class CommentIndex extends React.Component {
           </div>
         </div>
         {comments.map((comment, i) => (
-            <CommentIndexItemContainer commentId={comment.id} />
+            <CommentIndexItemContainer key={i} commentId={comment.id} />
         ))}
       </div>
     );
