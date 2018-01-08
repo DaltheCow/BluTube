@@ -2,26 +2,18 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import shuffle from '../../../util/shuffle';
 import CommentIndexContainer from '../../comment/comment_index_container';
-
-const togglePlay = (video) => {
-  return video.paused ? video.play() : video.pause();
-};
+import RelatedVideosContainer from './related_videos/related_videos_container';
+import VideoElement from './video_element';
 
 class VideoShow extends React.Component {
   constructor(props) {
     super(props);
 
-    this.videos = [];
     this.state = { isColumnView: window.innerWidth <= 1000 };
   }
 
   componentDidMount() {
-    this.props.fetchVideo(this.props.match.params.videoId);
-    this.props.fetchVideos();
-    $('html,body').scrollTop(0);
     this.props.addView(this.props.match.params.videoId);
-    const video = document.querySelector('video');
-    this.setVideoListeners(video);
     window.addEventListener("resize", () => this.updateWindowSize());
   }
 
@@ -29,79 +21,14 @@ class VideoShow extends React.Component {
     this.setState({isColumnView: window.innerWidth <= 1000});
   }
 
-  setVideoListeners(video) {
-    $('video').on('click', () => togglePlay(video));
-    $('.video-video-container').bind('keydown', e => {
-      switch(e.which) {
-        case 32:
-        case 75:
-        togglePlay(video);
-        e.preventDefault();
-        break;
-        case 74:
-        video.currentTime = video.currentTime - 10;
-        e.preventDefault();
-        break;
-        case 76:
-        video.currentTime = video.currentTime + 10;
-        e.preventDefault();
-        break;
-        case 37:
-        video.currentTime = video.currentTime - 5;
-        e.preventDefault();
-        break;
-        case 39:
-        video.currentTime = video.currentTime + 5;
-        e.preventDefault();
-        break;
-      }
-    });
-  }
-
   componentWillUnmount() {
-    $('.video-video-container').off('keydown');
-    $('video').off('click');
     window.removeEventListener("resize", this.updateWindowSize);
   }
 
   componentWillReceiveProps(newProps) {
-    if (newProps.video && this.props.video && newProps.video.videoUrl && newProps.video.id !== this.props.video.id){
-      if (newProps.match.params.videoId !== this.props.match.params.videoId) {
-        this.props.addView(newProps.video.id);
-      }
-      $("video").attr("src", newProps.video.videoUrl);
+    if (newProps.match.params.videoId !== this.props.match.params.videoId) {
+      this.props.addView(newProps.video.id);
     }
-    if (this.videos.length < 1) {
-      this.videos = shuffle(newProps.videos).slice(0,20);
-    }
-  }
-
-  views(count) {
-    return (
-      count < 1000 ? count : (
-        count < 999999 ? Math.floor((count/1000)).toString() + "K" : (
-          Math.floor((count/1000000)).toString() + "M"
-        )
-      )
-    );
-  }
-
-  duration(time) {
-    const secs = time % 60;
-    const mins = Math.floor(time / 60) % 60;
-    const hrs = Math.floor(time / 3600);
-    const seconds = `:${secs < 10 ? '0' : ''}${secs}`;
-    const hours = `${hrs > 0 ? hrs : ''}${hrs > 0 ? ':' : ''}`;
-    const minutes = `${hrs > 0 && mins < 10 ? '0' : ''}${mins}`;
-    return hours + minutes + seconds;
-  }
-
-  handleRedirect(id) {
-    this.props.fetchVideo(id);
-    this.props.fetchVideos();
-    this.videos = [];
-    this.props.history.push(`/videos/${id}`);
-    $('html,body').scrollTop(0);
   }
 
   handleLike(isLike) {
@@ -119,19 +46,38 @@ class VideoShow extends React.Component {
     }
   }
 
+  views(count) {
+    return (
+      count < 1000 ? count : (
+        count < 999999 ? Math.floor((count/1000)).toString() + "K" : (
+          Math.floor((count/1000000)).toString() + "M"
+        )
+      )
+    );
+  }
+
+  handleSub(isSubbing) {
+    if (!this.props.currentUser) {
+      this.props.history.push(`/login`);
+    }
+    if (isSubbing) {
+      this.props.createSub(this.props.video.author.id);
+    } else {
+      this.props.deleteSub(this.props.sub.id);
+    }
+  }
+
   render() {
     const hasVideo = Boolean(this.props.video);
-    const hasVideos = this.props.videos.length > 0;
     const vid = this.props.video;
+    const subCount = this.props.subCount;
 
     return (
       <div className="video-show">
         <div className="video-show-container">
           <div className="video-show-content">
 
-            <div className="video-video-container" tabIndex="1">
-              <video width="596" height="360" src={hasVideo ? vid.videoUrl : ""} autoPlay controls/>
-            </div>
+            <VideoElement addView={ this.props.addView } fetchVideo={ this.props.fetchVideo } video={ this.props.video } />
 
             { vid ? (<div className="video-show-vid-description">
 
@@ -176,12 +122,18 @@ class VideoShow extends React.Component {
 
                   </div>
                   { !this.props.currentUser || !this.props.currentUser.videoIds.includes(vid.id) ?
-                    (
-                      <button className="subscribe">
-                        <span className="sub">SUBSCRIBE </span>
-                        <span className="subcount"> 0</span>
-                      </button>
-                    ) : (
+
+                      this.props.sub ? (
+                        <button onClick={() => this.handleSub(false)} className="unsubscribe">
+                          <span className="sub">SUBSCRIBED</span>
+                          <span className="subcount">{subCount}</span>
+                        </button>
+                      ) : (
+                        <button onClick={() => this.handleSub(true)} className="subscribe">
+                          <span className="sub">SUBSCRIBE</span>
+                          <span className="subcount">{subCount}</span>
+                        </button>)
+                     : (
                       <Link to={`/upload/${vid.id}/edit`} className="edit">
                         EDIT VIDEO
                       </Link>
@@ -200,39 +152,11 @@ class VideoShow extends React.Component {
             </div>) : (null)}
 
             {!this.state.isColumnView ? (<div className="comments">
-              < CommentIndexContainer />
+              <CommentIndexContainer />
             </div>) : null}
 
           </div>
-          <div className="video-show-related-videos">
-            <ul>
-
-              {hasVideos ? this.videos.map((video, i) => {
-                return (
-                  <li key={i} className="related-vid-index-item">
-
-                    <button className="related-vid-container" onClick={() => this.handleRedirect(video.id)}>
-
-                      <div className="related-vid-img">
-                        <img className="related-vid-thumbnail" src={video.thumbnailUrl} />
-                        <div className="related-vid-duration">
-                          {this.duration(video.duration)}
-                        </div>
-                      </div>
-
-                      <div className="related-vid-info">
-                        <div className="related-vid-title">{video.title}</div>
-                        <div className="related-vid-channel">{video.author.username}</div>
-                        <div className="related-vid-viewcount">{this.views(video.viewCount)} views</div>
-                      </div>
-
-                    </button>
-
-                  </li>
-                );
-              }) : (null)}
-            </ul>
-          </div>
+          <RelatedVideosContainer />
 
           {this.state.isColumnView ? (<div className="comments">
             < CommentIndexContainer />
