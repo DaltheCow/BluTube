@@ -17,7 +17,6 @@ const VideosReducer = (state = {}, action) => {
       return newState;
     }
     case RECEIVE_COMMENT: {
-      // debugger
       if (state[action.comment.videoId].commentIds.includes(action.comment.id)) {
         return state;
       } else {

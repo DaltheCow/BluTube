@@ -45,11 +45,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-//this line of code is super important!! ;) hehe
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(VideoShow);
-
-//this line of code is a little less important that the last line that said it was super important. but it's still key to the success of the program
-//this algorithm - if a > b, addView (sim - 7xt) - is super important, but less important than the last line that was less important than the line before it
