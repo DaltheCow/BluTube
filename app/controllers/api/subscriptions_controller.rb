@@ -4,7 +4,6 @@ class Api::SubscriptionsController < ApplicationController
 
     @sub.subscriber_id = current_user.id
     @sub.subscribee_id = params[:user_id]
-    debugger
     if @sub.save
       render :show
     else
