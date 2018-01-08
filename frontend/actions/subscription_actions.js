@@ -6,17 +6,19 @@ export const REMOVE_SUB = "REMOVE_SUB";
 
 const receiveSubs = (subs) => ({
   type: RECEIVE_SUBS,
-  subs
+  subs,
 });
 
 const receiveSub = (sub) => ({
   type: RECEIVE_SUB,
-  sub
+  sub: sub.sub,
+  subCount: sub.subCount,
 });
 
 const removeSub = (sub) => ({
   type: REMOVE_SUB,
-  sub
+  sub: sub.sub,
+  subCount: sub.subCount,
 });
 
 export const createSub = (sub) => dispatch => {
