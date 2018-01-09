@@ -1,0 +1,20 @@
+.sidebar {
+  width: 0;
+  height: 100vh;
+  -webkit-transition: width 0.25s, left 0.25s;
+  -moz-transition: width 0.25s, left 0.25s;
+  transition: width 0.25s, left 0.25s;
+  background-color: white;
+}
+
+.sidebar.sidebar-on {
+  width: 200px;
+}
+
+.sidebar-component {
+  position: absolute;
+}
+
+.sidebar-parent {
+  position: relative;
+}
