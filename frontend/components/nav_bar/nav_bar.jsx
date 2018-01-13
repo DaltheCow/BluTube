@@ -21,11 +21,16 @@ class NavBar extends React.Component {
     this.setState({ search: e.currentTarget.value });
   }
 
+  sidebarClick() {
+    const windowWidth = window.innerWidth < 1277 ? 'overlay' : 'flex';
+    this.props.sidebarToggle(windowWidth);
+  }
+
   render() {
     return (
        <div className="navbar">
         <ul className="nav-list">
-          <li className="side-bar-hamburger">
+          <li className="side-bar-hamburger" onClick={() => this.sidebarClick()}>
             <i className="fa fa-bars"></i>
           </li>
           <li className="nav-logo">
