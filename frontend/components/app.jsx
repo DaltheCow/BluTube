@@ -16,30 +16,40 @@ import SideBar2 from './side_bar/side_bar2';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.updateWindowSize = () =>  this.updateWindowSize();
-    this.state = { isSidebarOverlay: window.innerWidth < 1000 };
+    this.onWindowResize = this.onWindowResize.bind(this);
+    this.state = { isOverlaySize: window.innerWidth < 1277 };
   }
 
   componentDidMount() {
-    window.addEventListener("resize", this.updateWindowSize);
+    window.addEventListener("resize", this.onWindowResize);
   }
 
-  updateWindowSize() {
+  onWindowResize() {
+    const { location, sidebarResponse, windowResize, sidebarToggle } = this.props;
+    const { isOverlaySize } = this.state;
 
-    //here do the check to see if you need to open the sidebar
-
-    this.setState({isSidebarOverlay: window.innerWidth <= 1000});
+    if (!location.pathname.includes('/videos/')) {
+      if (window.innerWidth >= 1277) {
+        // debugger
+      }
+      if (window.innerWidth < 1277 && !isOverlaySize) {
+        windowResize('shrink');
+      } else if (window.innerWidth >= 1277 && isOverlaySize) {
+        windowResize('widen');
+      }
+    }
+    this.setState({isOverlaySize: window.innerWidth < 1277});
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", this.updateWindowSize);
+    window.removeEventListener("resize", this.onWindowResize);
   }
 
   render() {
-    const { sidebarState, location } = this.props;
-    const { isSidebarOverlay } = this.state;
+    const { sidebarState, location, sidebarType } = this.props;
     const notSessionPath = !['/login', '/signup'].includes(location.pathname);
-    const notVideoPath = !['/videos/'].includes(location.pathname);
+    const notVideoPath = !location.pathname.includes('/videos/');
+    // debugger
     const mainContent = (
       <Switch>
         <Route exact path="/videos/:videoId" component={ VideoShowContainer } />
@@ -64,14 +74,14 @@ class App extends React.Component {
           </header>
         ) : (null)}
 
-        <Route path="/videos/:videoId" component={ SideBar1 } />
+        <Route path="/videos/:videoId" render={() => <SideBar1 visible={ sidebarState } />} />
         <Route path="/videos/:videoId" render={() => mainContent} />
 
-        {notVideoPath && isSidebarOverlay ? (<SideBar1 />) : (null)}
-        {notVideoPath && isSidebarOverlay ? { mainContent } : (null)}
-        {notVideoPath && !isSidebarOverlay ? (
-          <div>
-            <SideBar2 />
+        {notVideoPath && sidebarType === 'overlay' ? (<SideBar1 visible={ sidebarState } />) : (null)}
+        {notVideoPath && sidebarType === 'overlay' ? mainContent : (null)}
+        {notVideoPath && sidebarType === 'flex' ? (
+          <div className="with-side-bar-flexed">
+            <SideBar2 visible={ sidebarState } />
             { mainContent }
           </div>
         ) : (null)}
