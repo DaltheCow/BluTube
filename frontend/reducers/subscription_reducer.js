@@ -6,7 +6,7 @@ const SubscriptionsReducer = (state = { subs: {}, subCount: null }, action) => {
 
   switch(action.type) {
     case RECEIVE_SUBS: {
-      return { subs: action.subs, subCount: null };
+      return { subs: action.subs.subscriptions, subCount: null };
     }
     case RECEIVE_SUB: {
       const subs = Object.assign({}, state.subs, { [action.sub.id]: action.sub });

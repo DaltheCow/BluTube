@@ -26,7 +26,7 @@ export const createSub = (sub) => dispatch => {
 };
 
 export const fetchSubs = () => dispatch => {
-  return SubscriptionApiUtil.fetchSubs().then(subs => dispatch(receiveSubs(sub)));
+  return SubscriptionApiUtil.fetchSubs().then(subs => dispatch(receiveSubs(subs)));
 };
 
 export const deleteSub = (subId) => dispatch => {
