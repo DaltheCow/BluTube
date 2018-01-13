@@ -8,7 +8,8 @@
 }
 
 .sidebar.sidebar-on {
-  width: 200px;
+  min-width: 240px;
+  max-width: 240px;
 }
 
 .sidebar-component {
@@ -17,4 +18,8 @@
 
 .sidebar-parent {
   position: relative;
+}
+
+.with-side-bar-flexed {
+  display: flex;
 }

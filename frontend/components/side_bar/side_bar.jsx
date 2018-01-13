@@ -5,25 +5,28 @@ class SideBar extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = { loading: true };
+  }
+
+  componentDidMount() {
+    this.props.fetchSubs().then(() => this.setState({ loading: false }));
   }
 
   render() {
+    const { subs } = this.props;
+    const { loading } = this.state;
+    const loader = <div className="loader"></div>;
     return (
       <div className="sidebar sidebar-on sidebar-component">
-        <ul className="nav-list">
-          <li className="side-bar-hamburger sidebar-parent">
-            <i className="fa fa-bars"></i>
-          </li>
-          <li>hi</li>
-          <li className="nav-logo">
-            <Link to="/" onClick={(e) => {
-                e.preventDefault();
-                this.props.clearFilter();
-                this.props.history.push("/");}}>
-              <img src="https://s3.amazonaws.com/blutube-dev/images/play_logo_small.png" />
-            </Link>
-          </li>
-        </ul>
+        <div className="sidebar-subs-header">SUBSCRIPTIONS</div>
+        { loading ? loader : (
+          subs.map(sub => (
+            <div className="sidebar-sub">
+              <div className="sidebar-sub-channel-name"></div>
+              <div className="sidebar-sub-channel-name"></div>
+            </div>
+          ))
+        ) }
       </div>
     );
   }
