@@ -7,8 +7,13 @@ class SideBar1 extends React.Component {
   }
 
   render() {
+    const { visible } = this.props;
     return (
-      <div></div>
+      visible ? (
+        <div style={{minWidth: '240px', maxWidth: '240px', height: '100vh', background: 'gray', position: 'fixed', top: 0, left: 0, zIndex: 2000 }}>
+          <SideBarContainer />
+        </div>
+      ) : <div></div>
     );
   }
 }
