@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import shuffle from '../../../util/shuffle';
 
 class VideoIndex extends React.Component {
 
   constructor(props) {
     super(props);
 
-    this.state = {videos: []};
+    this.videos = [];
   }
 
   componentDidMount() {
@@ -17,6 +18,14 @@ class VideoIndex extends React.Component {
   componentWillReceiveProps(newProps) {
     if (newProps.filter.length > 0 && newProps.videos.length === 0) {
       newProps.clearFilter();
+    }
+    if (newProps.filter !== this.props.filter) {
+      this.videos = newProps.videos;
+      this.forceUpdate();
+    }
+    if (this.videos.length < 1 && newProps.videos.length > 1) {
+      this.videos = shuffle(newProps.videos).slice(0, 40);
+      this.forceUpdate();
     }
   }
 
@@ -67,7 +76,7 @@ class VideoIndex extends React.Component {
   }
 
   render() {
-    const videos = this.props.videos;
+    const videos = this.videos;
 
     return(
       <div className="video-and-filter">
