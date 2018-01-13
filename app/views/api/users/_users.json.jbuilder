@@ -9,3 +9,7 @@ json.likes user.likes do |like|
   json.userId like.user_id
   json.videoId like.video_id
 end
+
+json.subIds do
+  json.array! user.subscriptions.map{|sub| sub.id}
+end
