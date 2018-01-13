@@ -8,7 +8,7 @@ import VideoElement from './video_element';
 class VideoShow extends React.Component {
   constructor(props) {
     super(props);
-    this.updateWindowSize = () =>  this.updateWindowSize();
+    this.updateWindowSize = this.updateWindowSize.bind(this);
     this.state = { isColumnView: window.innerWidth <= 1000 };
   }
 
