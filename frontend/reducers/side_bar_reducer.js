@@ -20,7 +20,7 @@ const SideBarReducer = (state = defaultState, action) => {
         }
       } else {
         if (action.windowWidth === 'overlay') {
-          const newState = { sidebarState: false };
+          const newState = { sidebarState: false, sidebarType: 'flex' };
           return Object.assign({}, state, newState);
         } else {
           const newState = { sidebarState: false, sidebarResponse: false };
