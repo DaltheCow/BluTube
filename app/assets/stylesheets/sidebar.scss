@@ -23,3 +23,22 @@
 .with-side-bar-flexed {
   display: flex;
 }
+
+.sidebar {
+  min-width: 240px;
+  max-width: 240px;
+  height: 100vh;
+  background: 'white'
+}
+
+.sidebar-1 {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  z-index: 2000;
+  -webkit-transition: left 0.25s;
+}
+
+.sidebar-1-on {
+  left: 0;
+}

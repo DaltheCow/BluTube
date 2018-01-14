@@ -10,7 +10,7 @@ class SideBar2 extends React.Component {
     const { visible } = this.props;
     return (
       visible ? (
-        <div style={{minWidth: '240px', maxWidth: '240px', height: '100vh', background: 'gray'}}>
+        <div className="sidebar sidebar-2">
           <SideBarContainer />
         </div>
       ) : <div></div>
