@@ -30,8 +30,8 @@ class NavBar extends React.Component {
     return (
        <div className="navbar">
         <ul className="nav-list">
-          <li className="side-bar-hamburger" onClick={() => this.sidebarClick()}>
-            <i className="fa fa-bars"></i>
+          <li className="side-bar-hamburger">
+            <i className="fa fa-bars" onClick={() => this.sidebarClick()}></i>
           </li>
           <li className="nav-logo">
             <Link to="/" onClick={(e) => {
