@@ -1,0 +1,23 @@
+.header-main {
+  display: flex;
+  margin: 10px;
+}
+
+.header-main li {
+  list-style: none;
+}
+
+.header-main li {
+  margin-top: 6px;
+}
+
+.header-main .nav-logo img {
+  margin-top: 0px !important;
+  max-height: 21px;
+  max-width: 29px;
+  min-width: 29px;
+}
+
+.nav-logo-text {
+  margin-top: 5px !important;
+}
