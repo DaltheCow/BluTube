@@ -27,8 +27,8 @@ const Header = (props) => {
       <li className="nav-logo-text">
         <Link to="/" onClick={(e) => {
             e.preventDefault();
-            this.props.clearFilter();
-            this.props.history.push("/");}}>
+            props.clearFilter();
+            props.history.push("/");}}>
           <span>Bl<div className="ut">uT</div>ube</span>
         </Link>
       </li>

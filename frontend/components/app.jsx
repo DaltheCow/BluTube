@@ -74,17 +74,14 @@ class App extends React.Component {
           </header>
         ) : (null)}
 
-        <Route path="/videos/:videoId" render={() => <SideBar1 visible={ sidebarState } />} />
-        <Route path="/videos/:videoId" render={() => mainContent} />
-
-        {notVideoPath && sidebarType === 'overlay' ? (<SideBar1 visible={ sidebarState } />) : (null)}
-        {notVideoPath && sidebarType === 'overlay' ? mainContent : (null)}
-        {notVideoPath && sidebarType === 'flex' ? (
           <div className="with-side-bar-flexed">
-            <SideBar2 visible={ sidebarState } />
+            {sidebarType === 'flex' ?
+              <SideBar2 visible={ sidebarState && notVideoPath } /> :
+                null
+            }
+            <SideBar1 visible={ sidebarState && (!notVideoPath || sidebarType === 'overlay') } />
             { mainContent }
           </div>
-        ) : (null)}
       </div>
     );
   }

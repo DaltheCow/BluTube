@@ -13,6 +13,7 @@ class VideoIndex extends React.Component {
   componentDidMount() {
     $('html,body').scrollTop(0);
     this.props.fetchVideos();
+    // debugger
   }
 
   componentWillReceiveProps(newProps) {
