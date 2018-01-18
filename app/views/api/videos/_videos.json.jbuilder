@@ -29,7 +29,7 @@ json.commentIds do
 end
 
 json.sub do
-  sub = current_user.subscriptions.find_by(subscribee_id: video.author.id)
+  sub = current_user && current_user.subscriptions.find_by(subscribee_id: video.author.id)
   if sub
     json.id sub.id
     json.subscriberId sub.subscriber_id

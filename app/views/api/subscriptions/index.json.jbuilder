@@ -12,6 +12,7 @@ end
 
 json.users do
   subs.each do |sub|
+    # debugger
     user = User.find(sub.subscribee_id)
     json.set! user.id do
       json.id user.id

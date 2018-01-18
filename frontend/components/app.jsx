@@ -41,6 +41,12 @@ class App extends React.Component {
     this.setState({isOverlaySize: window.innerWidth < 1277});
   }
 
+  onOverlayClick(visible) {
+    if (visible) {
+      this.props.sidebarToggle('overlay');
+    }
+  }
+
   componentWillUnmount() {
     window.removeEventListener("resize", this.onWindowResize);
   }
@@ -50,6 +56,7 @@ class App extends React.Component {
     const notSessionPath = !['/login', '/signup'].includes(location.pathname);
     const notVideoPath = !location.pathname.includes('/videos/');
     // debugger
+    const sidebar1On = sidebarState && (!notVideoPath || sidebarType === 'overlay');
     const mainContent = (
       <Switch>
         <Route exact path="/videos/:videoId" component={ VideoShowContainer } />
@@ -79,7 +86,8 @@ class App extends React.Component {
               <SideBar2 visible={ sidebarState && notVideoPath } /> :
                 null
             }
-            <SideBar1 visible={ sidebarState && (!notVideoPath || sidebarType === 'overlay') } />
+            <SideBar1 visible={ sidebar1On } />
+              <div onClick={() => this.onOverlayClick(sidebar1On)} className={"side-bar-overlay" + (sidebar1On ? " side-bar-overlay-on" : "")}></div>
             { mainContent }
           </div>
       </div>

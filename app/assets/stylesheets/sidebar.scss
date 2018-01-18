@@ -37,8 +37,43 @@
   left: -100%;
   z-index: 2000;
   -webkit-transition: left 0.25s;
+  -moz-transition: left 0.25s;
+  transition: left 0.25s;
 }
 
 .sidebar-1-on {
   left: 0;
+}
+
+.sidebar-sub .profile-image {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  background: white;
+  display: flex;
+  justify-content: center;
+  margin-right: 14px;
+}
+
+.sidebar-sub .profile-image img {
+  height: 40px;
+}
+
+.side-bar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  -moz-transition: opacity .25s;
+  -webkit-transition: opacity .25s;
+  transition: opacity .25s;
+  background: black;
+}
+
+.side-bar-overlay-on {
+  opacity: .5;
+  z-index: 1500;
 }

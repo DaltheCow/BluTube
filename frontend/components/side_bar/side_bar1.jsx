@@ -8,7 +8,6 @@ class SideBar1 extends React.Component {
     return (
       <div className={"sidebar sidebar-1" + (visible ? " sidebar-1-on" : "")}>
         <Header />
-
         <SideBarContainer />
       </div>
     );

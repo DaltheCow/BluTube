@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  sidebarToggle: () => dispatch(sidebarToggle()),
+  sidebarToggle: (windowWidth) => dispatch(sidebarToggle(windowWidth)),
   windowResize: (direction) => dispatch(windowResize(direction)),
 });
 

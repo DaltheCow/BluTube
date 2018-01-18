@@ -5,13 +5,19 @@ import { fetchSubs } from '../../actions/subscription_actions';
 import mapFilter from '../../util/mapFilter';
 
 const mapStateToProps = (state, ownProps) => {
-  const subIds = state.session.currentUser.subIds;
+  const currentUser = state.session.currentUser;
+  if (!currentUser) {
+    return { subs: [], currentUser };
+  }
+  const subIds = currentUser.subIds;
   const allSubs = state.entities.subscriptions.subs;
   const users = state.entities.users;
   let subs = mapFilter(subIds, id => allSubs[id]);
-  subs = subs.map(sub => Object.assign({}, sub, users[sub.subscribeeId]));
+  subs = subs.map(sub => Object.assign({}, sub, users[Number(sub.subscribeeId)]));
+  // debugger
   return {
     subs,
+    currentUser,
   };
 };
 
