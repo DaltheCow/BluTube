@@ -71,6 +71,7 @@
   -webkit-transition: opacity .25s;
   transition: opacity .25s;
   background: black;
+  z-index: -10;
 }
 
 .side-bar-overlay-on {
