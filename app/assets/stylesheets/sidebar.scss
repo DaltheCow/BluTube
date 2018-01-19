@@ -28,7 +28,8 @@
   min-width: 240px;
   max-width: 240px;
   height: 100vh;
-  background: 'white'
+  background: 'white';
+  font-family: 'Roboto', Arial, sans-serif;
 }
 
 .sidebar-1 {
@@ -45,10 +46,17 @@
   left: 0;
 }
 
+.sidebar-subs-header {
+  padding: 8px 24px;
+  font-size: .9rem;
+  font-weight: 500;
+  color: #777;
+}
+
 .sidebar-sub .profile-image {
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 24px;
+  height: 24px;
   overflow: hidden;
   background: white;
   display: flex;
@@ -57,7 +65,21 @@
 }
 
 .sidebar-sub .profile-image img {
+  height: 24px;
+}
+
+.sidebar-channel-name {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: .9rem;
+}
+
+.sidebar-sub {
+  display: flex;
+  padding: 0 24px;
   height: 40px;
+  align-items: center;
 }
 
 .side-bar-overlay {

@@ -1,9 +1,7 @@
-import { SIDEBAR_TOGGLED, WINDOW_RESIZE } from '../actions/side_bar_actions';
-
-const sidebarState = window.innerWidth >= 1277;
+import { SIDEBAR_TOGGLED, WINDOW_RESIZE, COMPONENT_MOUNT } from '../actions/side_bar_actions';
 
 const defaultState = {
-  sidebarState,
+  sidebarState: false,
   sidebarResponse: true,
   sidebarType: 'flex',
 };
@@ -40,6 +38,10 @@ const SideBarReducer = (state = defaultState, action) => {
         return Object.assign({}, state, { sidebarState: false });
       }
       return state;
+    }
+    case COMPONENT_MOUNT: {
+      const newSideBarState = action.component !== 'video_show' && window.innerWidth >= 1277;
+      return Object.assign({}, state, { sidebarState: newSideBarState });
     }
     default: return state;
   }

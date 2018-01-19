@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchVideos } from '../../../actions/video_actions';
 import { receiveFilter, clearFilter } from '../../../actions/ui_actions';
+import { componentMount } from '../../../actions/side_bar_actions';
 import VideoIndex from './video_index';
 import shuffle from '../../../util/shuffle';
 
@@ -28,6 +29,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     fetchVideos: () => dispatch(fetchVideos()),
     receiveFilter: (filter) => dispatch(receiveFilter(filter)),
     clearFilter: () => dispatch(clearFilter()),
+    componentMount: (component) => dispatch(componentMount(component)),
   };
 };
 

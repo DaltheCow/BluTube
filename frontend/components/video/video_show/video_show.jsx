@@ -15,6 +15,7 @@ class VideoShow extends React.Component {
   componentDidMount() {
     this.props.addView(this.props.match.params.videoId);
     window.addEventListener("resize", this.updateWindowSize);
+    this.props.componentMount('video_show');
   }
 
   updateWindowSize() {

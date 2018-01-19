@@ -14,7 +14,7 @@ const mapStateToProps = (state, ownProps) => {
   const users = state.entities.users;
   let subs = mapFilter(subIds, id => allSubs[id]);
   subs = subs.map(sub => Object.assign({}, sub, users[Number(sub.subscribeeId)]));
-  // debugger
+  
   return {
     subs,
     currentUser,

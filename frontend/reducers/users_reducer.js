@@ -1,5 +1,6 @@
 import { RECEIVE_COMMENTS } from '../actions/comment_actions';
 import { RECEIVE_SUBS } from '../actions/subscription_actions';
+import { RECEIVE_VIDEO } from '../actions/video_actions';
 
 const UsersReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -9,8 +10,11 @@ const UsersReducer = (state = {}, action) => {
       return Object.assign({}, action.users, state);
     }
     case RECEIVE_SUBS: {
-      // debugger
       return Object.assign({}, action.subs.users, state);
+    }
+    case RECEIVE_VIDEO: {
+      const author = action.video.author;
+      return Object.assign({}, { [author.id]: author }, state);
     }
     default: return state;
   }

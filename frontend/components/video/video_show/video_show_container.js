@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchVideo, fetchVideos, addView, createLike, updateLike, deleteLike } from '../../../actions/video_actions';
 import { createSub, deleteSub } from '../../../actions/subscription_actions';
+import { componentMount } from '../../../actions/side_bar_actions';
 import VideoShow from './video_show';
 
 const mapStateToProps = (state, ownProps) => {
@@ -42,6 +43,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     deleteLike: (id) => dispatch(deleteLike(id)),
     createSub: (sub) => dispatch(createSub(sub)),
     deleteSub: (subId) => dispatch(deleteSub(subId)),
+    componentMount: (component) => dispatch(componentMount(component)),
   };
 };
 
