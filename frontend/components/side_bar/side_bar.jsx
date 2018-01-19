@@ -5,17 +5,15 @@ class SideBar extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { loading: true };
+    this.state = { loading: false, needsSubRequest: true };
   }
 
-  componentDidMount() {
-    if (this.props.currentUser) {
+  componentWillReceiveProps(newProps) {
+    if (this.state.needsSubRequest && newProps.needsSubRequest) {
+      this.setState({ needsSubRequest: false, loading: true });
       this.props.fetchSubs().then(() => this.setState({ loading: false }));
-    } else {
-      this.setState({ loading: false });
     }
   }
-
 
 
   render() {
