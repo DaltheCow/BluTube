@@ -143,32 +143,8 @@
   margin-bottom: 16px;
 }
 
-.video-filter button {
-  font-family: 'Roboto', Arial, sans-serif;
-  color: darkblue;
-  margin-left: 4px;
-  margin-right: 4px;
-}
-
-.video-filter button:last-child {
-  margin-right: 0;
-}
-
-.video-filter button:hover {
-  color: blue;
-  cursor: pointer;
-}
-
-.video-and-filter {
+.video-index-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.video-filter .none {
-  color: black !important;
-}
-
-.video-filter .none:hover {
-  color: black !important;
 }

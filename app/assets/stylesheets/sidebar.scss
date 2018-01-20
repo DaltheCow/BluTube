@@ -46,11 +46,47 @@
   left: 0;
 }
 
+.sidebar-btns {
+  margin-top: 24px;
+}
+
+.sidebar-btn {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.sidebar-btn:hover {
+  cursor: pointer;
+}
+
+.sidebar-btn i {
+  color: #888;
+  font-size: 20px;
+  margin-right: 27px;
+}
+
+.sidebar-btn span {
+  font-size: 13px;
+  margin-right: 24px;
+}
+
+.selected i {
+  color: red;
+}
+
+.selected span {
+  font-weight: 500;
+}
+
+
 .sidebar-subs-header {
   padding: 8px 24px;
   font-size: .9rem;
   font-weight: 500;
   color: #777;
+  margin-top: 24px;
 }
 
 .sidebar-sub .profile-image {

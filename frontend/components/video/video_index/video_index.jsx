@@ -72,22 +72,11 @@ class VideoIndex extends React.Component {
     return "less than 1 minute ago";
   }
 
-  handleFilter(filter) {
-    this.props.receiveFilter(filter);
-  }
-
   render() {
     const videos = this.videos;
 
     return(
-      <div className="video-and-filter">
-
-        <div className="video-filter">
-          <button onClick={() => this.handleFilter("viewCount")}>Most Viewed</button><span className="none">|</span>
-          <button onClick={() => this.handleFilter("duration")}>Longest</button><span className="none">|</span>
-          <button onClick={() => this.handleFilter("likes")}>likes</button><span className="none">|</span>
-          <button onClick={() => this.handleFilter("createdAtInt")}>newest</button>
-        </div>
+      <div className="video-index-container">
 
         <div className="video-index">
 
