@@ -12,6 +12,7 @@ class VideoForm extends React.Component {
 
   componentDidMount() {
     $('html,body').scrollTop(0);
+    this.props.componentMount('video_form');
     if (this.props.match.params.videoId) {
       this.props.fetchVideo(this.props.match.params.videoId);
     }

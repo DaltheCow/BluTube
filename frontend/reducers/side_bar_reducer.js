@@ -40,7 +40,7 @@ const SideBarReducer = (state = defaultState, action) => {
       return state;
     }
     case COMPONENT_MOUNT: {
-      const newSideBarState = action.component !== 'video_show' && window.innerWidth >= 1277;
+      const newSideBarState = !['video_show', 'video_form'].includes(action.component) && window.innerWidth >= 1277;
       return Object.assign({}, state, { sidebarState: newSideBarState });
     }
     default: return state;

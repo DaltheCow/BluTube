@@ -54,7 +54,7 @@ class App extends React.Component {
   render() {
     const { sidebarState, location, sidebarType } = this.props;
     const notSessionPath = !['/login', '/signup'].includes(location.pathname);
-    const notVideoPath = !location.pathname.includes('/videos/');
+    const notVideoPath = !location.pathname.includes('/videos/') && !location.pathname.includes('/upload');
     // debugger
     const sidebar1On = sidebarState && (!notVideoPath || sidebarType === 'overlay');
     const mainContent = (
@@ -74,7 +74,7 @@ class App extends React.Component {
 
     return (
       <div>
-        {notSessionPath ? (
+        { notSessionPath ? (
           <header>
             <div className="under-nav"></div>
             <Route path="/" component={ NavBarContainer } />
@@ -82,11 +82,11 @@ class App extends React.Component {
         ) : (null)}
 
           <div className="with-side-bar-flexed">
-            {sidebarType === 'flex' ?
+            { sidebarType === 'flex' && notSessionPath ?
               <SideBar2 visible={ sidebarState && notVideoPath } /> :
                 null
             }
-            <SideBar1 visible={ sidebar1On } />
+            { notSessionPath ? <SideBar1 visible={ sidebar1On } /> : null }
               <div onClick={() => this.onOverlayClick(sidebar1On)} className={"side-bar-overlay" + (sidebar1On ? " side-bar-overlay-on" : "")}></div>
             { mainContent }
           </div>
