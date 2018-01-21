@@ -1,3 +1,5 @@
+//each mapped item that is undefined is not put into new array
+
 export default (arr, func) => {
   const newArr = [];
   arr.forEach(el => {

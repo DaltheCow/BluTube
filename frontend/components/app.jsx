@@ -7,6 +7,7 @@ import VideoFormContainer from './video/video_form_container';
 import VideoShowContainer from './video/video_show/video_show_container';
 import VideoIndexContainer from './video/video_index/video_index_container';
 import Results from './video/video_search_results';
+import ChannelContainer from './video/channel/channel_container';
 
 //with overlay
 import SideBar1 from './side_bar/side_bar1';
@@ -60,6 +61,7 @@ class App extends React.Component {
     const mainContent = (
       <Switch>
         <Route exact path="/videos/:videoId" component={ VideoShowContainer } />
+        <Route exact path="/channel/:userId" component={ ChannelContainer } />
         <Route exact path="/" component={ VideoIndexContainer } />
         <Route exact path="/results" component={ Results } />
         <AuthRoute exact path="/login" component={ SessionFormContainer } />
