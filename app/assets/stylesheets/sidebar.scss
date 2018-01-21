@@ -89,6 +89,11 @@
   margin-top: 24px;
 }
 
+.sidebar-sub-link {
+  display: flex;
+  align-items: center;
+}
+
 .sidebar-sub .profile-image {
   border-radius: 50%;
   width: 24px;
@@ -112,10 +117,8 @@
 }
 
 .sidebar-sub {
-  display: flex;
   padding: 0 24px;
   height: 40px;
-  align-items: center;
 }
 
 .side-bar-overlay {

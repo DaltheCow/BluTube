@@ -37,10 +37,12 @@ class SideBar extends React.Component {
         { loading ? loader : (
           subs.map((sub, i) => (
             <div key={i} className="sidebar-sub">
-              <Link className="profile-image" to={`/channel/${sub.id}`}>
-                <img src="https://s3.amazonaws.com/blutube-dev/images/profile_image_300x200.png" />
+              <Link className="sidebar-sub-link" to={`/channel/${sub.id}`}>
+                <div className="profile-image">
+                  <img src="https://s3.amazonaws.com/blutube-dev/images/profile_image_300x200.png" />
+                </div>
+                <div className="sidebar-channel-name">{ sub.username }</div>
               </Link>
-              <div className="sidebar-channel-name">{ sub.username }</div>
             </div>
           ))
         ) }
