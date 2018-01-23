@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Channel from './channel';
 import mapFilter from '../../../util/mapFilter';
-
+import { fetchVideo, fetchChannelVideos } from '../../../actions/video_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.userId;

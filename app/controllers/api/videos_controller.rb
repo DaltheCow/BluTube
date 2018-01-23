@@ -1,6 +1,11 @@
 class Api::VideosController < ApplicationController
   def index
-    @videos = Video.all.includes(:author, :likes)
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+      @videos = @user.videos.includes(:author, :likes)
+    else
+      @videos = Video.all.includes(:author, :likes)
+    end
   end
 
   def show

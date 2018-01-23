@@ -86,3 +86,9 @@ export const sendSearch = (query) => dispatch => {
     return dispatch(receiveSearchVideos(videos));
   });
 };
+
+export const fetchChannelVideos = (userId) => dispatch => {
+  return VideoApiUtil.fetchChannelVideos(userId).then(videos => {
+    return dispatch(receiveVideos(videos));
+  });
+};

@@ -46,3 +46,10 @@ export const addView = (id) => (
     data: { addView: true}
   })
 );
+
+export const fetchChannelVideos = (userId) => (
+  $.ajax({
+    method: "get",
+    url: `/api/users/${userId}/videos`
+  })
+);
