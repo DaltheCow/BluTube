@@ -1,4 +1,10 @@
 class Api::UsersController < ApplicationController
+
+  def show
+    @user = User.find(params[:id])
+    @hide_info = true
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
