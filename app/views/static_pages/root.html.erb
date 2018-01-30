@@ -1,7 +1,7 @@
 <script type="text/javascript">
   <% if logged_in? %>
     window.currentUser = <%=  render("api/users/users.json.jbuilder",
-  		user: current_user).html_safe %>
+  		user: current_user, for_other_user: false).html_safe %>
   <% end %>
 </script>
 

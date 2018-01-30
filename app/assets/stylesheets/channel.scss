@@ -1,0 +1,47 @@
+.channel-container {
+  width: 100%;
+  font-family: 'roboto', Arial, sans-serif;
+
+}
+
+.channel-banner-container {
+  width: 100%;
+  min-height: 100px;
+  height: calc(40px + 11vw);
+  display: flex;
+  align-items: center;
+  color: #333;
+  background: #4d79ff;
+}
+
+.channel-banner {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: calc(22px + 3vw);
+  width: 100%;
+  background: #1a53ff;
+  text-shadow: -0.5px 0px 3px #fff;
+  text-align: center;
+  padding: calc(1.3vw) 0;
+}
+
+.channel-header .profile-image {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  background: white;
+  display: flex;
+  justify-content: center;
+  margin-right: 14px;
+}
+
+.channel-header .profile-image img {
+  height: 80px;
+}
+
+.channel-header {
+  display: flex;
+  padding: 16px 107px 0 107px;
+}

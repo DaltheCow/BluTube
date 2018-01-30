@@ -2,7 +2,7 @@ class Api::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @hide_info = true
+    @for_other_user = true
   end
 
   def create

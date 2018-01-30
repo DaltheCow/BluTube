@@ -11,6 +11,7 @@ const mapStateToProps = (state, ownProps) => {
   if (!channel || !channel.videoIds) {
     return { channel: null, userId };
   }
+
   const videos = mapFilter(channel.videoIds, id => state.entities.videos[id]);
 
   return {

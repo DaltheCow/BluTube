@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       resources :subscriptions, only: [:create]
       resources :videos, only: [:index]
     end
-    resource :session, only: [:create, :destroy, :show]
+    resource :session, only: [:create, :destroy]
     resources :username_sessions, only: [:create]
     resources :videos, except: [:new, :edit] do
       resources :likes, only: [:create, :update]
