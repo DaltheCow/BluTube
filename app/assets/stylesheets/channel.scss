@@ -45,3 +45,21 @@
   display: flex;
   padding: 16px 107px 0 107px;
 }
+
+.channel-channel-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.channel-channel-name {
+  color: #6e6e6e;
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 3px;
+}
+
+.channel-subscriber-count {
+  color: #6e6e6e;
+  font-size: 14px;
+}

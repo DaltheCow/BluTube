@@ -1,6 +1,7 @@
 import React from 'react';
 
 import insertCommas from '../../../util/insertCommas';
+import Subscribe from './subscribe_button';
 
 class Channel extends React.Component {
   constructor(props) {
@@ -11,10 +12,14 @@ class Channel extends React.Component {
 
   componentDidMount() {
     this.props.fetchUser(this.props.userId);
+    //hide sidebar
   }
 
-  componentDidReceiveProps(newProps) {
+  componentWillReceiveProps(newProps) {
     //compare userIds
+    if (this.props.userId && newProps.userId !== this.props.userId) {
+      newProps.fetchUser(newProps.userId);
+    }
   }
 
   render() {
@@ -29,10 +34,11 @@ class Channel extends React.Component {
           <div className="profile-image">
             <img src="https://s3.amazonaws.com/blutube-dev/images/profile_image_300x200.png" />
           </div>
-          <div>
-            <div>{ channel ? channel.username : null }</div>
-            <div>{ channel ? insertCommas(channel.subCount) : null }</div>
+          <div className="channel-channel-info">
+            <div className="channel-channel-name">{ channel ? channel.username : null }</div>
+            <div className="channel-subscriber-count">{ channel ? insertCommas(channel.subCount) : null } subscribers</div>
           </div>
+          <Subscribe subCount={ channel ? channel.subCount : null }/>
         </div>
       </div>
     );
