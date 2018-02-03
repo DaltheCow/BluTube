@@ -28,7 +28,7 @@ class Subscribe extends React.Component {
         ) : (
           <button onClick={() => this.handleSub(true)} className="subscribe">
             <span className="sub">SUBSCRIBE</span>
-            <span className="subcount">{subCount}</span>
+
           </button>)
     );
   }
