@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Videos } from './about';
+import Videos from './videos';
 
 const mapStateToProps = (state, ownProps) => {
   return {
