@@ -69,10 +69,9 @@ class CommentIndexItem extends React.Component {
   render() {
 
     const comment = this.props.comment;
-
     return (
       <div className="comment-item">
-        <Link className="profile-image" to={`/channel/${comment.author_id}`}>
+        <Link className="profile-image" to={`/channel/${comment.authorId}`}>
           <img src="https://s3.amazonaws.com/blutube-dev/images/profile_image_300x200.png" />
         </Link>
         {this.state.edit ?
