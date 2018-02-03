@@ -2,6 +2,7 @@ import React from 'react';
 
 import insertCommas from '../../../util/insertCommas';
 import Subscribe from './subscribe_button';
+import ChannelContent from './channel_content/channel_content';
 
 class Channel extends React.Component {
   constructor(props) {
@@ -38,8 +39,11 @@ class Channel extends React.Component {
             <div className="channel-channel-name">{ channel ? channel.username : null }</div>
             <div className="channel-subscriber-count">{ channel ? insertCommas(channel.subCount) : null } subscribers</div>
           </div>
-          <Subscribe subCount={ channel ? channel.subCount : null }/>
+          <div className="channel-subscribe-button-container">
+            <Subscribe subCount={ channel ? channel.subCount : null }/>
+          </div>
         </div>
+        <ChannelContent />
       </div>
     );
   }
