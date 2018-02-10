@@ -1,7 +1,7 @@
 import React from 'react';
 import HomeContainer from './home_container';
 import VideosContainer from './videos_container';
-import AboutContainer from './about_container';
+import { withRouter } from 'react-router-dom';
 
 class ChannelContent extends React.Component {
   constructor(props) {
@@ -14,23 +14,33 @@ class ChannelContent extends React.Component {
     this.setState({ tab: tabVal });
   }
 
+  componentWillReceiveProps(newProps) {
+    const id1 = this.props.match.params.userId;
+    const id2 = newProps.match.params.userId;
+    if (id1 && id2 && id1 !== id2) {
+      this.setState({tab: 'home'});
+    }
+  }
+
   render() {
-    const { tab } = this.state;
-    const content = { 'home': <HomeContainer />, 'videos': <VideosContainer />, 'about': <AboutContainer /> };
-    const tabComponent = content[tab];
+    const tabState = this.state.tab;
+    const content = { 'home': <HomeContainer />, 'videos': <VideosContainer /> };
+    const tabComponent = content[tabState];
     return (
       <div className="channel-content">
-        <ul className="channel-tabs">
-          {['HOME', 'VIDEOS', 'ABOUT'].map((tab, i) => {
-            return (
-              <li onClick={() => this.changeTab(tab.toLowerCase())} key={i}>{tab}</li>
-            );
-          })}
-        </ul>
+        <div className="channel-tabs-container">
+          <ul className="channel-tabs">
+            {['HOME', 'VIDEOS'].map((tab, i) => {
+              return (
+                <li className={ tab.toLowerCase() === tabState ? "selected" : "" } onClick={() => this.changeTab(tab.toLowerCase())} key={i}>{tab}</li>
+              );
+            })}
+          </ul>
+        </div>
         { tabComponent }
       </div>
     );
   }
 }
 
-export default ChannelContent;
+export default withRouter(ChannelContent);
