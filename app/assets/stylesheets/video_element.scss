@@ -1,0 +1,10 @@
+.video-video-container video {
+  background: black;
+  position: relative;
+  border-bottom: 1px solid rgb(149,149,149);
+}
+
+.video-video-container {
+  position: relative;
+  z-index: 10;
+}
