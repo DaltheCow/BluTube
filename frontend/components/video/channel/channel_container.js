@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Channel from './channel';
-import mapFilter from '../../../util/mapFilter';
+import { mapFilter } from '../../../util/component_util';
 import { fetchVideo, fetchChannelVideos } from '../../../actions/video_actions';
 import { fetchUser } from '../../../actions/user_actions';
 import { withRouter } from 'react-router-dom';
@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
     return { channel: null, userId };
   }
 
-  const videos = mapFilter(channel.videoIds, id => state.entities.videos[id]);
+  const videos = mapFilter(channel.videoIds, id => state.entities.videos[id], a => a !== undefined);
 
   return {
     channel,
