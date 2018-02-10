@@ -28,6 +28,8 @@ json.commentIds do
   json.array! video.comments.map{|comment| comment.id}
 end
 
+json.createdAtInt video.created_at.to_i * 1000
+
 json.sub do
   sub = current_user && current_user.subscriptions.find_by(subscribee_id: video.author.id)
   if sub
