@@ -1,6 +1,6 @@
 import React from 'react';
 
-import insertCommas from '../../../util/insertCommas';
+import { insertCommas } from '../../../util/component_util';
 import Subscribe from './subscribe_button';
 import ChannelContent from './channel_content/channel_content';
 
