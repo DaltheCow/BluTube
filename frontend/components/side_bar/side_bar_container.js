@@ -4,7 +4,7 @@ import SideBar from './side_bar';
 import { fetchSubs } from '../../actions/subscription_actions';
 import { receiveFilter, clearFilter } from '../../actions/ui_actions';
 
-import mapFilter from '../../util/mapFilter';
+import { mapFilter } from '../../util/component_util';
 
 const mapStateToProps = (state, ownProps) => {
   const currentUser = state.session.currentUser;
@@ -25,7 +25,7 @@ const mapStateToProps = (state, ownProps) => {
   const subIds = currentUser.subIds;
   const allSubs = state.entities.subscriptions.subs;
   const users = state.entities.users;
-  let subs = mapFilter(subIds, id => allSubs[id]);
+  let subs = mapFilter(subIds, id => allSubs[id], a => a !== undefined);
   subs = subs.map(sub => Object.assign({}, sub, users[Number(sub.subscribeeId)]));
   const needsSubRequest = subIds.length !== subs;
 

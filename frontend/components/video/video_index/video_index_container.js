@@ -3,7 +3,6 @@ import { fetchVideos } from '../../../actions/video_actions';
 import { clearFilter } from '../../../actions/ui_actions';
 import { componentMount } from '../../../actions/side_bar_actions';
 import VideoIndex from './video_index';
-import shuffle from '../../../util/shuffle';
 
 //user needs access to all of their video ids
 const mapStateToProps = (state, ownProps) => {

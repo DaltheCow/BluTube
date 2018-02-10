@@ -1,5 +1,5 @@
 import React from 'react';
-import shuffle from '../../../../util/shuffle';
+import { shuffle } from '../../../../util/component_util';
 
 
 class RelatedVideos extends React.Component {
