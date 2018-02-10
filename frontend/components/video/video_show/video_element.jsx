@@ -8,7 +8,7 @@ const togglePlay = (video) => {
 class VideoElement extends React.Component {
 
   componentDidMount() {
-    this.props.fetchVideo(this.props.match.params.videoId);
+    this.props.fetchVideo();
     this.setVideoListeners();
   }
 
@@ -17,6 +17,7 @@ class VideoElement extends React.Component {
 
     $(video).on('click', () => togglePlay(video));
     $(videoContainer).bind('keydown', e => {
+
       switch(e.which) {
         case 32:
         case 75:
@@ -25,7 +26,6 @@ class VideoElement extends React.Component {
         break;
         case 74:
         video.currentTime = video.currentTime - 10;
-        e.preventDefault();
         break;
         case 76:
         video.currentTime = video.currentTime + 10;
@@ -49,17 +49,20 @@ class VideoElement extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    if (newProps.video && this.props.video && newProps.video.videoUrl && newProps.video.id !== this.props.video.id){
-      $(this.video).attr("src", newProps.video.videoUrl);
+    const vid = this.props.video;
+    const { video, addView } = newProps;
+    if (video && vid && video.videoUrl && video.id !== vid.id){
+      $(this.video).attr("src", video.videoUrl);
+      addView(video.id);
     }
   }
 
   render() {
-    const vid = this.props.video;
+    const { video } = this.props;
 
     return (
       <div ref={videoContainer => (this.videoContainer = videoContainer)} className="video-video-container" tabIndex="1">
-        <video ref={video => (this.video = video)} width="596" height="360" src={vid ? vid.videoUrl : ""} autoPlay controls/>
+        <video ref={video => (this.video = video)} width="596" height="360" src={video ? video.videoUrl : ""} autoPlay controls/>
       </div>
     );
   }
