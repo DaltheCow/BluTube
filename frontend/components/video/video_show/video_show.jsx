@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import shuffle from '../../../util/shuffle';
 import CommentIndexContainer from '../../comment/comment_index_container';
 import RelatedVideosContainer from './related_videos/related_videos_container';
 import VideoElement from './video_element';
@@ -69,16 +68,17 @@ class VideoShow extends React.Component {
   }
 
   render() {
-    const hasVideo = Boolean(this.props.video);
     const vid = this.props.video;
+    const hasVideo = Boolean(vid);
     const subCount = this.props.subCount;
+    const videoId = this.props.match.params.videoId;
 
     return (
       <div className="video-show">
         <div className="video-show-container">
           <div className="video-show-content">
 
-            <VideoElement addView={ this.props.addView } fetchVideo={ this.props.fetchVideo } video={ this.props.video } />
+            <VideoElement addView={ () => {} } fetchVideo={ () => this.props.fetchVideo(videoId) } video={ vid } />
 
             { vid ? (<div className="video-show-vid-description">
 
