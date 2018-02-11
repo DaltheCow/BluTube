@@ -1,4 +1,4 @@
-import { SIDEBAR_TOGGLED, WINDOW_RESIZE, COMPONENT_MOUNT } from '../actions/side_bar_actions';
+import { SIDEBAR_TOGGLED, WINDOW_RESIZE, RESET_SIDEBAR_STATE } from '../actions/side_bar_actions';
 
 const defaultState = {
   sidebarState: false,
@@ -39,7 +39,7 @@ const SideBarReducer = (state = defaultState, action) => {
       }
       return state;
     }
-    case COMPONENT_MOUNT: {
+    case RESET_SIDEBAR_STATE: {
       const newSideBarState = !['video_show', 'video_form'].includes(action.component) && window.innerWidth >= 1277;
       return Object.assign({}, state, { sidebarState: newSideBarState });
     }

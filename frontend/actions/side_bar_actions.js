@@ -1,6 +1,6 @@
 export const SIDEBAR_TOGGLED = 'SIDEBAR_TOGGLED';
 export const WINDOW_RESIZE = 'WINDOW_RESIZE';
-export const COMPONENT_MOUNT = 'COMPONENT_MOUNT';
+export const RESET_SIDEBAR_STATE = 'RESET_SIDEBAR_STATE';
 
 export const sidebarToggle = (windowWidth) => ({
   type: SIDEBAR_TOGGLED,
@@ -12,7 +12,7 @@ export const windowResize = (direction) => ({
   windowDirection: direction,
 });
 
-export const componentMount = (component) => ({
-  type: COMPONENT_MOUNT,
+export const resetSidebarState = (component) => ({
+  type: RESET_SIDEBAR_STATE,
   component,
 });
