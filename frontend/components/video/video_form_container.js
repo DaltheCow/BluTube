@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchVideo, uploadVideo, updateVideo, deleteVideo, clearErrors } from '../../actions/video_actions';
-import { componentMount } from '../../actions/side_bar_actions';
+import { resetSidebarState } from '../../actions/side_bar_actions';
 import VideoForm from './video_form';
 
 //user needs access to all of their video ids
@@ -26,7 +26,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     deleteVideo: (id) => dispatch(deleteVideo(id)),
     submitAction: (video, id) => dispatch(submitAction(video, id)),
     clearErrors: () => dispatch(clearErrors()),
-    componentMount: (component) => dispatch(componentMount(component)),
+    resetSidebarState: (component) => dispatch(resetSidebarState(component)),
   };
 };
 

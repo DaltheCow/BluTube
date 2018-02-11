@@ -12,9 +12,10 @@ class VideoShow extends React.Component {
   }
 
   componentDidMount() {
+    $('html,body').scrollTop(0);
     this.props.addView(this.props.match.params.videoId);
     window.addEventListener("resize", this.updateWindowSize);
-    this.props.componentMount('video_show');
+    this.props.resetSidebarState('video_show');
   }
 
   updateWindowSize() {
