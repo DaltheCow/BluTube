@@ -5,6 +5,7 @@
   -moz-transition: width 0.25s, left 0.25s;
   transition: width 0.25s, left 0.25s;
   background-color: white;
+  overflow: scroll;
 }
 
 .sidebar.sidebar-on {
