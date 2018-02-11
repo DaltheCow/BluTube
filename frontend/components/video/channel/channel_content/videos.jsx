@@ -20,7 +20,7 @@ class Videos extends React.Component {
   componentWillReceiveProps(newProps) {
       const { videos } = newProps;
       if ((videos.length <= 40 && videos.length > this.videos.length) || (videos.length > 40 && this.videos.length < 40)) {
-        this.videos = videos.slice(0, 40).sort((a,b) => a.createdAtInt - b.createdAtInt);
+        this.videos = videos.slice(0, 40).sort((a,b) => b.createdAtInt - a.createdAtInt);
         this.forceUpdate();
       }
     }
