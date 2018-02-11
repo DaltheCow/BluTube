@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { insertCommas } from '../../../util/component_util';
 import Subscribe from './subscribe_button';
 import ChannelContent from './channel_content/channel_content';
@@ -12,12 +11,12 @@ class Channel extends React.Component {
   }
 
   componentDidMount() {
+    $('html,body').scrollTop(0);
     this.props.fetchUser(this.props.userId);
-    //hide sidebar
+    this.props.resetSidebarState('channel');
   }
 
   componentWillReceiveProps(newProps) {
-    //compare userIds
     if (this.props.userId && newProps.userId !== this.props.userId) {
       newProps.fetchUser(newProps.userId);
     }
@@ -25,7 +24,6 @@ class Channel extends React.Component {
 
   render() {
     const { channel, videos } = this.props;
-    // debugger
     return (
       <div className="channel-container">
         <div className="channel-banner-container">

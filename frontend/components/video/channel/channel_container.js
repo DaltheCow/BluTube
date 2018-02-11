@@ -4,6 +4,7 @@ import { mapFilter } from '../../../util/component_util';
 import { fetchVideo, fetchChannelVideos } from '../../../actions/video_actions';
 import { fetchUser } from '../../../actions/user_actions';
 import { withRouter } from 'react-router-dom';
+import { resetSidebarState } from '../../../actions/side_bar_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const userId = ownProps.match.params.userId;
@@ -24,6 +25,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchUser: (userId) => dispatch(fetchUser(userId)),
+    resetSidebarState: (component) => dispatch(resetSidebarState(component)),
   };
 };
 
