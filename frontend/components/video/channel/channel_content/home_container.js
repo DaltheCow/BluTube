@@ -4,7 +4,7 @@ import Home from './home';
 import { fetchVideo, addView } from '../../../../actions/video_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  const channel = state.entities.users[ownProps.match.params.userId]
+  const channel = state.entities.users[ownProps.match.params.userId];
   const videoIds = channel && channel.videoIds ? channel.videoIds : [];
   const videoId = videoIds.sort((a,b) => b - a)[0];
   const video = state.entities.videos[videoId];

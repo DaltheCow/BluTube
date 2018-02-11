@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { shuffle } from '../../../util/component_util';
+import { shuffle, views, duration } from '../../../util/component_util';
 import { whenPosted } from '../../../util/component_util';
 
 
@@ -10,46 +10,33 @@ class VideoIndex extends React.Component {
     super(props);
 
     this.videos = [];
+    this.state = { loading: true };
   }
 
   componentDidMount() {
     $('html,body').scrollTop(0);
-    this.props.fetchVideos();
-    this.props.componentMount('video_index');
+    const { fetchVideos, videos, resetSidebarState } = this.props;
+
+    fetchVideos().then((action) => {
+      this.setState({ loading: false });
+    });
+    resetSidebarState('video_index');
   }
 
   componentWillReceiveProps(newProps) {
-    if (newProps.filter.length > 0 && newProps.videos.length === 0) {
+    const { filter, videos } = newProps;
+
+    if (filter.length > 0 && videos.length === 0) {
       newProps.clearFilter();
     }
-    if (newProps.filter !== this.props.filter) {
-      this.videos = newProps.videos;
+    if (filter !== this.props.filter) {
+      this.videos = videos;
       this.forceUpdate();
     }
-    if (this.videos.length < 1 && newProps.videos.length > 1) {
-      this.videos = shuffle(newProps.videos).slice(0, 40);
+    if (!this.state.loading && (videos.length <= 40 && videos.length > this.videos.length) || (videos.length > 40 && this.videos.length < 40)) {
+      this.videos = shuffle(videos).slice(0, 40);
       this.forceUpdate();
     }
-  }
-
-  views(count) {
-    return (
-      count < 1000 ? count : (
-        count < 999999 ? Math.floor((count/1000)).toString() + "K" : (
-          Math.floor((count/1000000)).toString() + "M"
-        )
-      )
-    );
-  }
-
-  duration(time) {
-    const secs = time % 60;
-    const mins = Math.floor(time / 60) % 60;
-    const hrs = Math.floor(time / 3600);
-    const seconds = `:${secs < 10 ? '0' : ''}${secs}`;
-    const hours = `${hrs > 0 ? hrs : ''}${hrs > 0 ? ':' : ''}`;
-    const minutes = `${hrs > 0 && mins < 10 ? '0' : ''}${mins}`;
-    return hours + minutes + seconds;
   }
 
   render() {
@@ -72,7 +59,7 @@ class VideoIndex extends React.Component {
                   <div className="index-img">
                     <img className="index-thumbnail" src={video.thumbnailUrl} />
                     <div className="index-duration">
-                      {this.duration(video.duration)}
+                      {duration(video.duration)}
                     </div>
                   </div>
 
@@ -80,7 +67,7 @@ class VideoIndex extends React.Component {
                   <div className="index-channel">{video.author.username}</div>
 
                   <div className="index-view-time">
-                    <div className="index-viewcount">{this.views(video.viewCount)} views</div><span className="before-target"></span>
+                    <div className="index-viewcount">{views(video.viewCount)} views</div><span className="before-target"></span>
                     <div>{whenPosted(video.createdAtInt)}</div>
                   </div>
 
