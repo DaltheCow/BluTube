@@ -45,3 +45,23 @@ export const whenPosted = (time) => {
   }
   return "less than 1 minute ago";
 };
+
+export const views = (count) => {
+  return (
+    count < 1000 ? count : (
+      count < 999999 ? Math.floor((count/1000)).toString() + "K" : (
+        Math.floor((count/1000000)).toString() + "M"
+      )
+    )
+  );
+};
+
+export const duration = (time) =>{
+  const secs = time % 60;
+  const mins = Math.floor(time / 60) % 60;
+  const hrs = Math.floor(time / 3600);
+  const seconds = `:${secs < 10 ? '0' : ''}${secs}`;
+  const hours = `${hrs > 0 ? hrs : ''}${hrs > 0 ? ':' : ''}`;
+  const minutes = `${hrs > 0 && mins < 10 ? '0' : ''}${mins}`;
+  return hours + minutes + seconds;
+};
