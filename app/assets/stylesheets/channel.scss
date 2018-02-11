@@ -1,7 +1,6 @@
 .channel-container {
   width: 100%;
   font-family: 'roboto', Arial, sans-serif;
-
 }
 
 .channel-banner-container {
@@ -100,72 +99,4 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.home-container {
-  height: 238px;
-  padding: 24px 0;
-}
-
-.home-video-container {
-  width: 424px;
-  margin-right: 24px;
-}
-
-.home-container video {
-  width: 424px;
-  height: 238px;
-}
-
-.home-views-post-time {
-  font-size: 13px;
-  color: rgb(112,112,112);
-  display: flex;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  margin-bottom: 16px;
-}
-
-.home-video-description {
-  width: 193px;
-  overflow: hidden;
-  font-size: 14px;
-}
-
-.home-video-description .description > div {
-  min-height: 16px;
-  min-width: 1px;
-}
-
-.home-title {
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 16px;
-}
-
-.home-title:hover {
-  cursor: pointer;
-}
-
-@media (min-width: 876px) {
-  .home-container {
-    display: flex;
-    width: 856px;
-  }
-}
-
-@media (max-width: 875px) {
-  .home-description-container {
-    display: none;
-  }
-}
-
-@media (min-width: 1090px) {
-  .home-video-description {
-    width: inherit;
-  }
-  .home-container {
-    width: 1070px;
-  }
 }
