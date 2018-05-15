@@ -33,8 +33,11 @@ class VideoShow extends React.Component {
   }
 
   handleLike(isLike) {
-    if (!this.props.currentUser || !this.props.video) {
+    if (!this.props.video) {
       return;
+    }
+    if (!this.props.currentUser) {
+      this.props.history.push(`/login`);
     }
 
     if (this.props.video.currentUsersLike.like_value === 'N/A') {
